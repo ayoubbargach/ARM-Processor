@@ -1,0 +1,55 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 d/tp/xph2sei/xph2sei413/MiniProjet/bench
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+Ebench_register
+w1488449919
+DPx4 work 17 instruction_field 0 22 7;RN9:1fYTEJ:mL5j8Ozo0
+DPx12 modelsim_lib 4 util 0 22 =5PmC60CdKjE9E[7_TDUk0
+Z1 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
+Z2 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
+Z4 d/tp/xph2sei/xph2sei413/MiniProjet/bench
+8register_bench.vhd
+Fregister_bench.vhd
+l0
+L12
+V88TkLLKZa9oekzD;>52Pf3
+!s100 OBjhYb37m6HB:idoee`6E1
+Z5 OL;C;10.2c;57
+32
+Z6 !s110 1488450396
+!i10b 1
+!s108 1488450396.902920
+!s90 +acc|-work|lib_BENCH|register_bench.vhd|
+!s107 register_bench.vhd|
+!i111 0
+Z7 o+acc -work lib_BENCH
+Z8 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
+Pinstruction_field
+R2
+R3
+w1488450182
+R4
+8../vhd/instruct_package.vhd
+F../vhd/instruct_package.vhd
+l0
+L4
+V7;RN9:1fYTEJ:mL5j8Ozo0
+R5
+32
+R7
+R8
+!s100 4oe78KCz^fAKESZioQFgT1
+R6
+!i10b 1
+!s108 1488450396.800199
+!s90 +acc|-work|lib_BENCH|../vhd/instruct_package.vhd|
+!s107 ../vhd/instruct_package.vhd|
+!i111 0
