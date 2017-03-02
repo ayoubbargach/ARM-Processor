@@ -57,7 +57,7 @@ begin  -- bench_arch
 
   reset <= '1', '0' after 10 ns;
 
-  clock : process(clk)
+  clock : process
     begin
       clk <= '0';
       wait for 5 ns;
@@ -65,7 +65,7 @@ begin  -- bench_arch
       wait for 5 ns;
     end process;
 
-    process (enable, write_enable, rA_addr, rB_addr, rC_addr, rC_data_in)
+    process
       constant delay : time := 10 ns;
     begin  -- process
       rA_addr <= '0' & r1;
@@ -73,12 +73,13 @@ begin  -- bench_arch
       rC_addr <= '0' & r3;
       enable <= '1';
       wait for delay;
-      assert rA_data_out = 16#00000000# report "mauvaise lecture du 1er registre source" severity note;
-      assert rB_data_out = 16#00000000# report "mauvaise lecture du 2e registre source" severity note;
+      assert unsigned(rA_data_out) = 16#00000000# report "mauvaise lecture du 1er registre source" severity note;
+      assert unsigned(rB_data_out) = 16#00000000# report "mauvaise lecture du 2e registre source" severity note;
       rC_data_in <= std_logic_vector(to_unsigned(1852, 32));
       write_enable <= '1';
       wait for delay;
       rA_addr <= '0' & r3;
+      wait for delay;
       assert unsigned(rA_data_out) = 1852 report "mauvaise ecriture" severity note;
     end process;
   

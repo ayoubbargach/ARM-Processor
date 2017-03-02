@@ -31,7 +31,7 @@ begin  -- behavioral
   -- outputs:
   process (clk, reset)
   begin  -- process
-    if reset = '0' then                 -- asynchronous reset (active low)
+    if reset = '1' then                 -- asynchronous reset (active high)
       regs <= (others => (others => '0'));
     elsif clk'event and clk = '1' then  -- rising clock edge
       if enable = '1' then
