@@ -9,9 +9,9 @@ entity registers is
     reset        : in  std_logic;
     enable       : in  std_logic;
     write_enable : in  std_logic;
-    rA_addr      : in  std_logic_vector(4 downto 0);
-    rB_addr      : in  std_logic_vector(4 downto 0);
-    rC_addr      : in  std_logic_vector(4 downto 0);
+    rA_addr      : in  std_logic_vector(3 downto 0);
+    rB_addr      : in  std_logic_vector(3 downto 0);
+    rC_addr      : in  std_logic_vector(3 downto 0);
     rA_data_out  : out std_logic_vector(31 downto 0);
     rB_data_out  : out std_logic_vector(31 downto 0);
     rC_data_in   : in  std_logic_vector(31 downto 0));
@@ -19,7 +19,7 @@ entity registers is
 end registers;
 
 architecture behavioral of registers is
-  type tab_register is array (0 to 31) of std_logic_vector(31 downto 0);
+  type tab_register is array (0 to 15) of std_logic_vector(31 downto 0);
   signal regs : tab_register;
 
 begin  -- behavioral

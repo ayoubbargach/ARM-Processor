@@ -8,65 +8,108 @@ Z0 d/tp/xph2sei/xph2sei413/ARM-Processor/vhd
 !i10d 8192
 !i10e 25
 !i10f 100
+Efetch
+Z1 w1488818172
+Z2 DPx4 work 17 instruction_field 0 22 Zbd7Oi;eU;MY?Yl4m<oT23
+Z3 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
+Z4 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
+Z6 d/tp/xph2sei/xph2sei413/ARM-Processor/vhd
+Z7 8fetch.vhd
+Z8 Ffetch.vhd
+l0
+L7
+V_mkIP8oOHDl=`a4@B3:JC0
+!s100 VhWT4TJ0]ZIN@bS<]nf;E1
+Z9 OL;C;10.2c;57
+32
+Z10 !s110 1488818198
+!i10b 1
+Z11 !s108 1488818198.384827
+Z12 !s90 +acc|-work|lib_VHDL|fetch.vhd|
+Z13 !s107 fetch.vhd|
+!i111 0
+Z14 o+acc -work lib_VHDL
+Z15 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 5 fetch 0 22 _mkIP8oOHDl=`a4@B3:JC0
+l25
+L20
+VG3W4<0WY]eOz3J>Pl7lcQ3
+!s100 z2ig6RV>TboI165W^JaeU2
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i111 0
+R14
+R15
 Pinstruction_field
-Z1 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
-Z2 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
+R4
+R5
 w1488450182
-Z3 d/tp/xph2sei/xph2sei413/ARM-Processor/vhd
+R6
 8instruct_package.vhd
 Finstruct_package.vhd
 l0
 L4
 VZbd7Oi;eU;MY?Yl4m<oT23
-Z4 OL;C;10.2c;57
+R9
 32
-Z5 o+acc -work lib_VHDL
-Z6 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
+R14
+R15
+R10
 !s100 4oe78KCz^fAKESZioQFgT1
-Z7 !s110 1488452456
 !i10b 1
-!s108 1488452456.751894
+!s108 1488818198.228409
 !s90 +acc|-work|lib_VHDL|instruct_package.vhd|
 !s107 instruct_package.vhd|
 !i111 0
 Eregisters
-Z8 w1488452433
-Z9 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
-R1
-R2
+Z16 w1488804242
 R3
-Z10 8register_files.vhd
-Z11 Fregister_files.vhd
+R4
+R5
+R6
+Z17 8register_files.vhd
+Z18 Fregister_files.vhd
 l0
 L5
-VTi=cInPMW1F<Q3oX13bkj2
-!s100 `AQY=nMF>3iG<O@ll?fhK0
-R4
-32
-R7
-!i10b 1
-Z12 !s108 1488452456.857404
-Z13 !s90 +acc|-work|lib_VHDL|register_files.vhd|
-Z14 !s107 register_files.vhd|
-!i111 0
-R5
-R6
-Abehavioral
+VQ7ki5Z91YRK2zfoeGMh^=0
 R9
-R1
-R2
-DEx4 work 9 registers 0 22 Ti=cInPMW1F<Q3oX13bkj2
+32
+R10
+Z19 !s108 1488818198.321254
+Z20 !s90 +acc|-work|lib_VHDL|register_files.vhd|
+Z21 !s107 register_files.vhd|
+R14
+R15
+!s100 UZ8J:cn;G]L:XoF5P=KbN0
+!i10b 1
+!i111 0
+Abehavioral
+R3
+R4
+R5
+DEx4 work 9 registers 0 22 Q7ki5Z91YRK2zfoeGMh^=0
 l25
 L21
-V]i:jZI>^1N`i@7IcOGbgY3
-!s100 JJOHnZN]RR:WPX=^f8m:>3
-R4
+VmBfl5k^:n4U4JYR3AMYel3
+R9
 32
-R7
-!i10b 1
-R12
-R13
+R10
+R19
+R20
+R21
 R14
+R15
+!s100 8?T7Y5@Y8CngILE<[_OWX0
+!i10b 1
 !i111 0
-R5
-R6

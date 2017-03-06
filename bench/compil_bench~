@@ -4,4 +4,5 @@ vlib ${TP_PATH}/libs/lib_BENCH
 
 vmap lib_BENCH ${TP_PATH}/libs/lib_BENCH 
 
+vcom +acc -work lib_BENCH ../vhd/instruct_package.vhd
 vcom +acc -work lib_BENCH register_bench.vhd

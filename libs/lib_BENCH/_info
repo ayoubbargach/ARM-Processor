@@ -8,35 +8,80 @@ Z0 d/tp/xph2sei/xph2sei413/ARM-Processor/bench
 !i10d 8192
 !i10e 25
 !i10f 100
-T_opt1
-!s110 1488452564
-VP^8GV7k1K?cRNL`hABRiX2
-04 14 10 work bench_register bench_arch 1
-=3-bc305b9b1d78-58b7fbd4-4d090-22bf
+T_opt
+!s110 1488818260
+V>^JJR]ihN?`QcC:nEinbb2
+04 11 10 work bench_fetch bench_arch 1
+=6-0023ae91a18d-58bd9054-accd-2916
 o-quiet -auto_acc_if_foreign -work lib_BENCH
-n@_opt1
+n@_opt
 OL;O;10.2c;57
-Ebench_register
-Z1 w1488452553
+Ebench_fetch
+Z1 w1488818251
 Z2 DPx4 work 17 instruction_field 0 22 7;RN9:1fYTEJ:mL5j8Ozo0
 Z3 DPx12 modelsim_lib 4 util 0 22 =5PmC60CdKjE9E[7_TDUk0
 Z4 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
 Z5 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
 Z6 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
 Z7 d/tp/xph2sei/xph2sei413/ARM-Processor/bench
-Z8 8register_bench.vhd
-Z9 Fregister_bench.vhd
+Z8 8fetch_bench.vhd
+Z9 Ffetch_bench.vhd
+l0
+L12
+VdKoKEm5=Hd99n9nO4M7h]2
+Z10 OL;C;10.2c;57
+32
+Z11 !s110 1488818252
+Z12 !s108 1488818252.904171
+Z13 !s90 +acc|-work|lib_BENCH|fetch_bench.vhd|
+Z14 !s107 fetch_bench.vhd|
+Z15 o+acc -work lib_BENCH
+Z16 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
+!s100 EQbMoe^hj40hNBbNORiI;3
+!i10b 1
+!i111 0
+Abench_arch
+R2
+R3
+R4
+R5
+R6
+DEx4 work 11 bench_fetch 0 22 dKoKEm5=Hd99n9nO4M7h]2
+l37
+L16
+V[A2]ohOLnOQPUG?bV2dGW0
+R10
+32
+R11
+R12
+R13
+R14
+R15
+R16
+!s100 `3PaE_0c8J55]no4J5N_d1
+!i10b 1
+!i111 0
+Ebench_register
+Z17 w1488804419
+R2
+R3
+R4
+R5
+R6
+R7
+Z18 8register_bench.vhd
+Z19 Fregister_bench.vhd
 l0
 L12
 V88TkLLKZa9oekzD;>52Pf3
-Z10 OL;C;10.2c;57
+R10
 32
-Z11 !s110 1488452560
-Z12 !s108 1488452560.124671
-Z13 !s90 +acc|-work|lib_BENCH|register_bench.vhd|
-Z14 !s107 register_bench.vhd|
-Z15 o+acc -work lib_BENCH
-Z16 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
+R11
+Z20 !s108 1488818252.837009
+Z21 !s90 +acc|-work|lib_BENCH|register_bench.vhd|
+Z22 !s107 register_bench.vhd|
+R15
+R16
 !s100 OBjhYb37m6HB:idoee`6E1
 !i10b 1
 !i111 0
@@ -49,16 +94,16 @@ R6
 DEx4 work 14 bench_register 0 22 88TkLLKZa9oekzD;>52Pf3
 l43
 L16
-V`UnOmJG2;__TCQ7`@;NEK3
+VG9_YiTbe]M7TB9f1KImzo0
 R10
 32
 R11
-R12
-R13
-R14
+R20
+R21
+R22
 R15
 R16
-!s100 C6RXB4PkjV17B>9ID[QKg0
+!s100 iJdeJhi:KM:eO9LagTQnK0
 !i10b 1
 !i111 0
 Pinstruction_field
@@ -78,7 +123,7 @@ R16
 R11
 !s100 4oe78KCz^fAKESZioQFgT1
 !i10b 1
-!s108 1488452560.020783
+!s108 1488818252.748539
 !s90 +acc|-work|lib_BENCH|../vhd/instruct_package.vhd|
 !s107 ../vhd/instruct_package.vhd|
 !i111 0

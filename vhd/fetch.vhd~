@@ -1,0 +1,43 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+use work.instruction_field.all;
+
+entity fetch is
+  
+  port (
+    clk     : in std_logic;
+    reset   : in std_logic;
+    enable  : in std_logic;
+    pc_data : in std_logic_vector(31 downto 0);
+    pc_wr   : in std_logic;
+    instruct_addr : in std_logic_vector(31 downto 0));
+
+end fetch;
+
+architecture behavioral of fetch is
+
+  signal current_pc : unsigned(31 downto 0);
+  signal pc : unsigned(31 downto 0);
+
+begin  -- behavioral
+
+  current_pc <= pc;
+  instruct_addr <= std_logic_vector(current_pc);
+  
+
+  process (clk, reset)
+  begin  -- process
+    if reset = '1' then                 -- asynchronous reset (active high)
+      pc <= (others => '0');
+    elsif clk'event and clk = '1' then  -- rising clock edge
+      if enable = '1' then
+        pc <= pc + 4;
+      else
+        pc <= current_pc;
+      end if;
+    end if;
+  end process;
+
+end behavioral;

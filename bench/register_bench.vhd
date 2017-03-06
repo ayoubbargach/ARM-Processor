@@ -21,9 +21,9 @@ architecture bench_arch of bench_register is
       reset        : in  std_logic;
       enable       : in  std_logic;
       write_enable : in  std_logic;
-      rA_addr      : in  std_logic_vector(4 downto 0);
-      rB_addr      : in  std_logic_vector(4 downto 0);
-      rC_addr      : in  std_logic_vector(4 downto 0);
+      rA_addr      : in  std_logic_vector(3 downto 0);
+      rB_addr      : in  std_logic_vector(3 downto 0);
+      rC_addr      : in  std_logic_vector(3 downto 0);
       rA_data_out  : out std_logic_vector(31 downto 0);
       rB_data_out  : out std_logic_vector(31 downto 0);
       rC_data_in   : in  std_logic_vector(31 downto 0));
@@ -33,9 +33,9 @@ architecture bench_arch of bench_register is
   signal reset        : std_logic;
   signal enable       : std_logic;
   signal write_enable : std_logic;
-  signal rA_addr      : std_logic_vector(4 downto 0);
-  signal rB_addr      : std_logic_vector(4 downto 0);
-  signal rC_addr      : std_logic_vector(4 downto 0);
+  signal rA_addr      : std_logic_vector(3 downto 0);
+  signal rB_addr      : std_logic_vector(3 downto 0);
+  signal rC_addr      : std_logic_vector(3 downto 0);
   signal rA_data_out  : std_logic_vector(31 downto 0);
   signal rB_data_out  : std_logic_vector(31 downto 0);
   signal rC_data_in   : std_logic_vector(31 downto 0);
@@ -68,9 +68,9 @@ begin  -- bench_arch
     process
       constant delay : time := 10 ns;
     begin  -- process
-      rA_addr <= '0' & r1;
-      rB_addr <= '0' & r2;
-      rC_addr <= '0' & r3;
+      rA_addr <=  r1;
+      rB_addr <=  r2;
+      rC_addr <=  r3;
       enable <= '1';
       wait for delay;
       assert unsigned(rA_data_out) = 16#00000000# report "mauvaise lecture du 1er registre source" severity note;
@@ -78,7 +78,7 @@ begin  -- bench_arch
       rC_data_in <= std_logic_vector(to_unsigned(1852, 32));
       write_enable <= '1';
       wait for delay;
-      rA_addr <= '0' & r3;
+      rA_addr <= r3;
       wait for delay;
       assert unsigned(rA_data_out) = 1852 report "mauvaise ecriture" severity note;
     end process;
