@@ -51,25 +51,16 @@ begin  -- bench_arch
   clock : process
     begin
       clk <= '0';
+--      enable <= '1';
       wait for 5 ns;
       clk <= '1';
+--      enable <= '0';
       wait for 5 ns;
     end process;
 
-    process
-      constant delay : time := 10 ns;
-    begin  -- process
-      wait for delay;
-      wait for delay;
-      wait for delay;
-      enable <= '1';
-      wait for delay;
-      enable <= '0';
-      wait for delay;
-      pc_wr <= '1';
-      pc_data <= X"00000040";
-      wait for delay;
-      pc_wr <= '0';
-    end process;
+    pc_wr <= '0', '1' after 60 ns, '0' after 70 ns, '1' after 180 ns, '0' after 190 ns;
+    pc_data <= X"00000040";
 
+    enable <= '0', '1' after 50 ns;
+    
 end bench_arch;

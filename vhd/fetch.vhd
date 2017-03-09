@@ -24,25 +24,30 @@ architecture behavioral of fetch is
 
 begin  -- behavioral
 
-  process (clk, reset)
-  begin  -- process
-    if reset = '1' then                 -- asynchronous reset (active high)
+  process(clk, reset)
+  begin
+    if reset = '1' then -- reset asynchrone sur niveau haut
       current_pc <= (others => '0');
-    elsif clk'event and clk = '1' then  -- rising clock edge
-      if enable = '1' then
-        current_pc <= pc;
-        fetch_ok <= '1';
-      else
-        fetch_ok <= '0';
-      end if;
+      fetch_ok <= '0';
+    elsif clk'event and clk = '1' then
+      current_pc <= pc;
+      fetch_ok <= enable;
     end if;
   end process;
 
-  process (current_pc)
-  begin  -- process
-      pc <= current_pc + 4;
+  process(current_pc, pc_wr, enable)
+  begin
+    if pc_wr = '1' then
+      instruct_addr <= pc_data;
+      pc <= unsigned(pc_data);
+    else
+      instruct_addr <= std_logic_vector(current_pc);
+      if enable = '1' then
+        pc <= current_pc + 4;
+      else
+        pc <= current_pc;
+      end if;
+    end if;
   end process;
-
-  instruct_addr <= std_logic_vector(current_pc) when pc_wr = '0' else pc_data;
 
 end behavioral;
