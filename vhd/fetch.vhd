@@ -38,10 +38,10 @@ begin  -- behavioral
   process(current_pc, pc_wr, enable)
   begin
     if pc_wr = '1' then
-      instruct_addr <= pc_data;
+      --instruct_addr <= pc_data;
       pc <= unsigned(pc_data);
     else
-      instruct_addr <= std_logic_vector(current_pc);
+      --instruct_addr <= std_logic_vector(current_pc);
       if enable = '1' then
         pc <= current_pc + 4;
       else
@@ -49,5 +49,7 @@ begin  -- behavioral
       end if;
     end if;
   end process;
+
+  instruct_addr <= std_logic_vector(current_pc);
 
 end behavioral;
