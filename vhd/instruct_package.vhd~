@@ -60,8 +60,4 @@ constant op_MVN : std_logic_vector (3 downto 0) := "1111";
 -- see https://cs107e.github.io/readings/armisa.pdf p.10-11 for more
 
 
-end;
-
-package body instruction_field is
-
-end package body;
+end instruction_field;

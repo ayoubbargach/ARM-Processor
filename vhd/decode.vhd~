@@ -1,0 +1,28 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+use work.instruction_field.all;
+
+entity decode is
+  
+  port (
+    clk            : in  std_logic;
+    enable         : in  std_logic;
+    reset          : in  std_logic;
+    instruction_in : in  std_logic_vector(31 downto 0);
+    alu_op         : out std_logic_vector(3 downto 0);
+    exe_enable     : out std_logic;
+    rA_select      : out std_logic_vector(3 downto 0);
+    rB_select      : out std_logic_vector(3 downto 0);
+    rC_select      : out std_logic_vector(3 downto 0));
+
+end decode;
+
+architecture behavioral of decode is
+
+begin  -- behavioral
+
+  
+
+end behavioral;

@@ -12,7 +12,8 @@ entity fetch is
     enable  : in std_logic;
     pc_data : in std_logic_vector(31 downto 0);
     pc_wr   : in std_logic;
-    instruct_addr : in std_logic_vector(31 downto 0));
+    instruct_addr : out  std_logic_vector(31 downto 0);
+    fetch_ok : out std_logic);
 
 end fetch;
 
@@ -23,21 +24,34 @@ architecture behavioral of fetch is
 
 begin  -- behavioral
 
-  current_pc <= pc;
-  instruct_addr <= std_logic_vector(current_pc);
-  
+-- /!\ In ARM state, bits [1:0] of r15 are undefined and must be ignored. Bits [31:2] contain the PC.
 
-  process (clk, reset)
-  begin  -- process
-    if reset = '1' then                 -- asynchronous reset (active high)
-      pc <= (others => '0');
-    elsif clk'event and clk = '1' then  -- rising clock edge
+  process(clk, reset)
+  begin
+    if reset = '1' then -- reset asynchrone sur niveau haut
+      current_pc <= (others => '0');
+      fetch_ok <= '0';
+    elsif clk'event and clk = '1' then
+      current_pc(31 downto 2) <= pc(29 downto 0);
+      fetch_ok <= enable;
+    end if;
+  end process;
+
+  process(current_pc, pc_wr, enable)
+  begin
+    if pc_wr = '1' then
+      --instruct_addr <= pc_data;
+      pc <= unsigned(pc_data);
+    else
+      --instruct_addr <= std_logic_vector(current_pc);
       if enable = '1' then
-        pc <= pc + 4;
+        pc <= current_pc(31 downto 2) + 4;
       else
-        pc <= current_pc;
+        pc <= current_pc(31 downto 2);
       end if;
     end if;
   end process;
+
+  instruct_addr <= std_logic_vector(current_pc(31 downto 2));
 
 end behavioral;

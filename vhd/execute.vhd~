@@ -1,0 +1,47 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+use work.instruction_field.all;
+
+entity execute is
+  
+  port (
+    clk      : in std_logic;
+    enable   : in std_logic;
+    reset    : in std_logic;
+    op_code  : in std_logic_vector(3 downto 0);
+    rA_data  : in std_logic_vector(31 downto 0);
+    op2_data : in std_logic_vector(31 downto 0);
+    imm_data : in std_logic_vector(31 downto 0);
+    operand2 : in std_logic_vector(11 downto 0)
+    s_alu    : out std_logic_vector(31 downto 0));
+
+end execute;
+
+architecture behavioral of execute is
+
+signal result : unsigned(31 downto 0);
+  
+begin  -- behavioral
+
+  case op_code is
+    when op_AND => result <= rA_data and op2_data;
+    when op_EOR => result <= rA_data xor op2_data;
+    when op_SUB => result <= rA_data - op2_data;
+    when op_SUB => result <= rA_data + op2_data;
+    when others => null;
+  end case;
+
+  process (clk, reset)
+  begin  -- process
+    if reset = '0' then                 -- asynchronous reset (active high)
+      s_alu <= 0;
+    elsif clk'event and clk = '1' then  -- rising clock edge
+      if enable = '1' then
+        s_alu <= result;
+      end if;
+    end if;
+  end process;
+  
+end behavioral;

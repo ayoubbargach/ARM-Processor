@@ -24,13 +24,15 @@ architecture behavioral of fetch is
 
 begin  -- behavioral
 
+-- /!\ In ARM state, bits [1:0] of r15 are undefined and must be ignored. Bits [31:2] contain the PC.
+
   process(clk, reset)
   begin
     if reset = '1' then -- reset asynchrone sur niveau haut
       current_pc <= (others => '0');
       fetch_ok <= '0';
     elsif clk'event and clk = '1' then
-      current_pc <= pc;
+      current_pc(31 downto 2) <= pc(29 downto 0);
       fetch_ok <= enable;
     end if;
   end process;
@@ -43,13 +45,13 @@ begin  -- behavioral
     else
       --instruct_addr <= std_logic_vector(current_pc);
       if enable = '1' then
-        pc <= current_pc + 4;
+        pc <= ("00" & current_pc(31 downto 2)) + 4;
       else
-        pc <= current_pc;
+        pc <= "00" & current_pc(31 downto 2);
       end if;
     end if;
   end process;
 
-  instruct_addr <= std_logic_vector(current_pc);
+  instruct_addr <= std_logic_vector("00" & current_pc(31 downto 2));
 
 end behavioral;
