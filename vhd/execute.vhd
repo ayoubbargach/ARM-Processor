@@ -7,37 +7,45 @@ use work.instruction_field.all;
 entity execute is
   
   port (
-    clk      : in std_logic;
-    enable   : in std_logic;
-    reset    : in std_logic;
-    op_code  : in std_logic_vector(3 downto 0);
-    operand2 : in std_logic_vector(11 downto 0);
-    rA_data  : in std_logic_vector(31 downto 0);
-    op2_data : in std_logic_vector(31 downto 0);
-    imm_data : in std_logic_vector(31 downto 0);
-    s_alu    : out std_logic_vector(31 downto 0));
+    clk       : in  std_logic;
+    enable    : in  std_logic;
+    reset     : in  std_logic;
+    immediate : in  std_logic;
+    op_code   : in  std_logic_vector(3 downto 0);
+    cond      : in  std_logic_vector(3 downto 0);
+    operand2  : in  std_logic_vector(11 downto 0);
+    rA_data   : in  std_logic_vector(31 downto 0);
+    s_alu     : out std_logic_vector(31 downto 0));
 
 end execute;
 
 architecture behavioral of execute is
 
-signal result : unsigned(31 downto 0);
-signal rA_data_u : unsigned(31 downto 0);
-signal op2_data_u : unsigned(31 downto 0);
+  component ALU
+    port (
+      op_code   : in  std_logic_vector(3 downto 0);
+      cond      : in  std_logic_vector(3 downto 0);
+      data_in1  : in  std_logic_vector(31 downto 0);
+      data_in2  : in  std_logic_vector(31 downto 0);
+      cond_true : in  std_logic;
+      result    : out std_logic_vector(31 downto 0));
+  end component;
+
+  signal cond_true : std_logic;
+  signal result    : std_logic_vector(31 downto 0);
+  signal data2_alu : std_logic_vector(31 downto 0);
   
 begin  -- behavioral
 
-rA_data_u <= unsigned(rA_data);
-op2_data_u <= unsigned(op2_data);
+  ALU_1 : ALU
+    port map (
+      op_code   => op_code,
+      cond      => cond,
+      data_in1  => rA_data,
+      data_in2  => data2_alu,
+      cond_true => cond_true,
+      result    => result);
 
-  with op_code select
-    result <=
-    rA_data_u and op2_data_u when op_AND,
-    rA_data_u xor op2_data_u when op_EOR,
-    rA_data_u - op2_data_u   when op_SUB,
-    op2_data_u - rA_data_u   when op_RSB,
-    rA_data_u + op2_data_u   when op_ADD,
-    (others => 'X') when others;
 
 
   process (clk, reset)
@@ -46,7 +54,7 @@ op2_data_u <= unsigned(op2_data);
       s_alu <= (others => '0');
     elsif clk'event and clk = '1' then  -- rising clock edge
       if enable = '1' then
-        s_alu <= std_logic_vector(result);
+        s_alu <= result;
       end if;
     end if;
   end process;

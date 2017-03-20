@@ -33,10 +33,10 @@ begin  -- behavioral
     if reset = '1' then                 -- asynchronous reset (active high)
       exe_enable <= '0';
       rd_registers <= '0';
-      rA_select <= (others => 'X');
-      rC_select <= (others => 'X');
-      alu_op <= (others => 'X');
-      operand2 <= (others => 'X');
+      rA_select <= (others => '-');
+      rC_select <= (others => '-');
+      alu_op <= (others => '-');
+      operand2 <= (others => '-');
     elsif clk'event and clk = '1' then  -- rising clock edge
       if enable = '1' then
         alu_op <= instruction_in(24 downto 21);  -- OpCode
