@@ -1,0 +1,63 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+library modelsim_lib;
+use modelsim_lib.util.all;
+
+library lib_VHDL;
+
+use work.instruction_field.all;
+
+entity bench_ALU is
+  
+end bench_ALU;
+
+architecture bench_arch of bench_ALU is 
+
+
+
+begin  -- bench_arch
+
+  registers_1: registers
+    port map (
+      clk          => clk,
+      reset        => reset,
+      enable       => enable,
+      write_enable => write_enable,
+      rA_addr      => rA_addr,
+      rB_addr      => rB_addr,
+      rC_addr      => rC_addr,
+      rA_data_out  => rA_data_out,
+      rB_data_out  => rB_data_out,
+      rC_data_in   => rC_data_in);
+
+  reset <= '1', '0' after 10 ns;
+
+  clock : process
+    begin
+      clk <= '0';
+      wait for 5 ns;
+      clk <= '1';
+      wait for 5 ns;
+    end process;
+
+    process
+      constant delay : time := 10 ns;
+    begin  -- process
+      rA_addr <=  r1;
+      rB_addr <=  r2;
+      rC_addr <=  r3;
+      enable <= '1';
+      wait for delay;
+      assert unsigned(rA_data_out) = 16#00000000# report "mauvaise lecture du 1er registre source" severity note;
+      assert unsigned(rB_data_out) = 16#00000000# report "mauvaise lecture du 2e registre source" severity note;
+      rC_data_in <= std_logic_vector(to_unsigned(1852, 32));
+      write_enable <= '1';
+      wait for delay;
+      rA_addr <= r3;
+      wait for delay;
+      assert unsigned(rA_data_out) = 1852 report "mauvaise ecriture" severity note;
+    end process;
+  
+end bench_arch;

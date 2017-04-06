@@ -8,8 +8,8 @@ entity ALU is
   port (
     op_code   : in  std_logic_vector(3 downto 0);
     cond      : in  std_logic_vector(3 downto 0);
-    data_in1  : in  std_logic_vector(31 downto 0);
-    data_in2  : in  std_logic_vector(31 downto 0);
+    data_inA  : in  std_logic_vector(31 downto 0);
+    data_inB  : in  std_logic_vector(31 downto 0);
     cond_true : in  std_logic;
     result    : out std_logic_vector(31 downto 0));
 		
@@ -23,8 +23,8 @@ signal result_u : unsigned(31 downto 0);
   
 begin  -- rtl
 
-data_in1_u <= unsigned(data_in1);
-data_in2_u <= unsigned(data_in2);
+data_in1_u <= unsigned(data_inA);
+data_in2_u <= unsigned(data_inB);
   
   with op_code select
     result_u <=

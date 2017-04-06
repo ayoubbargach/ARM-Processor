@@ -10,3 +10,5 @@ vcom +acc -work lib_VHDL register_files.vhd
 vcom +acc -work lib_VHDL fetch.vhd
 vcom +acc -work lib_VHDL decode.vhd
 vcom +acc -work lib_VHDL execute.vhd
+vcom +acc -work lib_VHDL ALU.vhd
+vcom +acc -work lib_VHDL barrel_shifter.vhd

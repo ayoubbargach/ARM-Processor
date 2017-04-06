@@ -1,0 +1,60 @@
+# Info: [9566]: Logging project transcript to file /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_test_impl_1/precision.log
+# Info: [9566]: Logging suppressed messages transcript to file /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_test_impl_1/precision.log.suppressed
+# Info: [9550]: Activated implementation fetch_synth_test_impl_1 in project /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_test.psp.
+new_project -name fetch_synth_test -folder /tp/xph2sei/xph2sei413/ARM-Processor/test -createimpl_name fetch_synth_test_impl_1
+# COMMAND: add_input_file {../vhd/fetch.vhd}
+add_input_file {../vhd/fetch.vhd}
+# COMMAND: setup_design -manufacturer Xilinx -family SPARTAN3A -part 3S50ATQ144 -speed -5
+# Info: [15297]: Setting up the design to use synthesis library "xis3a.syn"
+# Info: [573]: The global max fanout is currently set to 10000 for Xilinx - SPARTAN3A.
+# Info: [15323]: Setting Part to: "3S50ATQ144".
+# Info: [15324]: Setting Process to: "5".
+# Info: [7512]: The place and route tool for current technology is ISE.
+setup_design -manufacturer Xilinx -family SPARTAN3A -part 3S50ATQ144 -speed -5
+# COMMAND: setup_design -frequency 100 -max_fanout=10000
+# Info: [573]: The global max fanout is currently set to 10000 for Xilinx - SPARTAN3A.
+setup_design -frequency 100 -max_fanout=10000
+# COMMAND: compile
+# Info: [3022]: Reading file: /softslin/precision2014a_64b/Mgc_home/pkgs/psr/techlibs/xis3a.syn.
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/xilinx_rename.tcl
+# Info: XILINX
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Warning: [40000]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd", line 5: No such Package instruction_field is visible
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/softslin/ise_edk_147i/14.7/ISE_DS/ISE//vhdl/src/unisims/unisim_VCOMP.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd" ...
+# Warning: [43092]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd", line 5: instruction_field does not denote a library or package.
+# Info: [656]: Top module of the design is set to: fetch.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_test_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.fetch(behavioral): Pre-processing...
+# Info: [44523]: Root Module work.fetch(behavioral): Compiling...
+# Warning: [45784]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd", line 38: Module work.fetch(behavioral), Net(s) pc_data[31:0]: Although this signal is not part of the sensitivity list of this block, it is being read. This may lead to simulation mismatch.
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 46.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 4.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_test_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: synthesize
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_test_impl_1.
+# Info: [15002]: Optimizing design view:.work.fetch.behavioral
+# Info: [8045]: Added global buffer BUFGP for Port port:clk
+# Info: [12045]: Starting timing reports generation...
+# Info: [12046]: Timing reports generation done.
+# Info: [12047]: POST-SYNTHESIS TIMING REPORTS ARE ESTIMATES AND SHOULD NOT BE RELIED ON TO MAKE QoR DECISIONS. For accurate timing information, please run place-and-route (P&R) and review P&R generated timing reports.
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_test_impl_1/fetch.edf.
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_test_impl_1/fetch.ucf.
+# Info: [657]: Finished synthesizing design.
+# Info: [11019]: Total CPU time for synthesis: 0.9 s secs.
+# Info: [11020]: Overall running time for synthesis: 1.1 s secs.
+synthesize

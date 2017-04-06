@@ -1,0 +1,237 @@
+# Info: [9566]: Logging project transcript to file /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1/precision.log
+# Info: [9566]: Logging suppressed messages transcript to file /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1/precision.log.suppressed
+# Info: [9550]: Activated implementation ALU_synth_test_impl_1 in project /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test.psp.
+new_project -name ALU_synth_test -folder /tp/xph2sei/xph2sei413/ARM-Processor/test -createimpl_name ALU_synth_test_impl_1
+# COMMAND: add_input_file {../vhd/ALU.vhd}
+add_input_file {../vhd/ALU.vhd}
+# COMMAND: setup_design -manufacturer Xilinx -family SPARTAN3 -part 3s50tq144 -speed -4
+# Info: [15297]: Setting up the design to use synthesis library "xis3.syn"
+# Info: [573]: The global max fanout is currently set to 10000 for Xilinx - SPARTAN3.
+# Info: [15323]: Setting Part to: "3s50tq144".
+# Info: [15324]: Setting Process to: "4".
+# Info: [7512]: The place and route tool for current technology is ISE.
+setup_design -manufacturer Xilinx -family SPARTAN3 -part 3s50tq144 -speed -4
+# COMMAND: setup_design -max_fanout=10000
+# Info: [573]: The global max fanout is currently set to 10000 for Xilinx - SPARTAN3.
+setup_design -max_fanout=10000
+# COMMAND: compile
+# Info: [3022]: Reading file: /softslin/precision2014a_64b/Mgc_home/pkgs/psr/techlibs/xis3.syn.
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/xilinx_rename.tcl
+# Info: XILINX
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Warning: [40000]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 5: No such Package instruction_field is visible
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/softslin/ise_edk_147i/14.7/ISE_DS/ISE//vhdl/src/unisims/unisim_VCOMP.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd" ...
+# Warning: [43092]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 5: instruction_field does not denote a library or package.
+# Error: [42512]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 31: Use of undeclared identifier 'op_AND'
+# Error: [40008]: HDL analysis failed.
+compile
+# COMMAND: add_input_file {../vhd/instruct_package.vhd}
+add_input_file {../vhd/instruct_package.vhd}
+# COMMAND: compile
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/xilinx_rename.tcl
+# Info: XILINX
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/softslin/ise_edk_147i/14.7/ISE_DS/ISE//vhdl/src/unisims/unisim_VCOMP.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd" ...
+# Info: [656]: Top module of the design is set to: ALU.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.ALU(rtl): Pre-processing...
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 10: Input port cond has never been used.
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 13: Input port cond_true has never been used.
+# Warning: [45731]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 14: Output port result has never been assigned a value.
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 22: signal result_u has never been used.
+# Info: [44523]: Root Module work.ALU(rtl): Compiling...
+# Info: [45193]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 9: Net op_code[3:0] is unused after optimization
+# Info: [45193]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 11: Net data_in1[31:0] is unused after optimization
+# Info: [45193]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 12: Net data_in2[31:0] is unused after optimization
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 29.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 4.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: synthesize
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1.
+# Info: [15002]: Optimizing design view:.work.ALU.rtl
+# Warning: [1621]: Port result(0) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(1) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(2) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(3) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(4) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(5) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(6) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(7) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(8) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(9) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(10) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(11) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(12) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(13) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(14) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(15) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(16) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(17) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(18) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(19) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(20) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(21) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(22) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(23) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(24) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(25) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(26) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(27) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(28) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(29) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(30) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port result(31) is connected to a disabled tristate, possibly unconnected Port in design.
+# Info: ***********************************************
+# Info: Device Utilization for 3S50tq144
+# Info: ***************************************************************
+# Info: Resource                          Used    Avail   Utilization
+# Info: ---------------------------------------------------------------
+# Info: IOs                               105     97      108.25%
+# Info: Global Buffers                    0       8         0.00%
+# Info: LUTs                              0       1536      0.00%
+# Info: CLB Slices                        0       768       0.00%
+# Info: Dffs or Latches                   0       1827      0.00%
+# Info: Block RAMs                        0       4         0.00%
+# Info: Block Multipliers                 0       4         0.00%
+# Info: Block Multiplier Dffs             0       144       0.00%
+# Info: ---------------------------------------------------------------
+# Warning: This design does not fit in the device specified!
+# Info: Recommending to try an alternate device 3S200ft256
+# Info: ***********************************************
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1/ALU.edf.
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1/ALU.ucf.
+# Info: [657]: Finished synthesizing design.
+# Info: [11019]: Total CPU time for synthesis: 0.3 s secs.
+# Info: [11020]: Overall running time for synthesis: 0.4 s secs.
+synthesize
+# COMMAND: compile
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/xilinx_rename.tcl
+# Info: XILINX
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/softslin/ise_edk_147i/14.7/ISE_DS/ISE//vhdl/src/unisims/unisim_VCOMP.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd" ...
+# Info: [656]: Top module of the design is set to: ALU.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.ALU(rtl): Pre-processing...
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 10: Input port cond has never been used.
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 13: Input port cond_true has never been used.
+# Info: [44523]: Root Module work.ALU(rtl): Compiling...
+# Info: [45193]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 9: Net op_code[3] is unused after optimization
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 31.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 0.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: synthesize
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1.
+# Info: [15002]: Optimizing design view:.work.ALU.rtl
+# Info: ***********************************************
+# Info: Device Utilization for 3S50tq144
+# Info: ***************************************************************
+# Info: Resource                          Used    Avail   Utilization
+# Info: ---------------------------------------------------------------
+# Info: IOs                               105     97      108.25%
+# Info: Global Buffers                    0       8         0.00%
+# Info: LUTs                              186     1536     12.11%
+# Info: CLB Slices                        93      768      12.11%
+# Info: Dffs or Latches                   0       1827      0.00%
+# Info: Block RAMs                        0       4         0.00%
+# Info: Block Multipliers                 0       4         0.00%
+# Info: Block Multiplier Dffs             0       144       0.00%
+# Info: ---------------------------------------------------------------
+# Warning: This design does not fit in the device specified!
+# Info: Recommending to try an alternate device 3S200ft256
+# Info: ***********************************************
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1/ALU.edf.
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1/ALU.ucf.
+# Info: [657]: Finished synthesizing design.
+# Info: [11019]: Total CPU time for synthesis: 6.8 s secs.
+# Info: [11020]: Overall running time for synthesis: 7.1 s secs.
+synthesize
+# COMMAND: setup_design -manufacturer Altera -family "Cyclone II" -part EP2C70F896I -speed 8
+# Info: [15297]: Setting up the design to use synthesis library "cycloneii.syn"
+# Info: [573]: The global max fanout is currently set to 1000 for Altera - Cyclone II.
+# Info: [15323]: Setting Part to: "EP2C70F896I".
+# Info: [15324]: Setting Process to: "8".
+setup_design -manufacturer Altera -family "Cyclone II" -part EP2C70F896I -speed 8
+# COMMAND: setup_design -max_fanout=1000
+# Info: [573]: The global max fanout is currently set to 1000 for Altera - Cyclone II.
+setup_design -max_fanout=1000
+# COMMAND: compile
+# Info: [3022]: Reading file: /softslin/precision2014a_64b/Mgc_home/pkgs/psr/techlibs/cycloneii.syn.
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/softslin/ise_edk_147i/14.7/ISE_DS/ISE//vhdl/src/unisims/unisim_VCOMP.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd" ...
+# Info: [656]: Top module of the design is set to: ALU.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.ALU(rtl): Pre-processing...
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 10: Input port cond has never been used.
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 13: Input port cond_true has never been used.
+# Info: [44523]: Root Module work.ALU(rtl): Compiling...
+# Info: [45193]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd", line 9: Net op_code[3] is unused after optimization
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 31.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 1.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: synthesize
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1.
+# Info: [15002]: Optimizing design view:.OPERATORS.addsub_32_0.IMPLEMENTATION
+# Info: [15002]: Optimizing design view:.work.ALU.rtl
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1/ALU.vqm.
+# Info: Info, Writing xrf file '/tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1/ALU.xrf'
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1/ALU.xrf.
+# Info: -- Writing file /tp/xph2sei/xph2sei413/ARM-Processor/test/ALU_synth_test_impl_1/ALU.tcl
+# Info: exq_pr_compile_project gen_vcf ALU 1
+# Info: [657]: Finished synthesizing design.
+# Info: [11019]: Total CPU time for synthesis: 1.1 s secs.
+# Info: [11020]: Overall running time for synthesis: 1.4 s secs.
+synthesize
+# COMMAND: exit -force
+# Warning: [9526]: Discarded unsaved work in implementation ALU_synth_test_impl_1.

@@ -1,0 +1,4 @@
+# Precision RTL Synthesis 2014a.1_64-bit (Production Release) Mon Feb 24 02:39:08 PST 2014
+
+NET "clk" TNM_NET = "xmplr_clk";
+TIMESPEC "TS_clk_ClockDomain0" = PERIOD "xmplr_clk" 10.000000 ns HIGH 50.000000 % ;

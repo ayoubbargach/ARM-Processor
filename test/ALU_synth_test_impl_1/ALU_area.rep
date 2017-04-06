@@ -1,0 +1,46 @@
+//  Precision RTL Synthesis 2014a.1_64-bit (Production Release) Mon Feb 24 02:39:08 PST 2014
+//  
+//  Copyright (c) Mentor Graphics Corporation, 1996-2014, All Rights Reserved.
+//             Portions copyright 1991-2008 Compuware Corporation
+//                       UNPUBLISHED, LICENSED SOFTWARE.
+//            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
+//          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+//  
+//  Running on Linux xph2sei413@cimeld34 #1 SMP Debian 3.2.81-2 3.2.0-4-amd64 x86_64
+//  
+//  Start time Mon Mar 20 13:52:11 2017
+
+***************************************************************
+Device Utilization for EP2C70F896I
+***************************************************************
+Resource                          Used    Avail   Utilization
+---------------------------------------------------------------
+IOs                               105     606      17.33%
+LUTs                              227     68416     0.33%
+Registers                         0       68416     0.00%
+Memory Bits                       0       1152000   0.00%
+DSP block 9-bit elems             0       300       0.00%
+---------------------------------------------------------------
+
+***************************************
+
+Library: work    Cell: ALU    View: rtl
+
+***************************************
+
+  Cell                   Library  References     Total Area
+
+ addsub_32_0             OPERATORS     1 x     65     65 LUTs
+ cycloneii_io            cycloneii    99 x      1     99 IOs
+ cycloneii_lcell_comb    cycloneii   130 x      1    130 LUTs
+ sub_32_0                OPERATORS     1 x     32     32 LUTs
+
+ Number of ports :                     105
+ Number of nets :                      360
+ Number of instances :                 231
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Number of IOs :                       105
+ Number of LUTs :                      227
+ Number of accumulated instances :     328

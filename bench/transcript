@@ -7,8 +7,8 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-vsim lib_BENCH.bench_fetch
-# vsim lib_BENCH.bench_fetch 
+vsim lib_BENCH.barrel_bench
+# vsim lib_BENCH.barrel_bench 
 # ** Note: (vsim-3812) Design is being optimized...
 # Loading std.standard
 # Loading std.textio(body)
@@ -16,37 +16,24 @@ vsim lib_BENCH.bench_fetch
 # Loading ieee.numeric_std(body)
 # Loading modelsim_lib.util(body)
 # Loading work.instruction_field
-# Loading work.bench_fetch(bench_arch)#1
+# Loading work.barrel_bench(barrel_arch)#1
 # Loading lib_vhdl.instruction_field
-# Loading lib_vhdl.fetch(behavioral)#1
+# Loading lib_vhdl.barrelshifter(rtl)#1
 add wave -position insertpoint  \
-sim:/bench_fetch/clk \
-sim:/bench_fetch/reset \
-sim:/bench_fetch/enable \
-sim:/bench_fetch/pc_data \
-sim:/bench_fetch/pc_wr \
-sim:/bench_fetch/instruct_addr \
-sim:/bench_fetch/fetch_ok
+sim:/barrel_bench/data_in \
+sim:/barrel_bench/shift_amt \
+sim:/barrel_bench/shift_type \
+sim:/barrel_bench/shift_from_data_reg \
+sim:/barrel_bench/leastByte_rC_data \
+sim:/barrel_bench/data_out
 # ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run
-restart -f
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run
-restart -f
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading modelsim_lib.util(body)
-# Loading work.instruction_field
-# Loading work.bench_fetch(bench_arch)#1
-# Loading lib_vhdl.instruction_field
-# Loading lib_vhdl.fetch(behavioral)#1
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run
-restart -f
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+add wave -position insertpoint  \
+sim:/barrel_bench/barrelshifter_1/s1 \
+sim:/barrel_bench/barrelshifter_1/s2 \
+sim:/barrel_bench/barrelshifter_1/s3 \
+sim:/barrel_bench/barrelshifter_1/s4 \
+sim:/barrel_bench/barrelshifter_1/s5
+add wave -position 2  sim:/barrel_bench/barrelshifter_1/shift_amt_i
 run
 restart -f
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
@@ -56,21 +43,8 @@ restart -f
 # Loading ieee.numeric_std(body)
 # Loading modelsim_lib.util(body)
 # Loading work.instruction_field
-# Loading work.bench_fetch(bench_arch)#1
+# Loading work.barrel_bench(barrel_arch)#1
 # Loading lib_vhdl.instruction_field
-# Loading lib_vhdl.fetch(behavioral)#1
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run
-restart -f
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading modelsim_lib.util(body)
-# Loading work.instruction_field
-# Loading work.bench_fetch(bench_arch)#1
-# Loading lib_vhdl.instruction_field
-# Loading lib_vhdl.fetch(behavioral)#1
+# Loading lib_vhdl.barrelshifter(rtl)#1
 # ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
 run

@@ -6,3 +6,6 @@ vmap lib_BENCH ${TP_PATH}/libs/lib_BENCH
 
 vcom +acc -work lib_BENCH ../vhd/instruct_package.vhd
 vcom +acc -work lib_BENCH register_bench.vhd
+vcom +acc -work lib_BENCH fetch_bench.vhd
+vcom +acc -work lib_BENCH ALU_bench.vhd
+vcom +acc -work lib_BENCH execute_bench.vhd

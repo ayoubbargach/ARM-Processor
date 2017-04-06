@@ -9,34 +9,148 @@ Z0 d/tp/xph2sei/xph2sei413/ARM-Processor/bench
 !i10e 25
 !i10f 100
 T_opt
-!s110 1488818260
-V>^JJR]ihN?`QcC:nEinbb2
-04 11 10 work bench_fetch bench_arch 1
-=6-0023ae91a18d-58bd9054-accd-2916
+!s110 1491470157
+V293J0ojP=I8?k?3<ocE1a2
+04 12 11 work barrel_bench barrel_arch 1
+=2-bc305b9b1d78-58e6074d-3fe90-213b
 o-quiet -auto_acc_if_foreign -work lib_BENCH
 n@_opt
 OL;O;10.2c;57
-Ebench_fetch
-Z1 w1488818251
-Z2 DPx4 work 17 instruction_field 0 22 7;RN9:1fYTEJ:mL5j8Ozo0
+Ebarrel_bench
+Z1 w1491470144
+Z2 DPx4 work 17 instruction_field 0 22 9Bh:GN2QR;Eihb4]J]:853
 Z3 DPx12 modelsim_lib 4 util 0 22 =5PmC60CdKjE9E[7_TDUk0
 Z4 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
 Z5 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
 Z6 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
 Z7 d/tp/xph2sei/xph2sei413/ARM-Processor/bench
-Z8 8fetch_bench.vhd
-Z9 Ffetch_bench.vhd
+Z8 8barrel_bench.vhd
+Z9 Fbarrel_bench.vhd
+l0
+L12
+VKAX3FHEZ^oBkicZb<PDB:3
+Z10 OL;C;10.2c;57
+32
+Z11 !s110 1491470150
+Z12 !s108 1491470150.541067
+Z13 !s90 +acc|-work|lib_BENCH|barrel_bench.vhd|
+Z14 !s107 barrel_bench.vhd|
+Z15 o+acc -work lib_BENCH
+Z16 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
+!s100 YEd69GK=ARk5zGP7:dRQ>2
+!i10b 1
+!i111 0
+Abarrel_arch
+R2
+R3
+R4
+R5
+R6
+DEx4 work 12 barrel_bench 0 22 KAX3FHEZ^oBkicZb<PDB:3
+l36
+L16
+VfO;DNF^B:AIT^YKbn@Z<V2
+R10
+32
+R11
+R12
+R13
+R14
+R15
+R16
+!s100 TN6D;YDSE;VeJnQ=HOmmo2
+!i10b 1
+!i111 0
+Ebench_alu
+Z17 w1490015825
+R2
+R3
+R4
+R5
+R6
+R7
+Z18 8ALU_bench.vhd
+Z19 FALU_bench.vhd
+l0
+L12
+V;4F4bXQmkIaIRSHYObh2@3
+R10
+32
+R11
+Z20 !s108 1491470150.379090
+Z21 !s90 +acc|-work|lib_BENCH|ALU_bench.vhd|
+Z22 !s107 ALU_bench.vhd|
+R15
+R16
+!s100 9AO]65n]T]0dZjJIZ>m7m0
+!i10b 1
+!i111 0
+Abench_arch
+R2
+R3
+R4
+R5
+R6
+DEx4 work 9 bench_alu 0 22 ;4F4bXQmkIaIRSHYObh2@3
+l35
+L16
+VmLb?]L[M83Me]0RU4U0zM0
+R10
+32
+R11
+R20
+R21
+R22
+R15
+R16
+!s100 I`7W`b4^fbVe3J<b4XZ802
+!i10b 1
+!i111 0
+Ebench_execute
+w1490020053
+R2
+R3
+R4
+R5
+R6
+R7
+8execute_bench.vhd
+Fexecute_bench.vhd
+l0
+L12
+V4aQiB=A<087ORej8FbgW91
+R10
+32
+R11
+R15
+R16
+!s100 ZEzdGo_Gh]5[^CDIP_g<B0
+!i10b 1
+!s108 1491470150.462093
+!s90 +acc|-work|lib_BENCH|execute_bench.vhd|
+!s107 execute_bench.vhd|
+!i111 0
+Ebench_fetch
+Z23 w1489647946
+R2
+R3
+R4
+R5
+R6
+R7
+Z24 8fetch_bench.vhd
+Z25 Ffetch_bench.vhd
 l0
 L12
 VdKoKEm5=Hd99n9nO4M7h]2
-Z10 OL;C;10.2c;57
+R10
 32
-Z11 !s110 1488818252
-Z12 !s108 1488818252.904171
-Z13 !s90 +acc|-work|lib_BENCH|fetch_bench.vhd|
-Z14 !s107 fetch_bench.vhd|
-Z15 o+acc -work lib_BENCH
-Z16 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
+R11
+Z26 !s108 1491470150.296393
+Z27 !s90 +acc|-work|lib_BENCH|fetch_bench.vhd|
+Z28 !s107 fetch_bench.vhd|
+R15
+R16
 !s100 EQbMoe^hj40hNBbNORiI;3
 !i10b 1
 !i111 0
@@ -49,37 +163,37 @@ R6
 DEx4 work 11 bench_fetch 0 22 dKoKEm5=Hd99n9nO4M7h]2
 l37
 L16
-V[A2]ohOLnOQPUG?bV2dGW0
+V[?^L0fSNkSi2_ekEW3ea53
 R10
 32
 R11
-R12
-R13
-R14
+R26
+R27
+R28
 R15
 R16
-!s100 `3PaE_0c8J55]no4J5N_d1
+!s100 iB7nQcdM[]6V5ROS3mOg23
 !i10b 1
 !i111 0
 Ebench_register
-Z17 w1488804419
+Z29 w1488804419
 R2
 R3
 R4
 R5
 R6
 R7
-Z18 8register_bench.vhd
-Z19 Fregister_bench.vhd
+Z30 8register_bench.vhd
+Z31 Fregister_bench.vhd
 l0
 L12
 V88TkLLKZa9oekzD;>52Pf3
 R10
 32
 R11
-Z20 !s108 1488818252.837009
-Z21 !s90 +acc|-work|lib_BENCH|register_bench.vhd|
-Z22 !s107 register_bench.vhd|
+Z32 !s108 1491470150.214136
+Z33 !s90 +acc|-work|lib_BENCH|register_bench.vhd|
+Z34 !s107 register_bench.vhd|
 R15
 R16
 !s100 OBjhYb37m6HB:idoee`6E1
@@ -98,9 +212,9 @@ VG9_YiTbe]M7TB9f1KImzo0
 R10
 32
 R11
-R20
-R21
-R22
+R32
+R33
+R34
 R15
 R16
 !s100 iJdeJhi:KM:eO9LagTQnK0
@@ -109,21 +223,21 @@ R16
 Pinstruction_field
 R5
 R6
-w1488450182
+w1489659085
 R7
 8../vhd/instruct_package.vhd
 F../vhd/instruct_package.vhd
 l0
 L4
-V7;RN9:1fYTEJ:mL5j8Ozo0
+V9Bh:GN2QR;Eihb4]J]:853
 R10
 32
 R15
 R16
 R11
-!s100 4oe78KCz^fAKESZioQFgT1
+!s100 h6<SfeJA8jWf:Fc_20X>I1
 !i10b 1
-!s108 1488818252.748539
+!s108 1491470150.108109
 !s90 +acc|-work|lib_BENCH|../vhd/instruct_package.vhd|
 !s107 ../vhd/instruct_package.vhd|
 !i111 0

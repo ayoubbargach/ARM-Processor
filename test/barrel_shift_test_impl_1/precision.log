@@ -1,0 +1,43 @@
+# Info: [9566]: Logging project transcript to file /tp/xph2sei/xph2sei413/ARM-Processor/test/barrel_shift_test_impl_1/precision.log
+# Info: [9566]: Logging suppressed messages transcript to file /tp/xph2sei/xph2sei413/ARM-Processor/test/barrel_shift_test_impl_1/precision.log.suppressed
+# Info: [9550]: Activated implementation barrel_shift_test_impl_1 in project /tp/xph2sei/xph2sei413/ARM-Processor/test/barrel_shift_test.psp.
+new_project -name barrel_shift_test -folder /tp/xph2sei/xph2sei413/ARM-Processor/test -createimpl_name barrel_shift_test_impl_1
+# COMMAND: add_input_file {../vhd/barrel_shifter.vhd}
+add_input_file {../vhd/barrel_shifter.vhd}
+# COMMAND: setup_design -manufacturer Altera -family "Cyclone III" -part EP3C120F780C -speed 8
+# Info: [15297]: Setting up the design to use synthesis library "cycloneiii.syn"
+# Info: [573]: The global max fanout is currently set to 1000 for Altera - Cyclone III.
+# Info: [15323]: Setting Part to: "EP3C120F780C".
+# Info: [15324]: Setting Process to: "8".
+setup_design -manufacturer Altera -family "Cyclone III" -part EP3C120F780C -speed 8
+# COMMAND: setup_design -max_fanout=1000
+# Info: [573]: The global max fanout is currently set to 1000 for Altera - Cyclone III.
+setup_design -max_fanout=1000
+# COMMAND: compile
+# Info: [3022]: Reading file: /softslin/precision2014a_64b/Mgc_home/pkgs/psr/techlibs/cycloneiii.syn.
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Warning: [40000]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/barrel_shifter.vhd", line 5: No such Package instruction_field is visible
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/barrel_shifter.vhd" ...
+# Warning: [43092]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/barrel_shifter.vhd", line 5: instruction_field does not denote a library or package.
+# Info: [656]: Top module of the design is set to: barrel_shifter.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/barrel_shift_test_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.barrel_shifter(rtl): Pre-processing...
+# Error: [46550]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/barrel_shifter.vhd", line 46: The slice width in the variable part select expression is non-static. If this a genuine case then use simpler expressions instead.
+# Error: [46292]: Module work.barrel_shifter(rtl) cannot be compiled because it contains non-rtl constructs. Please check the log for warnings or errors about non-synthesizable constructs in this module.
+# Info: [44536]: No modules were compiled in this run of RTLC, please check the logs for blackboxes or non-rtl constructs in the design.
+# Info: [44513]: Overall running time for compilation: 4.0 secs.
+# Error: [46259]: Design compilation failed, unsupported or non-rtl constructs detected in the following modules :
+# Info: [40000]: work.barrel_shifter(rtl)
+# Info: [40000]: Please check the log for details pertaining to unsupported or non-rtl construct(s)
+# Error: [671]: Unable to elaborate design work.barrel_shifter in vhdl.
+compile

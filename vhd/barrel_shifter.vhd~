@@ -1,0 +1,37 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+use work.instruction_field.all;
+
+entity barrel_shifter is
+  
+  port (
+    immediate  : in  std_logic;  -- bit 25 de l'instruction data processing
+    operand2   : in  std_logic_vector(11 downto 0);
+    data_rB    : in  std_logic_vector(31 downto 0);
+    barrel_out : out std_logic_vector(31 downto 0));
+
+  -- immediate : 0 => operand2 is a register ([11:4] = shift, [3:0] = register)
+  --             1 => operand2 is a imm. value ([7:0] = value, [11:8] = rotate)
+  -- https://cs107e.github.io/readings/armisa.pdf p.10 for more
+
+
+end barrel_shifter;
+
+architecture rtl of barrel_shifter is
+
+  type operand is (registers, value);
+  signal operand_state : operand;
+
+begin  -- rtl
+
+  -- shift op. on registers https://cs107e.github.io/readings/armisa.pdf p.12
+  -- operand2(4) : 0 => imm. shift amount in [11:7]
+  --               1 => shift amount is bottom byte of a register specified in
+  --               [11:8]
+
+  operand_state <= registers when immediate = '0' else value when immediate = '1' else '-' when others;
+
+
+end rtl;

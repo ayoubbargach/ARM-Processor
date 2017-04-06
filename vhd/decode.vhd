@@ -14,11 +14,11 @@ entity decode is
     alu_op         : out std_logic_vector(3 downto 0);
     exe_enable     : out std_logic;
     rd_registers   : out std_logic;
+    immediate      : out std_logic;  -- bit 25 de l'instruction data processing
     rA_select      : out std_logic_vector(3 downto 0);
     rB_select      : out std_logic_vector(3 downto 0);
     rC_select      : out std_logic_vector(3 downto 0);
-    operand2       : out std_logic_vector(11 downto 0);
-    imm_data       : out std_logic_vector(31 downto 0));
+    operand2       : out std_logic_vector(11 downto 0));
 
 end decode;
 
@@ -26,28 +26,30 @@ end decode;
 
 architecture behavioral of decode is
 
+  
 begin  -- behavioral
 
   process (clk, reset)
   begin  -- process
     if reset = '1' then                 -- asynchronous reset (active high)
-      exe_enable <= '0';
+      exe_enable   <= '0';
       rd_registers <= '0';
-      rA_select <= (others => '-');
-      rC_select <= (others => '-');
-      alu_op <= (others => '-');
-      operand2 <= (others => '-');
+      immediate    <= '-';
+      rA_select    <= (others => '-');
+      rC_select    <= (others => '-');
+      alu_op       <= (others => '-');
+      operand2     <= (others => '-');
     elsif clk'event and clk = '1' then  -- rising clock edge
       if enable = '1' then
-        alu_op <= instruction_in(24 downto 21);  -- OpCode
-        rA_select <= instruction_in(19 downto 16);  -- 1st operand register
-        rC_select <= instruction_in(15 downto 12);  -- Destination register
-        operand2 <= instruction_in(11 downto 0);
-        exe_enable <= '1';
+        alu_op       <= instruction_in(24 downto 21);  -- OpCode
+        rA_select    <= instruction_in(19 downto 16);  -- 1st operand register
+        rC_select    <= instruction_in(15 downto 12);  -- Destination register
+        operand2     <= instruction_in(11 downto 0);
+        immediate    <= instruction_in(25);  -- 2nd operand is a register (0) or an immediate value (1)
+        exe_enable   <= '1';
         rd_registers <= '1';
       end if;
     end if;
   end process;
-
-
+  
 end behavioral;

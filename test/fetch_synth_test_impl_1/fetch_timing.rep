@@ -1,0 +1,181 @@
+//  Precision RTL Synthesis 2014a.1_64-bit (Production Release) Mon Feb 24 02:39:08 PST 2014
+//  
+//  Copyright (c) Mentor Graphics Corporation, 1996-2014, All Rights Reserved.
+//             Portions copyright 1991-2008 Compuware Corporation
+//                       UNPUBLISHED, LICENSED SOFTWARE.
+//            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
+//          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+//  
+//  Running on Linux xph2sei413@cimeld34 #1 SMP Debian 3.2.81-2 3.2.0-4-amd64 x86_64
+//  
+//  Start time Thu Mar 16 08:06:17 2017
+
+-- Device: Xilinx - SPARTAN3A : 3S50ATQ144 : 5
+-- CTE report summary..
+-- POST-SYNTHESIS TIMING REPORTS ARE ESTIMATES AND SHOULD NOT BE RELIED ON TO MAKE QoR DECISIONS. For accurate timing information, please run place-and-route (P&R) and review P&R generated timing reports.
+
+================================================================================================
+                   Clock Frequency Report
+
+	Domain                  Clock Name                            Min Period (Freq)             Required Period (Freq)
+	------                  ----------                            -----------------             ----------------------
+	ClockDomain0            clk                                   3.088 (323.834 MHz)           10.000 (100.000 MHz)
+
+
+================================================================================================
+Setup Timing Analysis of clk
+
+Setup Slack Path Summary
+
+              Data                                            Data
+       Setup  Path   Source  Dest.  Data Start    Data End    End 
+Index  Slack  Delay  Clock   Clock      Pin          Pin      Edge
+-----  -----  -----  ------  -----  -----------  -----------  ----
+  1    6.912  2.891  clk     clk    reg_q(2)/C   reg_q(31)/D  Rise
+  2    6.957  2.846  clk     clk    reg_q(3)/C   reg_q(31)/D  Rise
+  3    7.002  2.801  clk     clk    reg_q(4)/C   reg_q(31)/D  Rise
+  4    7.047  2.756  clk     clk    reg_q(5)/C   reg_q(31)/D  Rise
+  5    7.092  2.711  clk     clk    reg_q(6)/C   reg_q(31)/D  Rise
+  6    7.137  2.666  clk     clk    reg_q(7)/C   reg_q(31)/D  Rise
+  7    7.182  2.621  clk     clk    reg_q(8)/C   reg_q(31)/D  Rise
+  8    7.227  2.576  clk     clk    reg_q(9)/C   reg_q(31)/D  Rise
+  9    7.272  2.531  clk     clk    reg_q(10)/C  reg_q(31)/D  Rise
+ 10    7.317  2.486  clk     clk    reg_q(11)/C  reg_q(31)/D  Rise
+
+                  CTE Path Report
+
+
+Critical path #1, (path slack = 6.912):
+
+SOURCE CLOCK: name: clk period: 10.000000
+     Times are relative to the 1st rising edge
+  DEST CLOCK: name: clk period: 10.000000
+     Times are relative to the 2nd rising edge
+
+NAME                      GATE        DELAY    ARRIVAL DIR  FANOUT
+reg_q(2)/C             FDC                     0.000   up
+reg_q(2)/Q             FDC           0.495     0.495   up
+instruct_addr_dup_0(2) (net)         0.253                   2
+ix8473z1531/I2         LUT3                    0.748   up
+ix8473z1531/O          LUT3          0.561     1.309   up
+nx8473z2               (net)         0.000                   2
+muxcy_0/S              MUXCY_L                 1.309   up
+muxcy_0/LO             MUXCY_L       0.159     1.468   up
+nx8474z1               (net)         0.000                   2
+muxcy_1/CI             MUXCY_L                 1.468   up
+muxcy_1/LO             MUXCY_L       0.045     1.513   up
+nx8475z1               (net)         0.000                   2
+muxcy_2/CI             MUXCY_L                 1.513   up
+muxcy_2/LO             MUXCY_L       0.045     1.558   up
+nx8476z1               (net)         0.000                   2
+muxcy_3/CI             MUXCY_L                 1.558   up
+muxcy_3/LO             MUXCY_L       0.045     1.603   up
+nx8477z1               (net)         0.000                   2
+muxcy_4/CI             MUXCY_L                 1.603   up
+muxcy_4/LO             MUXCY_L       0.045     1.648   up
+nx8478z1               (net)         0.000                   2
+muxcy_5/CI             MUXCY_L                 1.648   up
+muxcy_5/LO             MUXCY_L       0.045     1.693   up
+nx8479z1               (net)         0.000                   2
+muxcy_6/CI             MUXCY_L                 1.693   up
+muxcy_6/LO             MUXCY_L       0.045     1.738   up
+nx8480z1               (net)         0.000                   2
+muxcy_7/CI             MUXCY_L                 1.738   up
+muxcy_7/LO             MUXCY_L       0.045     1.783   up
+nx8481z1               (net)         0.000                   2
+muxcy_8/CI             MUXCY_L                 1.783   up
+muxcy_8/LO             MUXCY_L       0.045     1.828   up
+nx8482z1               (net)         0.000                   2
+muxcy_9/CI             MUXCY_L                 1.828   up
+muxcy_9/LO             MUXCY_L       0.045     1.873   up
+nx60018z1              (net)         0.000                   2
+muxcy_10/CI            MUXCY_L                 1.873   up
+muxcy_10/LO            MUXCY_L       0.045     1.918   up
+nx60019z1              (net)         0.000                   2
+muxcy_11/CI            MUXCY_L                 1.918   up
+muxcy_11/LO            MUXCY_L       0.045     1.963   up
+nx60020z1              (net)         0.000                   2
+muxcy_12/CI            MUXCY_L                 1.963   up
+muxcy_12/LO            MUXCY_L       0.045     2.008   up
+nx60021z1              (net)         0.000                   2
+muxcy_13/CI            MUXCY_L                 2.008   up
+muxcy_13/LO            MUXCY_L       0.045     2.053   up
+nx60022z1              (net)         0.000                   2
+muxcy_14/CI            MUXCY_L                 2.053   up
+muxcy_14/LO            MUXCY_L       0.045     2.098   up
+nx60023z1              (net)         0.000                   2
+muxcy_15/CI            MUXCY_L                 2.098   up
+muxcy_15/LO            MUXCY_L       0.045     2.143   up
+nx60024z1              (net)         0.000                   2
+muxcy_16/CI            MUXCY_L                 2.143   up
+muxcy_16/LO            MUXCY_L       0.045     2.188   up
+nx60025z1              (net)         0.000                   2
+muxcy_17/CI            MUXCY_L                 2.188   up
+muxcy_17/LO            MUXCY_L       0.045     2.233   up
+nx60026z1              (net)         0.000                   2
+muxcy_18/CI            MUXCY_L                 2.233   up
+muxcy_18/LO            MUXCY_L       0.045     2.278   up
+nx60027z1              (net)         0.000                   2
+muxcy_19/CI            MUXCY_L                 2.278   up
+muxcy_19/LO            MUXCY_L       0.045     2.323   up
+nx61015z1              (net)         0.000                   2
+muxcy_20/CI            MUXCY_L                 2.323   up
+muxcy_20/LO            MUXCY_L       0.045     2.368   up
+nx61016z1              (net)         0.000                   2
+muxcy_21/CI            MUXCY_L                 2.368   up
+muxcy_21/LO            MUXCY_L       0.045     2.413   up
+nx61017z1              (net)         0.000                   2
+muxcy_22/CI            MUXCY_L                 2.413   up
+muxcy_22/LO            MUXCY_L       0.045     2.458   up
+nx61018z1              (net)         0.000                   2
+muxcy_23/CI            MUXCY_L                 2.458   up
+muxcy_23/LO            MUXCY_L       0.045     2.503   up
+nx61019z1              (net)         0.000                   2
+muxcy_24/CI            MUXCY_L                 2.503   up
+muxcy_24/LO            MUXCY_L       0.045     2.548   up
+nx61020z1              (net)         0.000                   2
+muxcy_25/CI            MUXCY_L                 2.548   up
+muxcy_25/LO            MUXCY_L       0.045     2.593   up
+nx61021z1              (net)         0.000                   2
+muxcy_26/CI            MUXCY_L                 2.593   up
+muxcy_26/LO            MUXCY_L       0.045     2.638   up
+nx61022z1              (net)         0.000                   2
+muxcy_27/CI            MUXCY_L                 2.638   up
+muxcy_27/LO            MUXCY_L       0.045     2.683   up
+nx61023z1              (net)         0.000                   2
+muxcy_28/CI            MUXCY_L                 2.683   up
+muxcy_28/LO            MUXCY_L       0.045     2.728   up
+nx19589z1              (net)         0.000                   1
+xorcy_29/CI            XORCY                   2.728   up
+xorcy_29/O             XORCY         0.163     2.891   up
+sload_mux_29_dup_364   (net)         0.000                   1
+reg_q(31)/D            FDC                     2.891   up
+
+		Initial edge separation:     10.000
+		Source clock delay:      -    2.336
+		Dest clock delay:        +    2.336
+		                        -----------
+		Edge separation:             10.000
+		Setup constraint:        -    0.197
+		                        -----------
+		Data required time:           9.803
+		Data arrival time:       -    2.891   ( 91.25% cell delay, 8.75% net delay )
+		                        -----------
+		Slack:                        6.912
+
+
+
+================================================================================================
+                   Input Delay Report
+
+	Input                  Clock Name                            Slack (ns)
+	-----                  ----------                            ----------
+	No input delay constraints.
+
+
+================================================================================================
+                   Output Delay Report
+
+	Output                 Clock Name                            Slack (ns)
+	------                 ----------                            ----------
+	No output delay constraints.
