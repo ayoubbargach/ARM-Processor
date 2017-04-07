@@ -45,8 +45,8 @@ begin  -- rtl
   begin  -- process stage2
     if shift_amt_i(1) = '1' then        -- decalage de 2
       case shift_type is
-        when "00"   => s2 <= s1(29 downto 0) & "00";  -- LSL2
-        when "01"   => s2 <= "00" & s1(31 downto 2);  -- LSR2
+        when "00"   => s2 <= s1(29 downto 0) & "00";            -- LSL2
+        when "01"   => s2 <= "00" & s1(31 downto 2);            -- LSR2
         when "10"   => s2 <= (31 downto 30 => s1(31)) & s1(31 downto 2);  -- ASR2
         when "11"   => s2 <= s1(1 downto 0) & s1(31 downto 2);  -- ROR2
         when others => null;
@@ -60,8 +60,8 @@ begin  -- rtl
   begin  -- process stage3
     if shift_amt_i(2) = '1' then        -- decalage de 4
       case shift_type is
-        when "00"   => s3 <= s2(27 downto 0) & "0000";  -- LSL4
-        when "01"   => s3 <= "0000" & s2(31 downto 4);  -- LSR4
+        when "00"   => s3 <= s2(27 downto 0) & "0000";          -- LSL4
+        when "01"   => s3 <= "0000" & s2(31 downto 4);          -- LSR4
         when "10"   => s3 <= (31 downto 28 => s2(31)) & s2(31 downto 4);  -- ASR4
         when "11"   => s3 <= s2(3 downto 0) & s2(31 downto 4);  -- ROR4
         when others => null;
@@ -75,8 +75,8 @@ begin  -- rtl
   begin  -- process stage4
     if shift_amt_i(3) = '1' then        -- decalage de 8
       case shift_type is
-        when "00"   => s4 <= s3(23 downto 0) & x"00";  -- LSL8
-        when "01"   => s4 <= x"00" & s3(31 downto 8);  -- LSR8
+        when "00"   => s4 <= s3(23 downto 0) & x"00";           -- LSL8
+        when "01"   => s4 <= x"00" & s3(31 downto 8);           -- LSR8
         when "10"   => s4 <= (31 downto 24 => s3(31)) & s3(31 downto 8);  -- ASR8
         when "11"   => s4 <= s3(7 downto 0) & s3(31 downto 8);  -- ROR8
         when others => null;
@@ -86,12 +86,12 @@ begin  -- rtl
     end if;
   end process stage4;
 
-    stage5 : process (s4, shift_amt_i, shift_type)
+  stage5 : process (s4, shift_amt_i, shift_type)
   begin  -- process stage5
     if shift_amt_i(4) = '1' then        -- decalage de 16
       case shift_type is
-        when "00"   => s5 <= s4(15 downto 0) & x"0000";  -- LSL16
-        when "01"   => s5 <= x"0000" & s4(31 downto 16);  -- LSR16
+        when "00"   => s5 <= s4(15 downto 0) & x"0000";           -- LSL16
+        when "01"   => s5 <= x"0000" & s4(31 downto 16);          -- LSR16
         when "10"   => s5 <= (31 downto 16 => s4(31)) & s4(31 downto 16);  -- ASR16
         when "11"   => s5 <= s4(15 downto 0) & s4(31 downto 16);  -- ROR16
         when others => null;

@@ -22,8 +22,8 @@ L7
 VgdzK;aZTEE8WE9mM_J3@S2
 Z9 OL;C;10.2c;57
 32
-Z10 !s110 1491472472
-Z11 !s108 1491472472.608519
+Z10 !s110 1491571084
+Z11 !s108 1491571084.904477
 Z12 !s90 +acc|-work|lib_VHDL|ALU.vhd|
 Z13 !s107 ALU.vhd|
 Z14 o+acc -work lib_VHDL
@@ -66,11 +66,11 @@ Vz3MZeRF=Z<X@BU^FY@k;H3
 !s100 ]lINkag3YRfecn38[e3zY1
 R9
 32
-R10
+Z19 !s110 1491571085
 !i10b 1
-Z19 !s108 1491472472.682552
-Z20 !s90 +acc|-work|lib_VHDL|barrel_shifter.vhd|
-Z21 !s107 barrel_shifter.vhd|
+Z20 !s108 1491571084.979376
+Z21 !s90 +acc|-work|lib_VHDL|barrel_shifter.vhd|
+Z22 !s107 barrel_shifter.vhd|
 !i111 0
 R14
 R15
@@ -86,35 +86,35 @@ VRf:0N9^3cFf240zolYIEe1
 !s100 6LdPQflQoFGAPgN4GRQoe1
 R9
 32
-R10
-!i10b 1
 R19
+!i10b 1
 R20
 R21
+R22
 !i111 0
 R14
 R15
 Edecode
-Z22 w1491222796
+Z23 w1491570221
 R2
 R3
 R4
 R5
 R6
-Z23 8decode.vhd
-Z24 Fdecode.vhd
+Z24 8decode.vhd
+Z25 Fdecode.vhd
 l0
 L7
-VUVL`F2E_[k7PJ3eXkhzT?0
+V?WSO9AGSQd><9UFicYP162
 R9
 32
 R10
-Z25 !s108 1491472472.453938
-Z26 !s90 +acc|-work|lib_VHDL|decode.vhd|
-Z27 !s107 decode.vhd|
+Z26 !s108 1491571084.752394
+Z27 !s90 +acc|-work|lib_VHDL|decode.vhd|
+Z28 !s107 decode.vhd|
 R14
 R15
-!s100 `aPffk9[hAEb>11jSZY6S3
+!s100 Y0VfJTMOmV@`e8n1T9CMz2
 !i10b 1
 !i111 0
 Abehavioral
@@ -122,42 +122,42 @@ R2
 R3
 R4
 R5
-DEx4 work 6 decode 0 22 UVL`F2E_[k7PJ3eXkhzT?0
-l30
-L27
-VMGDH=jjNgLRGn_JlcYSlD2
+DEx4 work 6 decode 0 22 ?WSO9AGSQd><9UFicYP162
+l48
+L30
+V=ePKGh6UGDG=R_P`<BCPK2
 R9
 32
 R10
-R25
 R26
 R27
+R28
 R14
 R15
-!s100 W^4gmO9MdB8M^77X4G=@D3
+!s100 =1899hnAB0_?RZkKf8k?S3
 !i10b 1
 !i111 0
 Eexecute
-Z28 w1491472469
+Z29 w1491472839
 R2
 R3
 R4
 R5
 R6
-Z29 8execute.vhd
-Z30 Fexecute.vhd
+Z30 8execute.vhd
+Z31 Fexecute.vhd
 l0
 L7
-Vj4d<Io9hT>gBkbzacDiFZ1
+VI`c@ei=_TKaf]ci;EZUDD0
 R9
 32
 R10
-Z31 !s108 1491472472.533129
-Z32 !s90 +acc|-work|lib_VHDL|execute.vhd|
-Z33 !s107 execute.vhd|
+Z32 !s108 1491571084.827003
+Z33 !s90 +acc|-work|lib_VHDL|execute.vhd|
+Z34 !s107 execute.vhd|
 R14
 R15
-!s100 aBJQV780`c3iejB;FKZR_3
+!s100 Tm:fYX?;CLb91FYcn0Noa3
 !i10b 1
 !i111 0
 Abehavioral
@@ -165,39 +165,39 @@ R2
 R3
 R4
 R5
-DEx4 work 7 execute 0 22 j4d<Io9hT>gBkbzacDiFZ1
-l56
-L28
-Vm8M`VElY9=CNnBkY5k;2;0
+DEx4 work 7 execute 0 22 I`c@ei=_TKaf]ci;EZUDD0
+l59
+L31
+VdWPPQFBVT<A`V:]Z4YLNG3
 R9
 32
 R10
-R31
 R32
 R33
+R34
 R14
 R15
-!s100 _^fTa>F_4hdR3NX;M7b_E3
+!s100 I5TLm_29`E4kz@I60`g693
 !i10b 1
 !i111 0
 Efetch
-Z34 w1489653499
+Z35 w1489653499
 R2
 R3
 R4
 R5
 R6
-Z35 8fetch.vhd
-Z36 Ffetch.vhd
+Z36 8fetch.vhd
+Z37 Ffetch.vhd
 l0
 L7
 V_mkIP8oOHDl=`a4@B3:JC0
 R9
 32
 R10
-Z37 !s108 1491472472.379880
-Z38 !s90 +acc|-work|lib_VHDL|fetch.vhd|
-Z39 !s107 fetch.vhd|
+Z38 !s108 1491571084.677924
+Z39 !s90 +acc|-work|lib_VHDL|fetch.vhd|
+Z40 !s107 fetch.vhd|
 R14
 R15
 !s100 VhWT4TJ0]ZIN@bS<]nf;E1
@@ -215,9 +215,9 @@ VR^DfPoOMY1iRYD]9LFNEL2
 R9
 32
 R10
-R37
 R38
 R39
+R40
 R14
 R15
 !s100 :EA54z[e0zSnD_jGz3RYS0
@@ -240,27 +240,27 @@ R15
 R10
 !s100 h6<SfeJA8jWf:Fc_20X>I1
 !i10b 1
-!s108 1491472472.198878
+!s108 1491571084.496547
 !s90 +acc|-work|lib_VHDL|instruct_package.vhd|
 !s107 instruct_package.vhd|
 !i111 0
 Eregisters
-Z40 w1488804242
+Z41 w1488804242
 R3
 R4
 R5
 R6
-Z41 8register_files.vhd
-Z42 Fregister_files.vhd
+Z42 8register_files.vhd
+Z43 Fregister_files.vhd
 l0
 L5
 VQ7ki5Z91YRK2zfoeGMh^=0
 R9
 32
 R10
-Z43 !s108 1491472472.298832
-Z44 !s90 +acc|-work|lib_VHDL|register_files.vhd|
-Z45 !s107 register_files.vhd|
+Z44 !s108 1491571084.597075
+Z45 !s90 +acc|-work|lib_VHDL|register_files.vhd|
+Z46 !s107 register_files.vhd|
 R14
 R15
 !s100 UZ8J:cn;G]L:XoF5P=KbN0
@@ -277,9 +277,9 @@ VmBfl5k^:n4U4JYR3AMYel3
 R9
 32
 R10
-R43
 R44
 R45
+R46
 R14
 R15
 !s100 8?T7Y5@Y8CngILE<[_OWX0
