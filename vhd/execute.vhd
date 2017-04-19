@@ -5,26 +5,37 @@ use ieee.numeric_std.all;
 use work.instruction_field.all;
 
 entity execute is
-  
+
   port (
-    clk            : in  std_logic;
-    enable         : in  std_logic;
-    reset          : in  std_logic;
-    immediate      : in  std_logic;
-    op_code        : in  std_logic_vector(3 downto 0);
-    cond           : in  std_logic_vector(3 downto 0);
-    rD_addr        : in  std_logic_vector(3 downto 0);
-    imm_value      : in  std_logic_vector(31 downto 0);
-    shift_amt      : in  std_logic_vector(4 downto 0);
-    shift_type     : in  std_logic_vector(1 downto 0);
-    shift_from_reg : in  std_logic;
-    rA_data        : in  std_logic_vector(31 downto 0);
-    rB_data        : in  std_logic_vector(31 downto 0);
-    rC_data        : in  std_logic_vector(31 downto 0);
-    d_PC_4         : in  std_logic_vector(31 downto 0);
-    PC_8           : out std_logic_vector(31 downto 0);
-    dest_rD_addr   : out std_logic_vector(3 downto 0);
-    exe_out        : out std_logic_vector(31 downto 0));
+    clk                  : in  std_logic;
+    enable               : in  std_logic;
+    reset                : in  std_logic;
+    immediate            : in  std_logic;
+    op_code              : in  std_logic_vector(3 downto 0);
+    cond                 : in  std_logic_vector(3 downto 0);
+    rD_addr              : in  std_logic_vector(3 downto 0);
+    imm_value            : in  std_logic_vector(31 downto 0);
+    shift_amt            : in  std_logic_vector(4 downto 0);
+    shift_type           : in  std_logic_vector(1 downto 0);
+    shift_from_reg       : in  std_logic;
+    rA_data              : in  std_logic_vector(31 downto 0);
+    rB_data              : in  std_logic_vector(31 downto 0);
+    rC_data              : in  std_logic_vector(31 downto 0);
+    d_PC_4               : in  std_logic_vector(31 downto 0);
+    exe_BX               : in  std_logic;
+    exe_BBL              : in  std_logic;
+    bbl_offset           : in  std_logic_vector(23 downto 0);
+    exe_ldr_str          : in  std_logic;
+    ldr_str_logic        : in  std_logic_vector(4 downto 0);
+    exe_ldr_str_base_reg : in  std_logic_vector(3 downto 0);
+    PC_8                 : out std_logic_vector(31 downto 0);
+    dest_rD_addr         : out std_logic_vector(3 downto 0);
+    exe_out              : out std_logic_vector(31 downto 0);
+    exe_ok               : out std_logic;
+    mem_ldr_str_logic    : out std_logic_vector(4 downto 0);
+    mem_ldr_str          : out std_logic;
+    mem_data_rC          : out std_logic_vector(31 downto 0);
+    mem_ldr_str_base_reg : out std_logic_vector(3 downto 0));
 
 end execute;
 
@@ -55,8 +66,21 @@ architecture behavioral of execute is
 
   signal barrel_in  : std_logic_vector(31 downto 0);
   signal barrel_out : std_logic_vector(31 downto 0);
-  
+
+  signal branch            : std_logic_vector(1 downto 0);
+  signal extend_bbl_offset : std_logic_vector(31 downto 0);
+
+  signal exe_out_i : std_logic_vector(31 downto 0);
+
 begin  -- behavioral
+
+  branch <= exe_BX & exe_BBL;
+
+  with bbl_offset(23) select
+    extend_bbl_offset <=
+    x"00" & bbl_offset when '0',
+    x"11" & bbl_offset when '1',
+    x"00" & bbl_offset when others;
 
   ALU_1 : ALU
     port map (
@@ -76,7 +100,16 @@ begin  -- behavioral
       leastByte_rC_data   => rC_data(7 downto 0),
       data_out            => barrel_out);
 
-  barrel_in <= rB_data when immediate = '0' else imm_value when immediate = '1' else (others => '-');
+
+
+  barrel_in <= extend_bbl_offset when branch = "01" else rB_data when immediate = '0' else imm_value when immediate = '1' else (others => '-');
+
+  with branch select
+    exe_out_i <=
+    s_alu      when "00",               -- no branch
+    rA_data    when "10",               -- BX
+    barrel_out when "01",               -- BBL
+    s_alu      when others;
 
   process (clk, reset)
   begin  -- process
@@ -84,9 +117,18 @@ begin  -- behavioral
       exe_out <= (others => '0');
     elsif clk'event and clk = '1' then  -- rising clock edge
       if enable = '1' then
-        exe_out <= s_alu;
+        exe_out              <= exe_out_i;
+        dest_rD_addr         <= rD_addr;
+        mem_ldr_str_logic    <= ldr_str_logic;
+        mem_ldr_str          <= exe_ldr_str;
+        exe_ok               <= '1';
+        PC_8                 <= d_PC_4;
+        mem_data_rC          <= rC_data;
+        mem_ldr_str_base_reg <= exe_ldr_str_base_reg;
+      else
+        exe_ok <= '0';
       end if;
     end if;
   end process;
-  
+
 end behavioral;

@@ -2,38 +2,20 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+library modelsim_lib;
+use modelsim_lib.util.all;
+
+library lib_VHDL;
+
 use work.instruction_field.all;
 
-entity arm is
+entity bench_decode_execute is
 
-  port (
-    clk              : in  std_logic;
-    reset            : in  std_logic;
-    instruction_in   : in  std_logic_vector(31 downto 0);
-    mem_data_in      : in  std_logic_vector(31 downto 0);
-    instruction_addr : out std_logic_vector(31 downto 0);
-    mem_addr_out     : out std_logic_vector(31 downto 0);
-    mem_data_out     : out std_logic_vector(31 downto 0));
+end entity bench_decode_execute;
 
-end arm;
+architecture bench_dec_exe of bench_decode_execute is
 
-
-architecture rtl of arm is
-
-  component fetch
-    port (
-      clk           : in  std_logic;
-      reset         : in  std_logic;
-      enable        : in  std_logic;
-      pc_data       : in  std_logic_vector(31 downto 0);
-      pc_wr         : in  std_logic;
-      instruct_addr : out std_logic_vector(31 downto 0);
-      fetch_ok      : out std_logic);
-  end component;
-
-
-
-  component registers
+  component registers is
     port (
       clk         : in  std_logic;
       reset       : in  std_logic;
@@ -47,7 +29,7 @@ architecture rtl of arm is
       rB_data_out : out std_logic_vector(31 downto 0);
       rC_data_out : out std_logic_vector(31 downto 0);
       rD_data_in  : in  std_logic_vector(31 downto 0));
-  end component;
+  end component registers;
 
   component decode is
     port (
@@ -108,70 +90,19 @@ architecture rtl of arm is
       mem_ldr_str_base_reg : out std_logic_vector(3 downto 0));
   end component execute;
 
-  component memory is
-    port (
-      enable           : in  std_logic;
-      clk              : in  std_logic;
-      reset            : in  std_logic;
-      ldr_str          : in  std_logic;
-      data_in          : in  std_logic_vector(31 downto 0);
-      rD_addr          : in  std_logic_vector(3 downto 0);
-      ldr_str_base_reg : in  std_logic_vector(3 downto 0);
-      rC_data          : in  std_logic_vector(31 downto 0);
-      ldr_str_logic    : in  std_logic_vector(4 downto 0);
-      mem_addr_out     : out std_logic_vector(31 downto 0);
-      data_out         : out std_logic_vector(31 downto 0);
-      dest_reg         : out std_logic_vector(3 downto 0);
-      mem_wr           : out std_logic;
-      mem_rd           : out std_logic;
-      mem_data_in      : in  std_logic_vector(31 downto 0);
-      mem_data_out     : out std_logic_vector(31 downto 0);
-      reg_wr           : out std_logic);
-  end component memory;
-
-  component writeback is
-    port (
-      clk        : in  std_logic;
-      enable     : in  std_logic;
-      reset      : in  std_logic;
-      data_in    : in  std_logic_vector(31 downto 0);
-      reg_wr     : in  std_logic;
-      rD_addr    : in  std_logic_vector(3 downto 0);
-      reg_wr_out : out std_logic;
-      dest_reg   : out std_logic_vector(3 downto 0);
-      data_out   : out std_logic_vector(31 downto 0);
-      PC_wr      : out std_logic);
-  end component writeback;
-
-  signal fetch_to_decode : std_logic;
-  signal data_wb         : std_logic_vector(31 downto 0);
-  signal pc_wr           : std_logic;
-
-  signal reg_rd  : std_logic;
-  signal reg_wr  : std_logic;
-  signal rA_addr : std_logic_vector(3 downto 0);
-  signal rB_addr : std_logic_vector(3 downto 0);
-  signal rC_addr : std_logic_vector(3 downto 0);
-  signal rD_addr : std_logic_vector(3 downto 0);
-
-  signal rA_data : std_logic_vector(31 downto 0);
-  signal rB_data : std_logic_vector(31 downto 0);
-  signal rC_data : std_logic_vector(31 downto 0);
-  signal rD_data : std_logic_vector(31 downto 0);
-
+  signal clk              : std_logic;
+  signal enable           : std_logic;
+  signal reset            : std_logic;
+  signal instruction_in   : std_logic_vector(31 downto 0);
   signal op_code          : std_logic_vector(3 downto 0);
-  signal rd_registers     : std_logic;
   signal immediate        : std_logic;
-  signal rA_addr          : std_logic_vector(3 downto 0);
-  signal rB_addr          : std_logic_vector(3 downto 0);
-  signal rC_addr          : std_logic_vector(3 downto 0);
   signal imm_value        : std_logic_vector(31 downto 0);
   signal dest_rD          : std_logic_vector(3 downto 0);
   signal shift_amt        : std_logic_vector(4 downto 0);
   signal shift_type       : std_logic_vector(1 downto 0);
   signal shift_reg        : std_logic;
-  signal exe_BX           : std_logic;
-  signal exe_BBL          : std_logic;
+  signal BX               : std_logic;
+  signal BBL              : std_logic;
   signal bbl_offset       : std_logic_vector(23 downto 0);
   signal decode_ok        : std_logic;
   signal exe_ldr_str      : std_logic;
@@ -179,25 +110,38 @@ architecture rtl of arm is
   signal ldr_str_logic    : std_logic_vector(4 downto 0);
 
 
+  signal rd_enable : std_logic;
+  signal wr_enable : std_logic;
+  signal rA_addr   : std_logic_vector(3 downto 0);
+  signal rB_addr   : std_logic_vector(3 downto 0);
+  signal rC_addr   : std_logic_vector(3 downto 0);
+  signal rD_addr   : std_logic_vector(3 downto 0);
+  signal rA_data   : std_logic_vector(31 downto 0);
+  signal rB_data   : std_logic_vector(31 downto 0);
+  signal rC_data   : std_logic_vector(31 downto 0);
+  signal rD_data   : std_logic_vector(31 downto 0);
 
-begin  -- rtl
+  signal cond                 : std_logic_vector(3 downto 0);
+  signal d_PC_4               : std_logic_vector(31 downto 0);
+  signal PC_8                 : std_logic_vector(31 downto 0);
+  signal dest_rD_addr         : std_logic_vector(3 downto 0);
+  signal exe_out              : std_logic_vector(31 downto 0);
+  signal exe_ok               : std_logic;
+  signal mem_ldr_str_logic    : std_logic_vector(4 downto 0);
+  signal mem_ldr_str          : std_logic;
+  signal mem_data_rC          : std_logic_vector(31 downto 0);
+  signal mem_ldr_str_base_reg : std_logic_vector(3 downto 0);
 
-  fetch_1 : fetch
-    port map (
-      clk           => clk,
-      reset         => reset,
-      enable        => enable,
-      pc_data       => data_wb,
-      pc_wr         => pc_wr,
-      instruct_addr => instruction_addr,
-      fetch_ok      => fetch_to_decode);
+  signal i : integer range 0 to 15 := 0;
+
+begin  -- architecture bench_dec_exe
 
   registers_1 : registers
     port map (
       clk         => clk,
       reset       => reset,
-      rd_enable   => reg_rd,
-      wr_enable   => reg_wr,
+      rd_enable   => rd_enable,
+      wr_enable   => wr_enable,
       rA_addr     => rA_addr,
       rB_addr     => rB_addr,
       rC_addr     => rC_addr,
@@ -210,11 +154,11 @@ begin  -- rtl
   decode_1 : decode
     port map (
       clk              => clk,
-      enable           => fetch_to_decode,
+      enable           => enable,
       reset            => reset,
       instruction_in   => instruction_in,
       op_code          => op_code,
-      rd_registers     => reg_rd,
+      rd_registers     => rd_enable,
       immediate        => immediate,
       rA_addr          => rA_addr,
       rB_addr          => rB_addr,
@@ -224,8 +168,8 @@ begin  -- rtl
       shift_amt        => shift_amt,
       shift_type       => shift_type,
       shift_reg        => shift_reg,
-      exe_BX           => exe_BX,
-      exe_BBL          => exe_BBL,
+      exe_BX           => BX,
+      exe_BBL          => BBL,
       bbl_offset       => bbl_offset,
       decode_ok        => decode_ok,
       exe_ldr_str      => exe_ldr_str,
@@ -235,26 +179,26 @@ begin  -- rtl
   execute_1 : execute
     port map (
       clk                  => clk,
-      enable               => enable,
+      enable               => decode_ok,
       reset                => reset,
       immediate            => immediate,
       op_code              => op_code,
       cond                 => cond,
-      rD_addr              => rD_addr,
+      rD_addr              => dest_rD,
       imm_value            => imm_value,
       shift_amt            => shift_amt,
       shift_type           => shift_type,
-      shift_from_reg       => shift_from_reg,
+      shift_from_reg       => shift_reg,
       rA_data              => rA_data,
       rB_data              => rB_data,
       rC_data              => rC_data,
       d_PC_4               => d_PC_4,
-      exe_BX               => exe_BX,
-      exe_BBL              => exe_BBL,
+      exe_BX               => BX,
+      exe_BBL              => BBL,
       bbl_offset           => bbl_offset,
       exe_ldr_str          => exe_ldr_str,
       ldr_str_logic        => ldr_str_logic,
-      exe_ldr_str_base_reg => exe_ldr_str_base_reg,
+      exe_ldr_str_base_reg => ldr_str_base_reg,
       PC_8                 => PC_8,
       dest_rD_addr         => dest_rD_addr,
       exe_out              => exe_out,
@@ -264,37 +208,51 @@ begin  -- rtl
       mem_data_rC          => mem_data_rC,
       mem_ldr_str_base_reg => mem_ldr_str_base_reg);
 
-  memory_1 : memory
-    port map (
-      enable           => enable,
-      clk              => clk,
-      reset            => reset,
-      ldr_str          => ldr_str,
-      data_in          => data_in,
-      rD_addr          => rD_addr,
-      ldr_str_base_reg => ldr_str_base_reg,
-      rC_data          => rC_data,
-      ldr_str_logic    => ldr_str_logic,
-      mem_addr_out     => mem_addr_out,
-      data_out         => data_out,
-      dest_reg         => dest_reg,
-      mem_wr           => mem_wr,
-      mem_rd           => mem_rd,
-      mem_data_in      => mem_data_in,
-      mem_data_out     => mem_data_out,
-      reg_wr           => reg_wr);
+  reset <= '1', '0' after 10 ns;
 
-  writeback_1 : writeback
-    port map (
-      clk        => clk,
-      enable     => enable,
-      reset      => reset,
-      data_in    => data_in,
-      reg_wr     => reg_wr,
-      rD_addr    => rD_addr,
-      reg_wr_out => reg_wr_out,
-      dest_reg   => dest_reg,
-      data_out   => data_out,
-      PC_wr      => PC_wr);
+  clock : process
+  begin
+    clk <= '0';
+    wait for 5 ns;
+    clk <= '1';
+    wait for 5 ns;
+  end process;
 
-end rtl;
+  process
+  begin
+    loop1 : for i in 0 to 15 loop
+      rD_data <= std_logic_vector(to_unsigned(i, 32));
+      rD_addr <= std_logic_vector(to_unsigned(i, 4));
+      wr_enable <= '1';
+      wait for 10 ns;
+    end loop;
+    wr_enable <= '0';
+  end process;
+
+  process
+  begin
+    wait for 200 ns;
+    instruction_in <= x"E" & "001" & "01000" & r0 & r14 & x"001";
+    enable <= '1';
+    wait for 10 ns;
+    instruction_in <= x"E" & "001" & "01000" & r1 & r14 & x"001";
+    enable <= '1';
+    wait for 10 ns;
+    instruction_in <= x"E" & "001" & "01000" & r2 & r14 & x"001";
+    enable <= '1';
+    wait for 10 ns;
+    instruction_in <= x"E" & "001" & "01000" & r3 & r14 & x"001";
+    enable <= '1';
+    wait for 10 ns;
+    instruction_in <= x"E" & "000" & "01000" & r4 & r14 & "00010" & "000" & r5;
+    enable <= '1';
+    wait for 10 ns;
+    instruction_in <= x"E" & "000" & "01000" & r5 & r14 & "00000" & "000" & r6;
+    enable <= '1';
+    wait for 20 ns;
+    
+    enable <= '0';
+  end process;
+    
+
+end architecture bench_dec_exe;

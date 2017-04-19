@@ -5,35 +5,37 @@ use ieee.numeric_std.all;
 use work.instruction_field.all;
 
 entity fetch is
-  
+
   port (
-    clk     : in std_logic;
-    reset   : in std_logic;
-    enable  : in std_logic;
-    pc_data : in std_logic_vector(31 downto 0);
-    pc_wr   : in std_logic;
-    instruct_addr : out  std_logic_vector(31 downto 0);
-    fetch_ok : out std_logic);
+    clk           : in  std_logic;
+    reset         : in  std_logic;
+    enable        : in  std_logic;
+    pc_data       : in  std_logic_vector(31 downto 0);
+    pc_wr         : in  std_logic;
+    instruct_addr : out std_logic_vector(31 downto 0);
+    cache_rd      : out std_logic;
+    fetch_ok      : out std_logic);
 
 end fetch;
 
 architecture behavioral of fetch is
 
   signal current_pc : unsigned(31 downto 0);
-  signal pc : unsigned(31 downto 0);
+  signal pc         : unsigned(31 downto 0);
 
 begin  -- behavioral
 
--- /!\ In ARM state, bits [1:0] of r15 are undefined and must be ignored. Bits [31:2] contain the PC.
+-- /!\ In ARM state, bits [1:0] of r15 are undefined and must be ignored. Bits [31:2] contain the
+-- PC. Pas pris en compte pour le moment
 
   process(clk, reset)
   begin
-    if reset = '1' then -- reset asynchrone sur niveau haut
+    if reset = '1' then                 -- reset asynchrone sur niveau haut
       current_pc <= (others => '0');
-      fetch_ok <= '0';
+      fetch_ok   <= '0';
     elsif clk'event and clk = '1' then
-      current_pc(31 downto 2) <= pc(29 downto 0);
-      fetch_ok <= enable;
+      current_pc <= pc;
+      fetch_ok   <= enable;
     end if;
   end process;
 
@@ -45,13 +47,15 @@ begin  -- behavioral
     else
       --instruct_addr <= std_logic_vector(current_pc);
       if enable = '1' then
-        pc <= ("00" & current_pc(31 downto 2)) + 4;
+        pc <= current_pc(31 downto 0) + 4;
+        cache_rd <= '1';
       else
-        pc <= "00" & current_pc(31 downto 2);
+        pc <= current_pc(31 downto 0);
+        cache_rd <= '0';
       end if;
     end if;
   end process;
 
-  instruct_addr <= std_logic_vector("00" & current_pc(31 downto 2));
+  instruct_addr <= std_logic_vector(current_pc(31 downto 0));
 
 end behavioral;
