@@ -92,22 +92,26 @@ begin  -- behavioral
 
     elsif clk'event and clk = '1' then  -- rising clock edge
       if enable = '1' then
-        condition        <= cond_i;
-        op_code          <= op_code_i;
+        condition  <= cond_i;
+        op_code    <= op_code_i;
         --rd_registers     <= rd_registers_i;
-        immediate        <= immediate_i;
+        immediate  <= immediate_i;
         --rA_addr          <= rA_addr_i;
         --rB_addr          <= rB_addr_i;
         --rC_addr          <= rC_addr_i;
-        imm_value        <= imm_value_i;
-        dest_rD          <= dest_rD_i;
-        shift_amt        <= shift_amt_i;
-        shift_type       <= shift_type_i;
-        shift_reg        <= shift_reg_i;
-        exe_BX           <= exe_BX_i;
-        exe_BBL          <= exe_BBL_i;
-        bbl_offset       <= bbl_offset_i;
-        decode_ok        <= '1';
+        imm_value  <= imm_value_i;
+        dest_rD    <= dest_rD_i;
+        shift_amt  <= shift_amt_i;
+        shift_type <= shift_type_i;
+        shift_reg  <= shift_reg_i;
+        exe_BX     <= exe_BX_i;
+        exe_BBL    <= exe_BBL_i;
+        bbl_offset <= bbl_offset_i;
+        if instruction = miss then
+          decode_ok <= '0';
+        else
+          decode_ok <= '1';
+        end if;
         ldr_str_logic    <= ldr_str_logic_i;
         exe_ldr_str      <= ldr_str_i;
         ldr_str_base_reg <= ldr_str_base_reg_i;

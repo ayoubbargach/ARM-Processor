@@ -203,6 +203,7 @@ architecture rtl of arm is
 
   signal data_out_mem : std_logic_vector(31 downto 0);
   signal dest_reg     : std_logic_vector(3 downto 0);
+  signal dest_reg_D   : std_logic_vector(3 downto 0);
   signal reg_wr_mem   : std_logic;
   signal mem_wr       : std_logic;
   signal mem_rd       : std_logic;
@@ -232,7 +233,7 @@ begin  -- rtl
       rA_addr     => rA_addr,
       rB_addr     => rB_addr,
       rC_addr     => rC_addr,
-      rD_addr     => dest_reg,
+      rD_addr     => dest_reg_D,
       rA_data_out => rA_data,
       rB_data_out => rB_data,
       rC_data_out => rC_data,
@@ -329,7 +330,7 @@ begin  -- rtl
       reg_wr     => reg_wr_mem,
       rD_addr    => dest_reg,
       reg_wr_out => reg_wr,
-      dest_reg   => dest_reg,
+      dest_reg   => dest_reg_D,
       data_out   => rD_data,
       PC_wr      => PC_wr);
 
