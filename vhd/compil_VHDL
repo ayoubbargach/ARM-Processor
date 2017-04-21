@@ -12,3 +12,8 @@ vcom +acc -work lib_VHDL decode.vhd
 vcom +acc -work lib_VHDL execute.vhd
 vcom +acc -work lib_VHDL ALU.vhd
 vcom +acc -work lib_VHDL barrel_shifter.vhd
+vcom +acc -work lib_VHDL memory.vhd
+vcom +acc -work lib_VHDL writeback.vhd
+vcom +acc -work lib_VHDL instruction_cache.vhd
+vcom +acc -work lib_VHDL arm.vhd
+vcom +acc -work lib_VHDL multiply.vhd

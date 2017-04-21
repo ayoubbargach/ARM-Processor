@@ -12,7 +12,7 @@ entity execute is
     reset                : in  std_logic;
     immediate            : in  std_logic;
     op_code              : in  std_logic_vector(3 downto 0);
-    cond                 : in  std_logic_vector(3 downto 0);
+    condition            : in  std_logic_vector(3 downto 0);
     rD_addr              : in  std_logic_vector(3 downto 0);
     imm_value            : in  std_logic_vector(31 downto 0);
     shift_amt            : in  std_logic_vector(4 downto 0);
@@ -28,6 +28,7 @@ entity execute is
     exe_ldr_str          : in  std_logic;
     ldr_str_logic        : in  std_logic_vector(4 downto 0);
     exe_ldr_str_base_reg : in  std_logic_vector(3 downto 0);
+    mul                  : in  std_logic;
     PC_8                 : out std_logic_vector(31 downto 0);
     dest_rD_addr         : out std_logic_vector(3 downto 0);
     exe_out              : out std_logic_vector(31 downto 0);
@@ -61,11 +62,24 @@ architecture behavioral of execute is
       data_out            : out std_logic_vector(31 downto 0));
   end component;
 
+  component multiply is
+    port (
+      mul      : in  std_logic;
+      data_inA : in  std_logic_vector(31 downto 0);
+      data_inB : in  std_logic_vector(31 downto 0);
+      mul_out  : out std_logic_vector(31 downto 0));
+  end component multiply;
+
   signal cond_true : std_logic;
   signal s_alu     : std_logic_vector(31 downto 0);
 
+  signal data_inA_ALU : std_logic_vector(31 downto 0);
+  signal data_inB_ALU : std_logic_vector(31 downto 0);
+
   signal barrel_in  : std_logic_vector(31 downto 0);
   signal barrel_out : std_logic_vector(31 downto 0);
+
+  signal mul_out : std_logic_vector(31 downto 0);
 
   signal branch            : std_logic_vector(1 downto 0);
   signal extend_bbl_offset : std_logic_vector(31 downto 0);
@@ -82,12 +96,15 @@ begin  -- behavioral
     x"11" & bbl_offset when '1',
     x"00" & bbl_offset when others;
 
+  data_inA_ALU <= mul_out         when mul = '1'                       else rA_data;
+  data_inB_ALU <= (others => '0') when (mul = '1' and immediate = '0') else rC_data when (mul = '1' and immediate = '1') else barrel_out;
+
   ALU_1 : ALU
     port map (
       op_code   => op_code,
-      cond      => cond,
-      data_inA  => rA_data,
-      data_inB  => barrel_out,
+      cond      => condition,
+      data_inA  => data_inA_ALU,
+      data_inB  => data_inB_ALU,
       cond_true => cond_true,
       result    => s_alu);
 
@@ -99,6 +116,13 @@ begin  -- behavioral
       shift_from_data_reg => shift_from_reg,
       leastByte_rC_data   => rC_data(7 downto 0),
       data_out            => barrel_out);
+
+  multiply_1 : multiply
+    port map (
+      mul      => mul,
+      data_inA => rA_data,
+      data_inB => rB_data,
+      mul_out  => mul_out);
 
 
 

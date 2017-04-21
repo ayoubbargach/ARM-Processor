@@ -10,3 +10,7 @@ vcom +acc -work lib_BENCH fetch_bench.vhd
 vcom +acc -work lib_BENCH ALU_bench.vhd
 vcom +acc -work lib_BENCH execute_bench.vhd
 vcom +acc -work lib_BENCH barrel_bench.vhd
+vcom +acc -work lib_BENCH decode_execute_bench.vhd
+vcom +acc -work lib_BENCH fetch_cache.vhd
+vcom +acc -work lib_BENCH arm_bench.vhd
+vcom +acc -work lib_BENCH memory_bench.vhd

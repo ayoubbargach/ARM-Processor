@@ -11,6 +11,8 @@ entity decode is
     enable           : in  std_logic;
     reset            : in  std_logic;
     instruction_in   : in  std_logic_vector(31 downto 0);
+    pc_4             : in  std_logic_vector(31 downto 0);
+    condition        : out std_logic_vector(3 downto 0);
     op_code          : out std_logic_vector(3 downto 0);
     rd_registers     : out std_logic;
     immediate        : out std_logic;  -- bit 25 de l'instruction data processing
@@ -22,6 +24,7 @@ entity decode is
     shift_amt        : out std_logic_vector(4 downto 0);
     shift_type       : out std_logic_vector(1 downto 0);
     shift_reg        : out std_logic;
+    exe_mul          : out std_logic;
     exe_BX           : out std_logic;
     exe_BBL          : out std_logic;
     bbl_offset       : out std_logic_vector(23 downto 0);
@@ -36,10 +39,11 @@ end decode;
 
 architecture behavioral of decode is
 
-  type instruct_type is (data_proc, BX, BBL, LDR_STR);  -- instruc. de data et de branchements pour l'instant
+  type instruct_type is (data_proc, MUL, BX, BBL, LDR_STR, miss);  -- instruc. de data et de branchements pour l'instant
   signal instruction : instruct_type;
 
   signal op_code_i          : std_logic_vector(3 downto 0);
+  signal cond_i             : std_logic_vector(3 downto 0);
   --signal rd_registers_i     : std_logic;
   signal immediate_i        : std_logic;
   --signal rA_addr_i          : std_logic_vector(3 downto 0);
@@ -50,6 +54,7 @@ architecture behavioral of decode is
   signal shift_amt_i        : std_logic_vector(4 downto 0);
   signal shift_type_i       : std_logic_vector(1 downto 0);
   signal shift_reg_i        : std_logic;
+  signal mul_i              : std_logic;
   signal exe_BBL_i          : std_logic;
   signal exe_BX_i           : std_logic;
   signal bbl_offset_i       : std_logic_vector(23 downto 0);
@@ -58,11 +63,15 @@ architecture behavioral of decode is
   signal ldr_str_base_reg_i : std_logic_vector(3 downto 0);
 
 
+
 begin  -- behavioral
+
+  cond_i <= instruction_in(31 downto 28);
 
   process (clk, reset)
   begin  -- process
     if reset = '1' then                 -- asynchronous reset (active high)
+      condition   <= (others => '1');
       op_code     <= (others => '-');
       --rd_registers <= '-';
       immediate   <= '-';
@@ -79,9 +88,11 @@ begin  -- behavioral
       bbl_offset  <= (others => '-');
       exe_BX      <= '0';
       exe_BBL     <= '0';
+      exe_mul     <= '0';
 
     elsif clk'event and clk = '1' then  -- rising clock edge
       if enable = '1' then
+        condition        <= cond_i;
         op_code          <= op_code_i;
         --rd_registers     <= rd_registers_i;
         immediate        <= immediate_i;
@@ -100,6 +111,7 @@ begin  -- behavioral
         ldr_str_logic    <= ldr_str_logic_i;
         exe_ldr_str      <= ldr_str_i;
         ldr_str_base_reg <= ldr_str_base_reg_i;
+        exe_mul          <= mul_i;
       else
         decode_ok <= '0';
       --rd_registers <= '0';
@@ -109,9 +121,13 @@ begin  -- behavioral
 
   process (instruction_in)
   begin  -- process
-    if instruction_in(27 downto 26) = "00" then
+    if instruction_in = x"00000000" then
+      instruction <= miss;
+    elsif instruction_in(27 downto 26) = "00" then
       if instruction_in(27 downto 4) = x"12fff1" then
         instruction <= BX;
+      elsif instruction_in(25) = '0' and instruction_in(7 downto 4) = "1001" then
+        instruction <= MUL;
       else
         instruction <= data_proc;
       end if;
@@ -124,7 +140,7 @@ begin  -- behavioral
     end if;
   end process;
 
-  process (instruction, instruction_in)
+  process (instruction, instruction_in, pc_4)
   begin  -- process
     case instruction is
       when data_proc => op_code_i <= instruction_in(24 downto 21);
@@ -135,6 +151,7 @@ begin  -- behavioral
                         exe_BX_i        <= '0';
                         exe_BBL_i       <= '0';
                         ldr_str_i       <= '0';
+                        mul_i           <= '0';
                         --rd_registers_i  <= '1';
                         rd_registers    <= '1';
                         ldr_str_logic_i <= (others => '-');
@@ -155,17 +172,32 @@ begin  -- behavioral
                             shift_amt_i <= instruction_in(11 downto 7);
                           end if;
                         end if;
+      when MUL => dest_rD_i <= instruction_in(19 downto 16);
+                  op_code_i       <= op_ADD;
+                  rA_addr         <= instruction_in(3 downto 0);
+                  rB_addr         <= instruction_in(11 downto 8);
+                  rC_addr         <= instruction_in(15 downto 12);
+                  immediate_i     <= instruction_in(21);  -- /!\ bit 21 = signal ACCUMULATE
+                  exe_BX_i        <= '0';
+                  exe_BBL_i       <= '0';
+                  ldr_str_i       <= '0';
+                  mul_i           <= '1';
+                  rd_registers    <= '1';
+                  ldr_str_logic_i <= (others => '-');
+
       when BX =>  --rA_addr_i <= instruction_in(3 downto 0);
         rA_addr         <= instruction_in(3 downto 0);
         dest_rD_i       <= r15;
         --rd_registers_i  <= '1';
         rd_registers    <= '1';
+        mul_i           <= '0';
         exe_BX_i        <= '1';
         exe_BBL_i       <= '0';
         ldr_str_i       <= '0';
         ldr_str_logic_i <= (others => '-');
       when BBL => exe_BX_i <= '0';
                   exe_BBL_i       <= '1';
+                  mul_i           <= '0';
                   ldr_str_i       <= '0';
                   dest_rD_i       <= r15;
                   shift_amt_i     <= "00010";
@@ -183,6 +215,7 @@ begin  -- behavioral
                       ldr_str_i          <= '1';
                       --rd_registers_i     <= '1';
                       rd_registers       <= '1';
+                      mul_i              <= '0';
                       exe_BX_i           <= '0';
                       exe_BBL_i          <= '0';
                       ldr_str_logic_i    <= instruction_in(24 downto 20);
@@ -200,7 +233,11 @@ begin  -- behavioral
                       else
                         op_code_i <= op_ADD;
                       end if;
-
+      when miss => exe_BX_i <= '0';
+                   exe_BBL_i    <= '0';
+                   ldr_str_i    <= '0';
+                   rd_registers <= '0';
+                   mul_i        <= '0';
       when others => rd_registers <= '0';
     end case;
   end process;

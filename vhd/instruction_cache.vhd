@@ -14,7 +14,8 @@ entity instr_cache is
     instr_addr_rd  : in  std_logic_vector(31 downto 0);
     instr_data_in  : in  std_logic_vector(31 downto 0);
     instr_addr_wr  : in  std_logic_vector(31 downto 0);
-    instr_data_out : out std_logic_vector(31 downto 0));
+    instr_data_out : out std_logic_vector(31 downto 0);
+    cache_miss     : out std_logic);
 
 end entity instr_cache;
 
@@ -49,7 +50,7 @@ begin  -- architecture rtl
     variable i : integer range 0 to 63999 := 0;
   begin  -- process
     if reset = '1' then                 -- asynchronous reset (active high)
-      inst <= (others => ((others => '0')));
+      inst <= (others => (others => '0'));
     elsif clk'event and clk = '1' then  -- rising clock edge
       if cache_wr = '1' then
         inst(to_integer(inst_addr_wr_u))   <= instr_data_in(31 downto 24);
@@ -59,5 +60,7 @@ begin  -- architecture rtl
       end if;
     end if;
   end process;
+
+  cache_miss <= '1' when instr_data_out_i = x"00000000" else '0';
 
 end architecture rtl;

@@ -37,6 +37,8 @@ architecture bench_dec_exe of bench_decode_execute is
       enable           : in  std_logic;
       reset            : in  std_logic;
       instruction_in   : in  std_logic_vector(31 downto 0);
+      pc_4             : in  std_logic_vector(31 downto 0);
+      condition        : out std_logic_vector(3 downto 0);
       op_code          : out std_logic_vector(3 downto 0);
       rd_registers     : out std_logic;
       immediate        : out std_logic;
@@ -48,6 +50,7 @@ architecture bench_dec_exe of bench_decode_execute is
       shift_amt        : out std_logic_vector(4 downto 0);
       shift_type       : out std_logic_vector(1 downto 0);
       shift_reg        : out std_logic;
+      exe_mul          : out std_logic;
       exe_BX           : out std_logic;
       exe_BBL          : out std_logic;
       bbl_offset       : out std_logic_vector(23 downto 0);
@@ -64,7 +67,7 @@ architecture bench_dec_exe of bench_decode_execute is
       reset                : in  std_logic;
       immediate            : in  std_logic;
       op_code              : in  std_logic_vector(3 downto 0);
-      cond                 : in  std_logic_vector(3 downto 0);
+      condition            : in  std_logic_vector(3 downto 0);
       rD_addr              : in  std_logic_vector(3 downto 0);
       imm_value            : in  std_logic_vector(31 downto 0);
       shift_amt            : in  std_logic_vector(4 downto 0);
@@ -80,6 +83,7 @@ architecture bench_dec_exe of bench_decode_execute is
       exe_ldr_str          : in  std_logic;
       ldr_str_logic        : in  std_logic_vector(4 downto 0);
       exe_ldr_str_base_reg : in  std_logic_vector(3 downto 0);
+      mul                  : in  std_logic;
       PC_8                 : out std_logic_vector(31 downto 0);
       dest_rD_addr         : out std_logic_vector(3 downto 0);
       exe_out              : out std_logic_vector(31 downto 0);
@@ -108,6 +112,8 @@ architecture bench_dec_exe of bench_decode_execute is
   signal exe_ldr_str      : std_logic;
   signal ldr_str_base_reg : std_logic_vector(3 downto 0);
   signal ldr_str_logic    : std_logic_vector(4 downto 0);
+  signal pc_4             : std_logic_vector(31 downto 0);
+  signal mul              : std_logic;
 
 
   signal rd_enable : std_logic;
@@ -121,7 +127,7 @@ architecture bench_dec_exe of bench_decode_execute is
   signal rC_data   : std_logic_vector(31 downto 0);
   signal rD_data   : std_logic_vector(31 downto 0);
 
-  signal cond                 : std_logic_vector(3 downto 0);
+  signal condition            : std_logic_vector(3 downto 0);
   signal d_PC_4               : std_logic_vector(31 downto 0);
   signal PC_8                 : std_logic_vector(31 downto 0);
   signal dest_rD_addr         : std_logic_vector(3 downto 0);
@@ -157,6 +163,8 @@ begin  -- architecture bench_dec_exe
       enable           => enable,
       reset            => reset,
       instruction_in   => instruction_in,
+      pc_4             => pc_4,
+      condition        => condition,
       op_code          => op_code,
       rd_registers     => rd_enable,
       immediate        => immediate,
@@ -168,6 +176,7 @@ begin  -- architecture bench_dec_exe
       shift_amt        => shift_amt,
       shift_type       => shift_type,
       shift_reg        => shift_reg,
+      exe_mul          => mul,
       exe_BX           => BX,
       exe_BBL          => BBL,
       bbl_offset       => bbl_offset,
@@ -183,7 +192,7 @@ begin  -- architecture bench_dec_exe
       reset                => reset,
       immediate            => immediate,
       op_code              => op_code,
-      cond                 => cond,
+      condition            => condition,
       rD_addr              => dest_rD,
       imm_value            => imm_value,
       shift_amt            => shift_amt,
@@ -199,6 +208,7 @@ begin  -- architecture bench_dec_exe
       exe_ldr_str          => exe_ldr_str,
       ldr_str_logic        => ldr_str_logic,
       exe_ldr_str_base_reg => ldr_str_base_reg,
+      mul                  => mul,
       PC_8                 => PC_8,
       dest_rD_addr         => dest_rD_addr,
       exe_out              => exe_out,
@@ -221,8 +231,8 @@ begin  -- architecture bench_dec_exe
   process
   begin
     loop1 : for i in 0 to 15 loop
-      rD_data <= std_logic_vector(to_unsigned(i, 32));
-      rD_addr <= std_logic_vector(to_unsigned(i, 4));
+      rD_data   <= std_logic_vector(to_unsigned(i, 32));
+      rD_addr   <= std_logic_vector(to_unsigned(i, 4));
       wr_enable <= '1';
       wait for 10 ns;
     end loop;
@@ -233,26 +243,26 @@ begin  -- architecture bench_dec_exe
   begin
     wait for 200 ns;
     instruction_in <= x"E" & "001" & "01000" & r0 & r14 & x"001";
-    enable <= '1';
+    enable         <= '1';
     wait for 10 ns;
     instruction_in <= x"E" & "001" & "01000" & r1 & r14 & x"001";
-    enable <= '1';
+    enable         <= '1';
     wait for 10 ns;
     instruction_in <= x"E" & "001" & "01000" & r2 & r14 & x"001";
-    enable <= '1';
+    enable         <= '1';
     wait for 10 ns;
     instruction_in <= x"E" & "001" & "01000" & r3 & r14 & x"001";
-    enable <= '1';
+    enable         <= '1';
     wait for 10 ns;
     instruction_in <= x"E" & "000" & "01000" & r4 & r14 & "00010" & "000" & r5;
-    enable <= '1';
+    enable         <= '1';
     wait for 10 ns;
     instruction_in <= x"E" & "000" & "01000" & r5 & r14 & "00000" & "000" & r6;
-    enable <= '1';
+    enable         <= '1';
     wait for 20 ns;
-    
+
     enable <= '0';
   end process;
-    
+
 
 end architecture bench_dec_exe;
