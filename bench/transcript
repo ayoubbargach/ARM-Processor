@@ -7,8 +7,8 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-vsim lib_BENCH.barrel_bench
-# vsim lib_BENCH.barrel_bench 
+vsim lib_BENCH.arm_bench
+# vsim lib_BENCH.arm_bench 
 # ** Note: (vsim-3812) Design is being optimized...
 # Loading std.standard
 # Loading std.textio(body)
@@ -16,24 +16,73 @@ vsim lib_BENCH.barrel_bench
 # Loading ieee.numeric_std(body)
 # Loading modelsim_lib.util(body)
 # Loading work.instruction_field
-# Loading work.barrel_bench(barrel_arch)#1
+# Loading work.arm_bench(behavioral)#1
 # Loading lib_vhdl.instruction_field
+# Loading lib_vhdl.instr_cache(rtl)#1
+# Loading lib_vhdl.arm(rtl)#1
+# Loading lib_vhdl.fetch(behavioral)#1
+# Loading lib_vhdl.registers(behavioral)#1
+# Loading lib_vhdl.decode(behavioral)#1
+# Loading lib_vhdl.execute(behavioral)#1
+# Loading lib_vhdl.alu(rtl)#1
 # Loading lib_vhdl.barrelshifter(rtl)#1
+# Loading lib_vhdl.multiply(rtl)#1
+# Loading lib_vhdl.memory(rtl)#1
+# Loading lib_vhdl.writeback(rtl)#1
 add wave -position insertpoint  \
-sim:/barrel_bench/data_in \
-sim:/barrel_bench/shift_amt \
-sim:/barrel_bench/shift_type \
-sim:/barrel_bench/shift_from_data_reg \
-sim:/barrel_bench/leastByte_rC_data \
-sim:/barrel_bench/data_out
+sim:/arm_bench/clk \
+sim:/arm_bench/reset \
+sim:/arm_bench/enable \
+sim:/arm_bench/instr_addr_rd \
+sim:/arm_bench/instr_data_out
 # ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
 add wave -position insertpoint  \
-sim:/barrel_bench/barrelshifter_1/s1 \
-sim:/barrel_bench/barrelshifter_1/s2 \
-sim:/barrel_bench/barrelshifter_1/s3 \
-sim:/barrel_bench/barrelshifter_1/s4 \
-sim:/barrel_bench/barrelshifter_1/s5
-add wave -position 2  sim:/barrel_bench/barrelshifter_1/shift_amt_i
+sim:/arm_bench/arm_1/rD_data
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 65 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 65 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 95 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 95 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+add wave -position 5  sim:/arm_bench/arm_1/op_code
+restart -f
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 65 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 65 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 95 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 95 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+restart -f
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 65 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 65 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 95 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 95 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+run
 run
 restart -f
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
@@ -43,8 +92,285 @@ restart -f
 # Loading ieee.numeric_std(body)
 # Loading modelsim_lib.util(body)
 # Loading work.instruction_field
-# Loading work.barrel_bench(barrel_arch)#1
+# Loading work.arm_bench(behavioral)#1
 # Loading lib_vhdl.instruction_field
+# Loading lib_vhdl.instr_cache(rtl)#1
+# Loading lib_vhdl.arm(rtl)#1
+# Loading lib_vhdl.fetch(behavioral)#1
+# Loading lib_vhdl.registers(behavioral)#1
+# Loading lib_vhdl.decode(behavioral)#1
+# Loading lib_vhdl.execute(behavioral)#1
+# Loading lib_vhdl.alu(rtl)#1
 # Loading lib_vhdl.barrelshifter(rtl)#1
+# Loading lib_vhdl.multiply(rtl)#1
+# Loading lib_vhdl.memory(rtl)#1
+# Loading lib_vhdl.writeback(rtl)#1
 # ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
 run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 65 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 65 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 95 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 95 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+run
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading modelsim_lib.util(body)
+# Loading work.instruction_field
+# Loading work.arm_bench(behavioral)#1
+# Loading lib_vhdl.instruction_field
+# Loading lib_vhdl.instr_cache(rtl)#1
+# Loading lib_vhdl.arm(rtl)#1
+# Loading lib_vhdl.fetch(behavioral)#1
+# Loading lib_vhdl.registers(behavioral)#1
+# Loading lib_vhdl.decode(behavioral)#1
+# Loading lib_vhdl.execute(behavioral)#1
+# Loading lib_vhdl.alu(rtl)#1
+# Loading lib_vhdl.barrelshifter(rtl)#1
+# Loading lib_vhdl.multiply(rtl)#1
+# Loading lib_vhdl.memory(rtl)#1
+# Loading lib_vhdl.writeback(rtl)#1
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+run
+add wave -position 6  sim:/arm_bench/arm_1/execute_1/multiply_1/mul
+add wave -position end  sim:/arm_bench/arm_1/execute_1/ALU_1/data_inA
+add wave -position end  sim:/arm_bench/arm_1/execute_1/ALU_1/data_inB
+restart -f
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+add wave -position end  sim:/arm_bench/arm_1/execute_1/multiply_1/mul_out
+restart -f
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+add wave -position end  sim:/arm_bench/arm_1/writeback_1/reg_wr
+add wave -position end  sim:/arm_bench/arm_1/writeback_1/dest_reg
+add wave -position end  sim:/arm_bench/arm_1/writeback_1/data_out
+restart -f
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+run
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading modelsim_lib.util(body)
+# Loading work.instruction_field
+# Loading work.arm_bench(behavioral)#1
+# Loading lib_vhdl.instruction_field
+# Loading lib_vhdl.instr_cache(rtl)#1
+# Loading lib_vhdl.arm(rtl)#1
+# Loading lib_vhdl.fetch(behavioral)#1
+# Loading lib_vhdl.registers(behavioral)#1
+# Loading lib_vhdl.decode(behavioral)#1
+# Loading lib_vhdl.execute(behavioral)#1
+# Loading lib_vhdl.alu(rtl)#1
+# Loading lib_vhdl.barrelshifter(rtl)#1
+# Loading lib_vhdl.multiply(rtl)#1
+# Loading lib_vhdl.memory(rtl)#1
+# Loading lib_vhdl.writeback(rtl)#1
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+run
+add wave -position 8  sim:/arm_bench/arm_1/execute_1/multiply_1/data_inA
+add wave -position 9  sim:/arm_bench/arm_1/execute_1/multiply_1/data_inB
+restart -f
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+run
+add wave -position end  sim:/arm_bench/arm_1/execute_1/ALU_1/data_in1_u
+add wave -position end  sim:/arm_bench/arm_1/execute_1/ALU_1/data_in2_u
+restart -f
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+run
+add wave -position end  sim:/arm_bench/arm_1/decode_1/rC_addr
+add wave -position end  sim:/arm_bench/arm_1/execute_1/rC_data
+restart -f
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+run
+add wave -position 12  sim:/arm_bench/arm_1/execute_1/immediate
+restart -f
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+add wave -position 17  sim:/arm_bench/arm_1/decode_1/rd_registers
+restart -f
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading modelsim_lib.util(body)
+# Loading work.instruction_field
+# Loading work.arm_bench(behavioral)#1
+# Loading lib_vhdl.instruction_field
+# Loading lib_vhdl.instr_cache(rtl)#1
+# Loading lib_vhdl.arm(rtl)#1
+# Loading lib_vhdl.fetch(behavioral)#1
+# Loading lib_vhdl.registers(behavioral)#1
+# Loading lib_vhdl.decode(behavioral)#1
+# Loading lib_vhdl.execute(behavioral)#1
+# Loading lib_vhdl.alu(rtl)#1
+# Loading lib_vhdl.barrelshifter(rtl)#1
+# Loading lib_vhdl.multiply(rtl)#1
+# Loading lib_vhdl.memory(rtl)#1
+# Loading lib_vhdl.writeback(rtl)#1
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 115 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 155 ns  Iteration: 1  Instance: /arm_bench/arm_1/registers_1

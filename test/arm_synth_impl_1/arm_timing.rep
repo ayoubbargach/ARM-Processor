@@ -1,0 +1,178 @@
+//  Precision RTL Synthesis 2014a.1_64-bit (Production Release) Mon Feb 24 02:39:08 PST 2014
+//  
+//  Copyright (c) Mentor Graphics Corporation, 1996-2014, All Rights Reserved.
+//             Portions copyright 1991-2008 Compuware Corporation
+//                       UNPUBLISHED, LICENSED SOFTWARE.
+//            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
+//          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+//  
+//  Running on Linux xph2sei413@cimeld27 #1 SMP Debian 3.2.68-1+deb7u3 3.2.0-4-amd64 x86_64
+//  
+//  Start time Fri Apr 21 15:58:12 2017
+
+-- Device: Altera - Cyclone II : EP2C70F896I : 8
+-- CTE report summary..
+-- POST-SYNTHESIS TIMING REPORTS ARE ESTIMATES AND SHOULD NOT BE RELIED ON TO MAKE QoR DECISIONS. For accurate timing information, please run place-and-route (P&R) and review P&R generated timing reports.
+
+================================================================================================
+                   Clock Frequency Report
+
+	Domain                  Clock Name                            Min Period (Freq)             Required Period (Freq)
+	------                  ----------                            -----------------             ----------------------
+	ClockDomain0            clk                                   3.697 (270.490 MHz)           10.000 (100.000 MHz)
+
+
+================================================================================================
+Setup Timing Analysis of clk
+
+Setup Slack Path Summary
+
+              Data                                                                                                                             Data
+       Setup  Path   Source  Dest.                                                                                                             End 
+Index  Slack  Delay  Clock   Clock                    Data Start Pin                                        Data End Pin                       Edge
+-----  -----  -----  ------  -----  --------------------------------------------------  -----------------------------------------------------  ----
+  1    6.303  3.589  clk     clk    fetch_1_modgen_counter_instruct_addr/reg_q(2)/clk   fetch_1_modgen_counter_instruct_addr/reg_q(31)/datain  Rise
+  2    6.389  3.503  clk     clk    fetch_1_modgen_counter_instruct_addr/reg_q(3)/clk   fetch_1_modgen_counter_instruct_addr/reg_q(31)/datain  Rise
+  3    6.475  3.417  clk     clk    fetch_1_modgen_counter_instruct_addr/reg_q(4)/clk   fetch_1_modgen_counter_instruct_addr/reg_q(31)/datain  Rise
+  4    6.561  3.331  clk     clk    fetch_1_modgen_counter_instruct_addr/reg_q(5)/clk   fetch_1_modgen_counter_instruct_addr/reg_q(31)/datain  Rise
+  5    6.647  3.245  clk     clk    fetch_1_modgen_counter_instruct_addr/reg_q(6)/clk   fetch_1_modgen_counter_instruct_addr/reg_q(31)/datain  Rise
+  6    6.733  3.159  clk     clk    fetch_1_modgen_counter_instruct_addr/reg_q(7)/clk   fetch_1_modgen_counter_instruct_addr/reg_q(31)/datain  Rise
+  7    6.819  3.073  clk     clk    fetch_1_modgen_counter_instruct_addr/reg_q(8)/clk   fetch_1_modgen_counter_instruct_addr/reg_q(31)/datain  Rise
+  8    6.905  2.987  clk     clk    fetch_1_modgen_counter_instruct_addr/reg_q(9)/clk   fetch_1_modgen_counter_instruct_addr/reg_q(31)/datain  Rise
+  9    6.991  2.901  clk     clk    fetch_1_modgen_counter_instruct_addr/reg_q(10)/clk  fetch_1_modgen_counter_instruct_addr/reg_q(31)/datain  Rise
+ 10    7.077  2.815  clk     clk    fetch_1_modgen_counter_instruct_addr/reg_q(11)/clk  fetch_1_modgen_counter_instruct_addr/reg_q(31)/datain  Rise
+
+                  CTE Path Report
+
+
+Critical path #1, (path slack = 6.303):
+
+SOURCE CLOCK: name: clk period: 10.000000
+     Times are relative to the 1st rising edge
+  DEST CLOCK: name: clk period: 10.000000
+     Times are relative to the 2nd rising edge
+
+NAME                                                          GATE                     DELAY    ARRIVAL DIR  FANOUT
+fetch_1_modgen_counter_instruct_addr/reg_q(2)/clk          cycloneii_lcell_ff                   0.000   up
+fetch_1_modgen_counter_instruct_addr/reg_q(2)/regout       cycloneii_lcell_ff         0.000     0.000   up
+fetch_1_modgen_counter_instruct_addr/q(0)                  (net)                      0.290                   2
+fetch_1_modgen_counter_instruct_addr/ix40031z52953/dataa   cycloneii_lcell_comb                 0.290   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52953/cout    cycloneii_lcell_comb       0.621     0.911   up
+fetch_1_modgen_counter_instruct_addr/nx40031z56            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52952/cin     cycloneii_lcell_comb                 0.911   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52952/cout    cycloneii_lcell_comb       0.086     0.997   up
+fetch_1_modgen_counter_instruct_addr/nx40031z55            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52951/cin     cycloneii_lcell_comb                 0.997   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52951/cout    cycloneii_lcell_comb       0.086     1.083   up
+fetch_1_modgen_counter_instruct_addr/nx40031z53            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52950/cin     cycloneii_lcell_comb                 1.083   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52950/cout    cycloneii_lcell_comb       0.086     1.169   up
+fetch_1_modgen_counter_instruct_addr/nx40031z51            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52949/cin     cycloneii_lcell_comb                 1.169   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52949/cout    cycloneii_lcell_comb       0.086     1.255   up
+fetch_1_modgen_counter_instruct_addr/nx40031z49            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52948/cin     cycloneii_lcell_comb                 1.255   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52948/cout    cycloneii_lcell_comb       0.086     1.341   up
+fetch_1_modgen_counter_instruct_addr/nx40031z47            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52947/cin     cycloneii_lcell_comb                 1.341   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52947/cout    cycloneii_lcell_comb       0.086     1.427   up
+fetch_1_modgen_counter_instruct_addr/nx40031z45            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52946/cin     cycloneii_lcell_comb                 1.427   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52946/cout    cycloneii_lcell_comb       0.086     1.513   up
+fetch_1_modgen_counter_instruct_addr/nx40031z43            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52945/cin     cycloneii_lcell_comb                 1.513   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52945/cout    cycloneii_lcell_comb       0.086     1.599   up
+fetch_1_modgen_counter_instruct_addr/nx40031z41            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52944/cin     cycloneii_lcell_comb                 1.599   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52944/cout    cycloneii_lcell_comb       0.086     1.685   up
+fetch_1_modgen_counter_instruct_addr/nx40031z39            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52943/cin     cycloneii_lcell_comb                 1.685   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52943/cout    cycloneii_lcell_comb       0.086     1.771   up
+fetch_1_modgen_counter_instruct_addr/nx40031z37            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52942/cin     cycloneii_lcell_comb                 1.771   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52942/cout    cycloneii_lcell_comb       0.086     1.857   up
+fetch_1_modgen_counter_instruct_addr/nx40031z35            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52941/cin     cycloneii_lcell_comb                 1.857   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52941/cout    cycloneii_lcell_comb       0.086     1.943   up
+fetch_1_modgen_counter_instruct_addr/nx40031z33            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52940/cin     cycloneii_lcell_comb                 1.943   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52940/cout    cycloneii_lcell_comb       0.086     2.029   up
+fetch_1_modgen_counter_instruct_addr/nx40031z31            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52939/cin     cycloneii_lcell_comb                 2.029   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52939/cout    cycloneii_lcell_comb       0.086     2.115   up
+fetch_1_modgen_counter_instruct_addr/nx40031z29            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52938/cin     cycloneii_lcell_comb                 2.115   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52938/cout    cycloneii_lcell_comb       0.086     2.201   up
+fetch_1_modgen_counter_instruct_addr/nx40031z27            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52937/cin     cycloneii_lcell_comb                 2.201   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52937/cout    cycloneii_lcell_comb       0.086     2.287   up
+fetch_1_modgen_counter_instruct_addr/nx40031z25            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52936/cin     cycloneii_lcell_comb                 2.287   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52936/cout    cycloneii_lcell_comb       0.086     2.373   up
+fetch_1_modgen_counter_instruct_addr/nx40031z23            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52935/cin     cycloneii_lcell_comb                 2.373   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52935/cout    cycloneii_lcell_comb       0.086     2.459   up
+fetch_1_modgen_counter_instruct_addr/nx40031z21            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52934/cin     cycloneii_lcell_comb                 2.459   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52934/cout    cycloneii_lcell_comb       0.086     2.545   up
+fetch_1_modgen_counter_instruct_addr/nx40031z19            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52933/cin     cycloneii_lcell_comb                 2.545   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52933/cout    cycloneii_lcell_comb       0.086     2.631   up
+fetch_1_modgen_counter_instruct_addr/nx40031z17            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52932/cin     cycloneii_lcell_comb                 2.631   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52932/cout    cycloneii_lcell_comb       0.086     2.717   up
+fetch_1_modgen_counter_instruct_addr/nx40031z15            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52931/cin     cycloneii_lcell_comb                 2.717   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52931/cout    cycloneii_lcell_comb       0.086     2.803   up
+fetch_1_modgen_counter_instruct_addr/nx40031z13            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52930/cin     cycloneii_lcell_comb                 2.803   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52930/cout    cycloneii_lcell_comb       0.086     2.889   up
+fetch_1_modgen_counter_instruct_addr/nx40031z11            (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52929/cin     cycloneii_lcell_comb                 2.889   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52929/cout    cycloneii_lcell_comb       0.086     2.975   up
+fetch_1_modgen_counter_instruct_addr/nx40031z9             (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52928/cin     cycloneii_lcell_comb                 2.975   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52928/cout    cycloneii_lcell_comb       0.086     3.061   up
+fetch_1_modgen_counter_instruct_addr/nx40031z7             (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52927/cin     cycloneii_lcell_comb                 3.061   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52927/cout    cycloneii_lcell_comb       0.086     3.147   up
+fetch_1_modgen_counter_instruct_addr/nx40031z5             (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52926/cin     cycloneii_lcell_comb                 3.147   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52926/cout    cycloneii_lcell_comb       0.086     3.233   up
+fetch_1_modgen_counter_instruct_addr/nx40031z3             (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52925/cin     cycloneii_lcell_comb                 3.233   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52925/cout    cycloneii_lcell_comb       0.086     3.319   up
+fetch_1_modgen_counter_instruct_addr/nx40031z1             (net)                *     0.000                   1
+fetch_1_modgen_counter_instruct_addr/ix40031z52923/cin     cycloneii_lcell_comb                 3.319   up
+fetch_1_modgen_counter_instruct_addr/ix40031z52923/combout cycloneii_lcell_comb       0.000     3.319   up
+fetch_1_modgen_counter_instruct_addr/inc_d(29)             (net)                *     0.270                   1
+fetch_1_modgen_counter_instruct_addr/reg_q(31)/datain      cycloneii_lcell_ff                   3.589   up
+
+		Initial edge separation:     10.000
+		Source clock delay:      -    1.432
+		Dest clock delay:        +    1.432
+		                        -----------
+		Edge separation:             10.000
+		Setup constraint:        -    0.108
+		                        -----------
+		Data required time:           9.892
+		Data arrival time:       -    3.589   ( 84.40% cell delay, 15.60% net delay )
+		                        -----------
+		Slack:                        6.303
+
+
+
+================================================================================================
+                   Input Delay Report
+
+	Input                  Clock Name                            Slack (ns)
+	-----                  ----------                            ----------
+	No input delay constraints.
+
+
+================================================================================================
+                   Output Delay Report
+
+	Output                 Clock Name                            Slack (ns)
+	------                 ----------                            ----------
+	No output delay constraints.

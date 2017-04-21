@@ -1,0 +1,21 @@
+\o Program:		@(#)$CDS: libManager version 6.1.5 - CAT32 05/06/2013 23:35 (cat91amd) $
+\o Sub version:		sub-version  s014 
+\o Arguments:		-mpssession virtuoso13017 -mpshost cimeld27 
+\o Working Directory:	cimeld27:/tp/xph2sei/xph2sei413/ARM-Processor/cadence
+\o 64-bit offsets
+\o Qt version: 		4.5.3
+\o Log file is "/tp/xph2sei/xph2sei413/ARM-Processor/cadence/libManager.log".
+\o Opening libManager window.
+\a nrSetCurrentWindow(cdsLibManager)
+\w Warning: Mps Error: "MPSC: mpsImport, timeout elapsed while attempting server hand-shake"
+\o changeWorkingDir("/tp/xph2sei/xph2sei413/ARM-Processor/cadence") unnecessary.
+\o ddSetForcedLib("") unnecessary.
+\a nrResizeWindow(cdsLibManager list(-7 115 600 408))
+\o MPS service: map window
+\o Library Manager customization server connected.
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetWindowVisibility(cdsLibManager "hide")
+\o libManager is exiting.
+\a exit(0)

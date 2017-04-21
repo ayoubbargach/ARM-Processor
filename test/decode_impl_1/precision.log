@@ -1,0 +1,563 @@
+# Info: [9566]: Logging project transcript to file /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/precision.log
+# Info: [9566]: Logging suppressed messages transcript to file /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/precision.log.suppressed
+# Info: [9550]: Activated implementation decode_impl_1 in project /tp/xph2sei/xph2sei413/ARM-Processor/test/decode.psp.
+new_project -name decode -folder /tp/xph2sei/xph2sei413/ARM-Processor/test -createimpl_name decode_impl_1
+# COMMAND: add_input_file {../vhd/decode.vhd ../vhd/instruct_package.vhd}
+add_input_file {../vhd/decode.vhd ../vhd/instruct_package.vhd}
+# COMMAND: move_input_file_to_bottom -from {0}
+move_input_file_to_bottom -from {0}
+# COMMAND: setup_design -manufacturer Altera -family "Cyclone II" -part EP2C70F896I -speed 8
+# Info: [15297]: Setting up the design to use synthesis library "cycloneii.syn"
+# Info: [573]: The global max fanout is currently set to 1000 for Altera - Cyclone II.
+# Info: [15323]: Setting Part to: "EP2C70F896I".
+# Info: [15324]: Setting Process to: "8".
+setup_design -manufacturer Altera -family "Cyclone II" -part EP2C70F896I -speed 8
+# COMMAND: setup_design -max_fanout=1000
+# Info: [573]: The global max fanout is currently set to 1000 for Altera - Cyclone II.
+setup_design -max_fanout=1000
+# COMMAND: compile
+# Info: [3022]: Reading file: /softslin/precision2014a_64b/Mgc_home/pkgs/psr/techlibs/cycloneii.syn.
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd" ...
+# Info: [656]: Top module of the design is set to: decode.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.decode(behavioral): Pre-processing...
+# Info: [45143]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 42: Enumerated type instruct_type with 6 elements encoded as onehot.
+# Info: [45144]: Encodings for instruct_type values.
+# Info: [40000]: value                              	                 instruct_type[5-0]
+# Info: [40000]: data_proc                          	                        000001
+# Info: [40000]: MUL                                	                        000010
+# Info: [40000]: BX                                 	                        000100
+# Info: [40000]: BBL                                	                        001000
+# Info: [40000]: LDR_STR                            	                        010000
+# Info: [40000]: miss                               	                        100000
+# Info: [45144]: Extracted FSM in module work.decode(behavioral), with state variable = instruction[5:0], async set/reset state(s) = (none), number of states = 6.
+# Info: [45144]: Re-encoding 6 state FSM as "onehot".
+# Info: [45144]: FSM: State encoding table.
+# Info: [40000]: FSM:	Index	     State Name	                            Literal	                      Encoding
+# Info: [40000]: FSM:	    0	      data_proc	                             000001	                        000001
+# Info: [40000]: FSM:	    1	            MUL	                             000010	                        000010
+# Info: [40000]: FSM:	    2	             BX	                             000100	                        000100
+# Info: [40000]: FSM:	    3	            BBL	                             001000	                        001000
+# Info: [40000]: FSM:	    4	        LDR_STR	                             010000	                        010000
+# Info: [40000]: FSM:	    5	           miss	                             100000	                        100000
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 14: Input port pc_4 has never been used.
+# Info: [44523]: Root Module work.decode(behavioral): Compiling...
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 147: Module work.decode(behavioral), Net(s) rA_addr[3:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 147: Module work.decode(behavioral), Net(s) rB_addr[3:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 147: Module work.decode(behavioral), Net(s) rC_addr[3:0]: Latch inferred.
+# Info: [45309]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 71: Optimizing state bit(s) imm_value[31:12] to constant 0
+# Warning: [45581]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 71: No Set/Reset assignment to signal ldr_str_base_reg[3:0]. Please check if this was not intended.
+# Warning: [45581]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 71: No Set/Reset assignment to signal ldr_str_logic[4:0]. Please check if this was not intended.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 147: Module work.decode(behavioral), Net(s) op_code_i[3:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 147: Module work.decode(behavioral), Net(s) immediate_i: Latch inferred.
+# Info: [45309]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 147: Optimizing state bit(s) imm_value_i[31:12] to constant 0
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 147: Module work.decode(behavioral), Net(s) imm_value_i[11:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 147: Module work.decode(behavioral), Net(s) dest_rD_i[3:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 147: Module work.decode(behavioral), Net(s) shift_amt_i[4:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 147: Module work.decode(behavioral), Net(s) shift_type_i[1:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 147: Module work.decode(behavioral), Net(s) shift_reg_i: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 147: Module work.decode(behavioral), Net(s) bbl_offset_i[23:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 147: Module work.decode(behavioral), Net(s) ldr_str_logic_i[4:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 147: Module work.decode(behavioral), Net(s) ldr_str_base_reg_i[3:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 126: Module work.decode(behavioral), Net(s) instruction[5:0]: Latch inferred.
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 238.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 1.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: synthesize
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [15002]: Optimizing design view:.work.decode.behavioral
+# Warning: [15207]: Transformations were required because of constraints in target Technology cycloneii.
+# Warning: [15208]: Design may show simulation differences because of transformations.
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/decode.vqm.
+# Info: Info, Writing xrf file '/tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/decode.xrf'
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/decode.xrf.
+# Info: -- Writing file /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/decode.tcl
+# Info: exq_pr_compile_project gen_vcf decode 1
+# Info: [657]: Finished synthesizing design.
+# Info: [11019]: Total CPU time for synthesis: 1.3 s secs.
+# Info: [11020]: Overall running time for synthesis: 1.5 s secs.
+synthesize
+# COMMAND: compile
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd" ...
+# Info: [656]: Top module of the design is set to: decode.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.decode(behavioral): Pre-processing...
+# Info: [45143]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 42: Enumerated type instruct_type with 6 elements encoded as onehot.
+# Info: [45144]: Encodings for instruct_type values.
+# Info: [40000]: value                              	                 instruct_type[5-0]
+# Info: [40000]: data_proc                          	                        000001
+# Info: [40000]: MUL                                	                        000010
+# Info: [40000]: BX                                 	                        000100
+# Info: [40000]: BBL                                	                        001000
+# Info: [40000]: LDR_STR                            	                        010000
+# Info: [40000]: miss                               	                        100000
+# Info: [45144]: Extracted FSM in module work.decode(behavioral), with state variable = instruction[5:0], async set/reset state(s) = (none), number of states = 6.
+# Info: [45144]: Re-encoding 6 state FSM as "onehot".
+# Info: [45144]: FSM: State encoding table.
+# Info: [40000]: FSM:	Index	     State Name	                            Literal	                      Encoding
+# Info: [40000]: FSM:	    0	      data_proc	                             000001	                        000001
+# Info: [40000]: FSM:	    1	            MUL	                             000010	                        000010
+# Info: [40000]: FSM:	    2	             BX	                             000100	                        000100
+# Info: [40000]: FSM:	    3	            BBL	                             001000	                        001000
+# Info: [40000]: FSM:	    4	        LDR_STR	                             010000	                        010000
+# Info: [40000]: FSM:	    5	           miss	                             100000	                        100000
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 14: Input port pc_4 has never been used.
+# Info: [44523]: Root Module work.decode(behavioral): Compiling...
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) rA_addr[3:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) rB_addr[3:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) rC_addr[3:0]: Latch inferred.
+# Info: [45309]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 71: Optimizing state bit(s) imm_value[31:12] to constant 0
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) op_code_i[3:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) immediate_i: Latch inferred.
+# Info: [45309]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Optimizing state bit(s) imm_value_i[31:12] to constant 0
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) imm_value_i[11:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) dest_rD_i[3:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) shift_amt_i[4:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) shift_type_i[1:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) shift_reg_i: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) bbl_offset_i[23:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) ldr_str_logic_i[4:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) ldr_str_base_reg_i[3:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 128: Module work.decode(behavioral), Net(s) instruction[5:0]: Latch inferred.
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 240.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 0.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: synthesize
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [15002]: Optimizing design view:.work.decode.behavioral
+# Warning: [15207]: Transformations were required because of constraints in target Technology cycloneii.
+# Warning: [15208]: Design may show simulation differences because of transformations.
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/decode.vqm.
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/decode.xrf.
+# Info: -- Writing file /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/decode.tcl
+# Info: exq_pr_compile_project gen_vcf decode 1
+# Info: [657]: Finished synthesizing design.
+# Info: [11019]: Total CPU time for synthesis: 1.4 s secs.
+# Info: [11020]: Overall running time for synthesis: 1.5 s secs.
+synthesize
+# COMMAND: compile
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd" ...
+# Info: [656]: Top module of the design is set to: decode.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.decode(behavioral): Pre-processing...
+# Info: [45143]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 42: Enumerated type instruct_type with 6 elements encoded as onehot.
+# Info: [45144]: Encodings for instruct_type values.
+# Info: [40000]: value                              	                 instruct_type[5-0]
+# Info: [40000]: data_proc                          	                        000001
+# Info: [40000]: MUL                                	                        000010
+# Info: [40000]: BX                                 	                        000100
+# Info: [40000]: BBL                                	                        001000
+# Info: [40000]: LDR_STR                            	                        010000
+# Info: [40000]: miss                               	                        100000
+# Info: [45144]: Extracted FSM in module work.decode(behavioral), with state variable = instruction[5:0], async set/reset state(s) = (none), number of states = 6.
+# Info: [45144]: Re-encoding 6 state FSM as "onehot".
+# Info: [45144]: FSM: State encoding table.
+# Info: [40000]: FSM:	Index	     State Name	                            Literal	                      Encoding
+# Info: [40000]: FSM:	    0	      data_proc	                             000001	                        000001
+# Info: [40000]: FSM:	    1	            MUL	                             000010	                        000010
+# Info: [40000]: FSM:	    2	             BX	                             000100	                        000100
+# Info: [40000]: FSM:	    3	            BBL	                             001000	                        001000
+# Info: [40000]: FSM:	    4	        LDR_STR	                             010000	                        010000
+# Info: [40000]: FSM:	    5	           miss	                             100000	                        100000
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 14: Input port pc_4 has never been used.
+# Info: [44523]: Root Module work.decode(behavioral): Compiling...
+# Info: [45309]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 71: Optimizing state bit(s) imm_value[31:12] to constant 0
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) shift_amt_i[4:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) shift_type_i[1:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) shift_reg_i: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) bbl_offset_i[23:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) ldr_str_logic_i[4:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) ldr_str_base_reg_i[3:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 128: Module work.decode(behavioral), Net(s) instruction[5:0]: Latch inferred.
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 284.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 1.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: compile
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd" ...
+# Info: [656]: Top module of the design is set to: decode.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.decode(behavioral): Pre-processing...
+# Info: [45143]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 42: Enumerated type instruct_type with 6 elements encoded as onehot.
+# Info: [45144]: Encodings for instruct_type values.
+# Info: [40000]: value                              	                 instruct_type[5-0]
+# Info: [40000]: data_proc                          	                        000001
+# Info: [40000]: MUL                                	                        000010
+# Info: [40000]: BX                                 	                        000100
+# Info: [40000]: BBL                                	                        001000
+# Info: [40000]: LDR_STR                            	                        010000
+# Info: [40000]: miss                               	                        100000
+# Info: [45144]: Extracted FSM in module work.decode(behavioral), with state variable = instruction[5:0], async set/reset state(s) = (none), number of states = 6.
+# Info: [45144]: Re-encoding 6 state FSM as "onehot".
+# Info: [45144]: FSM: State encoding table.
+# Info: [40000]: FSM:	Index	     State Name	                            Literal	                      Encoding
+# Info: [40000]: FSM:	    0	      data_proc	                             000001	                        000001
+# Info: [40000]: FSM:	    1	            MUL	                             000010	                        000010
+# Info: [40000]: FSM:	    2	             BX	                             000100	                        000100
+# Info: [40000]: FSM:	    3	            BBL	                             001000	                        001000
+# Info: [40000]: FSM:	    4	        LDR_STR	                             010000	                        010000
+# Info: [40000]: FSM:	    5	           miss	                             100000	                        100000
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 14: Input port pc_4 has never been used.
+# Info: [44523]: Root Module work.decode(behavioral): Compiling...
+# Info: [45309]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 71: Optimizing state bit(s) imm_value[31:12] to constant 0
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) shift_amt_i[4:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) ldr_str_logic_i[4:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 128: Module work.decode(behavioral), Net(s) instruction[5:0]: Latch inferred.
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 303.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 1.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: compile
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd" ...
+# Info: [656]: Top module of the design is set to: decode.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.decode(behavioral): Pre-processing...
+# Info: [45143]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 42: Enumerated type instruct_type with 6 elements encoded as onehot.
+# Info: [45144]: Encodings for instruct_type values.
+# Info: [40000]: value                              	                 instruct_type[5-0]
+# Info: [40000]: data_proc                          	                        000001
+# Info: [40000]: MUL                                	                        000010
+# Info: [40000]: BX                                 	                        000100
+# Info: [40000]: BBL                                	                        001000
+# Info: [40000]: LDR_STR                            	                        010000
+# Info: [40000]: miss                               	                        100000
+# Info: [45144]: Extracted FSM in module work.decode(behavioral), with state variable = instruction[5:0], async set/reset state(s) = (none), number of states = 6.
+# Info: [45144]: Re-encoding 6 state FSM as "onehot".
+# Info: [45144]: FSM: State encoding table.
+# Info: [40000]: FSM:	Index	     State Name	                            Literal	                      Encoding
+# Info: [40000]: FSM:	    0	      data_proc	                             000001	                        000001
+# Info: [40000]: FSM:	    1	            MUL	                             000010	                        000010
+# Info: [40000]: FSM:	    2	             BX	                             000100	                        000100
+# Info: [40000]: FSM:	    3	            BBL	                             001000	                        001000
+# Info: [40000]: FSM:	    4	        LDR_STR	                             010000	                        010000
+# Info: [40000]: FSM:	    5	           miss	                             100000	                        100000
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 14: Input port pc_4 has never been used.
+# Info: [44523]: Root Module work.decode(behavioral): Compiling...
+# Info: [45309]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 71: Optimizing state bit(s) imm_value[31:12] to constant 0
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) shift_amt_i[4:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) ldr_str_logic_i[4:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 128: Module work.decode(behavioral), Net(s) instruction[5:0]: Latch inferred.
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 303.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 1.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: compile
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd" ...
+# Info: [656]: Top module of the design is set to: decode.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.decode(behavioral): Pre-processing...
+# Info: [45143]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 42: Enumerated type instruct_type with 6 elements encoded as onehot.
+# Info: [45144]: Encodings for instruct_type values.
+# Info: [40000]: value                              	                 instruct_type[5-0]
+# Info: [40000]: data_proc                          	                        000001
+# Info: [40000]: MUL                                	                        000010
+# Info: [40000]: BX                                 	                        000100
+# Info: [40000]: BBL                                	                        001000
+# Info: [40000]: LDR_STR                            	                        010000
+# Info: [40000]: miss                               	                        100000
+# Info: [45144]: Extracted FSM in module work.decode(behavioral), with state variable = instruction[5:0], async set/reset state(s) = (none), number of states = 6.
+# Info: [45144]: Re-encoding 6 state FSM as "onehot".
+# Info: [45144]: FSM: State encoding table.
+# Info: [40000]: FSM:	Index	     State Name	                            Literal	                      Encoding
+# Info: [40000]: FSM:	    0	      data_proc	                             000001	                        000001
+# Info: [40000]: FSM:	    1	            MUL	                             000010	                        000010
+# Info: [40000]: FSM:	    2	             BX	                             000100	                        000100
+# Info: [40000]: FSM:	    3	            BBL	                             001000	                        001000
+# Info: [40000]: FSM:	    4	        LDR_STR	                             010000	                        010000
+# Info: [40000]: FSM:	    5	           miss	                             100000	                        100000
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 14: Input port pc_4 has never been used.
+# Info: [44523]: Root Module work.decode(behavioral): Compiling...
+# Info: [45309]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 71: Optimizing state bit(s) imm_value[31:12] to constant 0
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) shift_amt_i[4:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) ldr_str_logic_i[4:0]: Latch inferred.
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 128: Module work.decode(behavioral), Net(s) instruction[5:0]: Latch inferred.
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 302.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 0.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: compile
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd" ...
+# Info: [656]: Top module of the design is set to: decode.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.decode(behavioral): Pre-processing...
+# Info: [45143]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 42: Enumerated type instruct_type with 6 elements encoded as onehot.
+# Info: [45144]: Encodings for instruct_type values.
+# Info: [40000]: value                              	                 instruct_type[5-0]
+# Info: [40000]: data_proc                          	                        000001
+# Info: [40000]: MUL                                	                        000010
+# Info: [40000]: BX                                 	                        000100
+# Info: [40000]: BBL                                	                        001000
+# Info: [40000]: LDR_STR                            	                        010000
+# Info: [40000]: miss                               	                        100000
+# Info: [45144]: Extracted FSM in module work.decode(behavioral), with state variable = instruction[5:0], async set/reset state(s) = (none), number of states = 6.
+# Info: [45144]: Re-encoding 6 state FSM as "onehot".
+# Info: [45144]: FSM: State encoding table.
+# Info: [40000]: FSM:	Index	     State Name	                            Literal	                      Encoding
+# Info: [40000]: FSM:	    0	      data_proc	                             000001	                        000001
+# Info: [40000]: FSM:	    1	            MUL	                             000010	                        000010
+# Info: [40000]: FSM:	    2	             BX	                             000100	                        000100
+# Info: [40000]: FSM:	    3	            BBL	                             001000	                        001000
+# Info: [40000]: FSM:	    4	        LDR_STR	                             010000	                        010000
+# Info: [40000]: FSM:	    5	           miss	                             100000	                        100000
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 14: Input port pc_4 has never been used.
+# Info: [44523]: Root Module work.decode(behavioral): Compiling...
+# Info: [45309]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 71: Optimizing state bit(s) imm_value[31:12] to constant 0
+# Info: [45205]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 149: Module work.decode(behavioral), Net(s) shift_amt_i[4:0]: Latch inferred.
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 301.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 1.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: compile
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd" ...
+# Info: [656]: Top module of the design is set to: decode.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.decode(behavioral): Pre-processing...
+# Info: [45143]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 42: Enumerated type instruct_type with 6 elements encoded as onehot.
+# Info: [45144]: Encodings for instruct_type values.
+# Info: [40000]: value                              	                 instruct_type[5-0]
+# Info: [40000]: data_proc                          	                        000001
+# Info: [40000]: MUL                                	                        000010
+# Info: [40000]: BX                                 	                        000100
+# Info: [40000]: BBL                                	                        001000
+# Info: [40000]: LDR_STR                            	                        010000
+# Info: [40000]: miss                               	                        100000
+# Info: [45144]: Extracted FSM in module work.decode(behavioral), with state variable = instruction[5:0], async set/reset state(s) = (none), number of states = 6.
+# Info: [45144]: Re-encoding 6 state FSM as "onehot".
+# Info: [45144]: FSM: State encoding table.
+# Info: [40000]: FSM:	Index	     State Name	                            Literal	                      Encoding
+# Info: [40000]: FSM:	    0	      data_proc	                             000001	                        000001
+# Info: [40000]: FSM:	    1	            MUL	                             000010	                        000010
+# Info: [40000]: FSM:	    2	             BX	                             000100	                        000100
+# Info: [40000]: FSM:	    3	            BBL	                             001000	                        001000
+# Info: [40000]: FSM:	    4	        LDR_STR	                             010000	                        010000
+# Info: [40000]: FSM:	    5	           miss	                             100000	                        100000
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 14: Input port pc_4 has never been used.
+# Info: [44523]: Root Module work.decode(behavioral): Compiling...
+# Info: [45309]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 71: Optimizing state bit(s) imm_value[31:12] to constant 0
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 301.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 1.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: set_message_filter -default suppressed
+set_message_filter -default suppressed
+# COMMAND: synthesize
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [15002]: Optimizing design view:.work.decode.behavioral
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/decode.vqm.
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/decode.xrf.
+# Info: -- Writing file /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/decode.tcl
+# Info: exq_pr_compile_project gen_vcf decode 1
+# Info: [657]: Finished synthesizing design.
+# Info: [11019]: Total CPU time for synthesis: 1.2 s secs.
+# Info: [11020]: Overall running time for synthesis: 1.4 s secs.
+synthesize
+# COMMAND: set_message_filter -default suppressed
+set_message_filter -default suppressed
+# COMMAND: set_message_filter -id 671 -suppress true
+# Error: [555]: Option '-suppress' is not allowed: messages with the default severity of 'error' cannot be suppressed.
+set_message_filter -id 671 -suppress true
+# COMMAND: save_project
+# Info: [9562]: Saved implementation decode_impl_1 in project /tp/xph2sei/xph2sei413/ARM-Processor/test/decode.psp.
+save_project
+# COMMAND: close_project -discard
+# Info: [9565]: Appending project transcript to file /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/precision.log
+# Info: [9565]: Appending suppressed messages transcript to file /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/precision.log.suppressed
+# Info: [15297]: Setting up the design to use synthesis library "cycloneii.syn"
+# Info: [573]: The global max fanout is currently set to 1000 for Altera - Cyclone II.
+# Info: [15323]: Setting Part to: "EP2C70F896I".
+# Info: [15324]: Setting Process to: "8".
+# Warning: [568]: Setting 'optimize_power_effort' is not allowed in RTL product mode. Ignoring.
+# Info: [3022]: Reading file: /softslin/precision2014a_64b/Mgc_home/pkgs/psr/techlibs/cycloneii.syn.
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [9550]: Activated implementation decode_impl_1 in project /tp/xph2sei/xph2sei413/ARM-Processor/test/decode.psp.
+open_project /tp/xph2sei/xph2sei413/ARM-Processor/test/decode.psp
+# COMMAND: compile
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd" ...
+# Info: [656]: Top module of the design is set to: decode.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.decode(behavioral): Pre-processing...
+# Info: [45143]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 42: Enumerated type instruct_type with 6 elements encoded as onehot.
+# Info: [45144]: Encodings for instruct_type values.
+# Info: [40000]: value                              	                 instruct_type[5-0]
+# Info: [40000]: data_proc                          	                        000001
+# Info: [40000]: MUL                                	                        000010
+# Info: [40000]: BX                                 	                        000100
+# Info: [40000]: BBL                                	                        001000
+# Info: [40000]: LDR_STR                            	                        010000
+# Info: [40000]: miss                               	                        100000
+# Info: [45144]: Extracted FSM in module work.decode(behavioral), with state variable = instruction[5:0], async set/reset state(s) = (none), number of states = 6.
+# Info: [45144]: Re-encoding 6 state FSM as "onehot".
+# Info: [45144]: FSM: State encoding table.
+# Info: [40000]: FSM:	Index	     State Name	                            Literal	                      Encoding
+# Info: [40000]: FSM:	    0	      data_proc	                             000001	                        000001
+# Info: [40000]: FSM:	    1	            MUL	                             000010	                        000010
+# Info: [40000]: FSM:	    2	             BX	                             000100	                        000100
+# Info: [40000]: FSM:	    3	            BBL	                             001000	                        001000
+# Info: [40000]: FSM:	    4	        LDR_STR	                             010000	                        010000
+# Info: [40000]: FSM:	    5	           miss	                             100000	                        100000
+# Warning: [45729]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 14: Input port pc_4 has never been used.
+# Info: [44523]: Root Module work.decode(behavioral): Compiling...
+# Info: [45309]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd", line 71: Optimizing state bit(s) imm_value[31:12] to constant 0
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 301.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 0.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: synthesize
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1.
+# Info: [15002]: Optimizing design view:.work.decode.behavioral
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/decode.vqm.
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/decode.xrf.
+# Info: -- Writing file /tp/xph2sei/xph2sei413/ARM-Processor/test/decode_impl_1/decode.tcl
+# Info: exq_pr_compile_project gen_vcf decode 1
+# Info: [657]: Finished synthesizing design.
+# Info: [11019]: Total CPU time for synthesis: 1.2 s secs.
+# Info: [11020]: Overall running time for synthesis: 1.3 s secs.
+synthesize
+# COMMAND: close_project -discard
+# Warning: [9526]: Discarded unsaved work in implementation decode_impl_1.

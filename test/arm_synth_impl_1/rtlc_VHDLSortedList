@@ -1,0 +1,11 @@
+work "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" -2002 
+work "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd" -2002 
+work "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/execute.vhd" -2002 
+work "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/decode.vhd" -2002 
+work "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/barrel_shifter.vhd" -2002 
+work "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/ALU.vhd" -2002 
+work "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/memory.vhd" -2002 
+work "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/multiply.vhd" -2002 
+work "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/register_files.vhd" -2002 
+work "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/writeback.vhd" -2002 
+work "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/arm.vhd" -2002 

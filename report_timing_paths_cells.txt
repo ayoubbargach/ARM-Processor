@@ -1,0 +1,105 @@
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : arm
+Version: J-2014.09-SP2
+Date   : Fri Apr 21 20:32:26 2017
+****************************************
+
+Operating Conditions: nom_pvt   Library: c35_CORELIB_TYP
+Wire Load Model Mode: enclosed
+
+  Startpoint: registers_1/rA_data_out_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: execute_1/exe_out_reg[31]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  arm                10k                   c35_CORELIB_TYP
+  multiply_DW02_mult_0
+                     10k                   c35_CORELIB_TYP
+  execute            10k                   c35_CORELIB_TYP
+  ALU                10k                   c35_CORELIB_TYP
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  registers_1/rA_data_out_reg[0]/C (DFE3)                 0.00       5.00 r
+  registers_1/rA_data_out_reg[0]/Q (DFE3)                 0.70       5.70 f
+  registers_1/rA_data_out[0] (registers)                  0.00       5.70 f
+  execute_1/rA_data[0] (execute)                          0.00       5.70 f
+  execute_1/multiply_1/data_inA[0] (multiply)             0.00       5.70 f
+  execute_1/multiply_1/mult_26/A[0] (multiply_DW02_mult_0)
+                                                          0.00       5.70 f
+  execute_1/multiply_1/mult_26/U24/Q (CLKIN12)            0.14       5.85 r
+  execute_1/multiply_1/mult_26/U84/Q (NOR24)              0.12       5.97 f
+  execute_1/multiply_1/mult_26/U23/Q (CLKIN6)             0.07       6.04 r
+  execute_1/multiply_1/mult_26/U29/Q (NAND23)             0.06       6.10 f
+  execute_1/multiply_1/mult_26/U30/Q (NAND24)             0.16       6.26 r
+  execute_1/multiply_1/mult_26/S2_2_28/S (ADD32)          0.55       6.81 r
+  execute_1/multiply_1/mult_26/S2_3_27/S (ADD32)          0.56       7.37 r
+  execute_1/multiply_1/mult_26/S2_4_26/S (ADD32)          0.56       7.94 r
+  execute_1/multiply_1/mult_26/S2_5_25/S (ADD32)          0.57       8.50 r
+  execute_1/multiply_1/mult_26/S2_6_24/S (ADD32)          0.57       9.07 r
+  execute_1/multiply_1/mult_26/S2_7_23/S (ADD32)          0.57       9.64 r
+  execute_1/multiply_1/mult_26/S2_8_22/S (ADD32)          0.56      10.20 r
+  execute_1/multiply_1/mult_26/S2_9_21/S (ADD32)          0.56      10.76 r
+  execute_1/multiply_1/mult_26/S2_10_20/S (ADD32)         0.56      11.32 r
+  execute_1/multiply_1/mult_26/S2_11_19/S (ADD32)         0.56      11.89 r
+  execute_1/multiply_1/mult_26/S2_12_18/S (ADD32)         0.56      12.45 r
+  execute_1/multiply_1/mult_26/S2_13_17/S (ADD32)         0.56      13.01 r
+  execute_1/multiply_1/mult_26/S2_14_16/S (ADD32)         0.56      13.58 r
+  execute_1/multiply_1/mult_26/S2_15_15/S (ADD32)         0.56      14.14 r
+  execute_1/multiply_1/mult_26/S2_16_14/S (ADD32)         0.56      14.71 r
+  execute_1/multiply_1/mult_26/S2_17_13/S (ADD32)         0.56      15.27 r
+  execute_1/multiply_1/mult_26/S2_18_12/S (ADD32)         0.56      15.83 r
+  execute_1/multiply_1/mult_26/S2_19_11/S (ADD32)         0.56      16.40 r
+  execute_1/multiply_1/mult_26/S2_20_10/S (ADD32)         0.56      16.96 r
+  execute_1/multiply_1/mult_26/S2_21_9/S (ADD32)          0.57      17.53 r
+  execute_1/multiply_1/mult_26/S2_22_8/S (ADD32)          0.57      18.10 r
+  execute_1/multiply_1/mult_26/S2_23_7/S (ADD32)          0.57      18.66 r
+  execute_1/multiply_1/mult_26/S2_24_6/S (ADD32)          0.57      19.23 r
+  execute_1/multiply_1/mult_26/S2_25_5/S (ADD32)          0.57      19.79 r
+  execute_1/multiply_1/mult_26/S2_26_4/S (ADD32)          0.57      20.36 r
+  execute_1/multiply_1/mult_26/S2_27_3/S (ADD32)          0.57      20.93 r
+  execute_1/multiply_1/mult_26/S2_28_2/S (ADD32)          0.57      21.49 r
+  execute_1/multiply_1/mult_26/S2_29_1/S (ADD32)          0.56      22.06 r
+  execute_1/multiply_1/mult_26/S1_30_0/CO (ADD32)         0.26      22.32 r
+  execute_1/multiply_1/mult_26/U34/Q (XOR31)              0.68      23.00 r
+  execute_1/multiply_1/mult_26/U85/Q (XOR31)              0.38      23.38 f
+  execute_1/multiply_1/mult_26/PRODUCT[31] (multiply_DW02_mult_0)
+                                                          0.00      23.38 f
+  execute_1/multiply_1/mul_out[31] (multiply)             0.00      23.38 f
+  execute_1/U8/Q (NAND24)                                 0.17      23.55 r
+  execute_1/U7/Q (NAND28)                                 0.06      23.61 f
+  execute_1/ALU_1/data_inA[31] (ALU)                      0.00      23.61 f
+  execute_1/ALU_1/sub_29/A[31] (ALU_DW01_sub_1)           0.00      23.61 f
+  execute_1/ALU_1/sub_29/U2_31/Q (XOR31)                  0.33      23.94 r
+  execute_1/ALU_1/sub_29/DIFF[31] (ALU_DW01_sub_1)        0.00      23.94 r
+  execute_1/ALU_1/U3/Q (NAND43)                           0.07      24.01 f
+  execute_1/ALU_1/U5/Q (NAND43)                           0.35      24.37 r
+  execute_1/ALU_1/result[31] (ALU)                        0.00      24.37 r
+  execute_1/U12/Q (NAND23)                                0.05      24.41 f
+  execute_1/U11/Q (NAND23)                                0.19      24.60 r
+  execute_1/exe_out_reg[31]/D (DFEC1)                     0.00      24.60 r
+  data arrival time                                                 24.60
+
+  clock clk (rise edge)                                  15.00      15.00
+  clock network delay (ideal)                             0.00      15.00
+  execute_1/exe_out_reg[31]/C (DFEC1)                     0.00      15.00 r
+  library setup time                                     -0.12      14.88
+  data required time                                                14.88
+  --------------------------------------------------------------------------
+  data required time                                                14.88
+  data arrival time                                                -24.60
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -9.72
+
+

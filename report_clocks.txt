@@ -1,0 +1,19 @@
+ 
+****************************************
+Report : clocks
+Design : arm
+Version: J-2014.09-SP2
+Date   : Fri Apr 21 20:12:59 2017
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+clk             10.00   {5 10}                        {clk}
+--------------------------------------------------------------------------------

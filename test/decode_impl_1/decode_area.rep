@@ -1,0 +1,47 @@
+//  Precision RTL Synthesis 2014a.1_64-bit (Production Release) Mon Feb 24 02:39:08 PST 2014
+//  
+//  Copyright (c) Mentor Graphics Corporation, 1996-2014, All Rights Reserved.
+//             Portions copyright 1991-2008 Compuware Corporation
+//                       UNPUBLISHED, LICENSED SOFTWARE.
+//            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
+//          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+//  
+//  Running on Linux xph2sei413@cimeld27 #1 SMP Debian 3.2.68-1+deb7u3 3.2.0-4-amd64 x86_64
+//  
+//  Start time Fri Apr 21 17:15:29 2017
+
+***************************************************************
+Device Utilization for EP2C70F896I
+***************************************************************
+Resource                          Used    Avail   Utilization
+---------------------------------------------------------------
+IOs                               171     606      28.22%
+LUTs                              63      68416     0.09%
+Registers                         33      68416     0.05%
+Memory Bits                       0       1152000   0.00%
+DSP block 9-bit elems             0       300       0.00%
+---------------------------------------------------------------
+
+*************************************************
+
+Library: work    Cell: decode    View: behavioral
+
+*************************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     cycloneii     1 x
+ cycloneii_io            cycloneii   139 x      1    139 IOs
+ cycloneii_lcell_comb    cycloneii    63 x      1     63 LUTs
+ cycloneii_lcell_ff      cycloneii    33 x      1     33 Registers
+
+ Number of ports :                     171
+ Number of nets :                      271
+ Number of instances :                 236
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Number of IOs :                       171
+ Number of LUTs :                       63
+ Number of Registers :                  33
+ Number of accumulated instances :     236

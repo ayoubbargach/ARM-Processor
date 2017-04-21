@@ -9,34 +9,79 @@ Z0 d/tp/xph2sei/xph2sei413/ARM-Processor/bench
 !i10e 25
 !i10f 100
 T_opt
-!s110 1491470157
-V293J0ojP=I8?k?3<ocE1a2
-04 12 11 work barrel_bench barrel_arch 1
-=2-bc305b9b1d78-58e6074d-3fe90-213b
+!s110 1492794253
+V3gcK6<gOlfPbQR2[X:TER1
+04 9 10 work arm_bench behavioral 1
+=15-002564c79c52-58fa3b8d-4d5bf-f32
 o-quiet -auto_acc_if_foreign -work lib_BENCH
 n@_opt
 OL;O;10.2c;57
-Ebarrel_bench
-Z1 w1491470144
+Earm_bench
+Z1 w1492794243
 Z2 DPx4 work 17 instruction_field 0 22 9Bh:GN2QR;Eihb4]J]:853
 Z3 DPx12 modelsim_lib 4 util 0 22 =5PmC60CdKjE9E[7_TDUk0
 Z4 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
 Z5 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
 Z6 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
 Z7 d/tp/xph2sei/xph2sei413/ARM-Processor/bench
-Z8 8barrel_bench.vhd
-Z9 Fbarrel_bench.vhd
+Z8 8arm_bench.vhd
+Z9 Farm_bench.vhd
+l0
+L12
+VWDO@5`dE@iim?IgiG_T592
+Z10 OL;C;10.2c;57
+32
+Z11 !s110 1492794249
+Z12 !s108 1492794249.523435
+Z13 !s90 +acc|-work|lib_BENCH|arm_bench.vhd|
+Z14 !s107 arm_bench.vhd|
+Z15 o+acc -work lib_BENCH
+Z16 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
+!s100 _V;KXco^N_V4]^41;B38=3
+!i10b 1
+!i111 0
+Abehavioral
+R2
+R3
+R4
+R5
+R6
+DEx4 work 9 arm_bench 0 22 WDO@5`dE@iim?IgiG_T592
+l63
+L16
+VMR]]iULf9bLP2^aD=P5hl1
+R10
+32
+R11
+R12
+R13
+R14
+R15
+R16
+!s100 Gg^P[AQO4jNYF6NeDQ9?K0
+!i10b 1
+!i111 0
+Ebarrel_bench
+Z17 w1491470144
+R2
+R3
+R4
+R5
+R6
+R7
+Z18 8barrel_bench.vhd
+Z19 Fbarrel_bench.vhd
 l0
 L12
 VKAX3FHEZ^oBkicZb<PDB:3
-Z10 OL;C;10.2c;57
+R10
 32
-Z11 !s110 1491470150
-Z12 !s108 1491470150.541067
-Z13 !s90 +acc|-work|lib_BENCH|barrel_bench.vhd|
-Z14 !s107 barrel_bench.vhd|
-Z15 o+acc -work lib_BENCH
-Z16 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
+R11
+Z20 !s108 1492794249.301621
+Z21 !s90 +acc|-work|lib_BENCH|barrel_bench.vhd|
+Z22 !s107 barrel_bench.vhd|
+R15
+R16
 !s100 YEd69GK=ARk5zGP7:dRQ>2
 !i10b 1
 !i111 0
@@ -53,33 +98,33 @@ VfO;DNF^B:AIT^YKbn@Z<V2
 R10
 32
 R11
-R12
-R13
-R14
+R20
+R21
+R22
 R15
 R16
 !s100 TN6D;YDSE;VeJnQ=HOmmo2
 !i10b 1
 !i111 0
 Ebench_alu
-Z17 w1490015825
+Z23 w1490015825
 R2
 R3
 R4
 R5
 R6
 R7
-Z18 8ALU_bench.vhd
-Z19 FALU_bench.vhd
+Z24 8ALU_bench.vhd
+Z25 FALU_bench.vhd
 l0
 L12
 V;4F4bXQmkIaIRSHYObh2@3
 R10
 32
 R11
-Z20 !s108 1491470150.379090
-Z21 !s90 +acc|-work|lib_BENCH|ALU_bench.vhd|
-Z22 !s107 ALU_bench.vhd|
+Z26 !s108 1492794249.163020
+Z27 !s90 +acc|-work|lib_BENCH|ALU_bench.vhd|
+Z28 !s107 ALU_bench.vhd|
 R15
 R16
 !s100 9AO]65n]T]0dZjJIZ>m7m0
@@ -98,12 +143,57 @@ VmLb?]L[M83Me]0RU4U0zM0
 R10
 32
 R11
-R20
-R21
-R22
+R26
+R27
+R28
 R15
 R16
 !s100 I`7W`b4^fbVe3J<b4XZ802
+!i10b 1
+!i111 0
+Ebench_decode_execute
+Z29 w1492782795
+R2
+R3
+R4
+R5
+R6
+R7
+Z30 8decode_execute_bench.vhd
+Z31 Fdecode_execute_bench.vhd
+l0
+L12
+VX70T2PcilmjFiNC5cJDdl3
+R10
+32
+R11
+Z32 !s108 1492794249.372824
+Z33 !s90 +acc|-work|lib_BENCH|decode_execute_bench.vhd|
+Z34 !s107 decode_execute_bench.vhd|
+R15
+R16
+!s100 `z5`8]7AJMaJNcTUBfeF?2
+!i10b 1
+!i111 0
+Abench_dec_exe
+R2
+R3
+R4
+R5
+R6
+DEx4 work 20 bench_decode_execute 0 22 X70T2PcilmjFiNC5cJDdl3
+l143
+L16
+V@6Zk_dUE1<j4@XWgBNS?52
+R10
+32
+R11
+R32
+R33
+R34
+R15
+R16
+!s100 i8zo26k>mV3>Nj2CSzf4j2
 !i10b 1
 !i111 0
 Ebench_execute
@@ -126,29 +216,29 @@ R15
 R16
 !s100 ZEzdGo_Gh]5[^CDIP_g<B0
 !i10b 1
-!s108 1491470150.462093
+!s108 1492794249.232231
 !s90 +acc|-work|lib_BENCH|execute_bench.vhd|
 !s107 execute_bench.vhd|
 !i111 0
 Ebench_fetch
-Z23 w1489647946
+Z35 w1489647946
 R2
 R3
 R4
 R5
 R6
 R7
-Z24 8fetch_bench.vhd
-Z25 Ffetch_bench.vhd
+Z36 8fetch_bench.vhd
+Z37 Ffetch_bench.vhd
 l0
 L12
 VdKoKEm5=Hd99n9nO4M7h]2
 R10
 32
 R11
-Z26 !s108 1491470150.296393
-Z27 !s90 +acc|-work|lib_BENCH|fetch_bench.vhd|
-Z28 !s107 fetch_bench.vhd|
+Z38 !s108 1492794249.089439
+Z39 !s90 +acc|-work|lib_BENCH|fetch_bench.vhd|
+Z40 !s107 fetch_bench.vhd|
 R15
 R16
 !s100 EQbMoe^hj40hNBbNORiI;3
@@ -167,33 +257,33 @@ V[?^L0fSNkSi2_ekEW3ea53
 R10
 32
 R11
-R26
-R27
-R28
+R38
+R39
+R40
 R15
 R16
 !s100 iB7nQcdM[]6V5ROS3mOg23
 !i10b 1
 !i111 0
 Ebench_register
-Z29 w1488804419
+Z41 w1488804419
 R2
 R3
 R4
 R5
 R6
 R7
-Z30 8register_bench.vhd
-Z31 Fregister_bench.vhd
+Z42 8register_bench.vhd
+Z43 Fregister_bench.vhd
 l0
 L12
 V88TkLLKZa9oekzD;>52Pf3
 R10
 32
 R11
-Z32 !s108 1491470150.214136
-Z33 !s90 +acc|-work|lib_BENCH|register_bench.vhd|
-Z34 !s107 register_bench.vhd|
+Z44 !s108 1492794249.007850
+Z45 !s90 +acc|-work|lib_BENCH|register_bench.vhd|
+Z46 !s107 register_bench.vhd|
 R15
 R16
 !s100 OBjhYb37m6HB:idoee`6E1
@@ -212,12 +302,57 @@ VG9_YiTbe]M7TB9f1KImzo0
 R10
 32
 R11
-R32
-R33
-R34
+R44
+R45
+R46
 R15
 R16
 !s100 iJdeJhi:KM:eO9LagTQnK0
+!i10b 1
+!i111 0
+Efetch_cache
+R29
+R2
+R3
+R4
+R5
+R6
+R7
+Z47 8fetch_cache.vhd
+Z48 Ffetch_cache.vhd
+l0
+L12
+VBHfAXQUfSW?ablilXg7TW2
+R10
+32
+R11
+Z49 !s108 1492794249.452703
+Z50 !s90 +acc|-work|lib_BENCH|fetch_cache.vhd|
+Z51 !s107 fetch_cache.vhd|
+R15
+R16
+!s100 `Y;Yke>BN?gQ[kZI=ILgR1
+!i10b 1
+!i111 0
+Abehavioral
+R2
+R3
+R4
+R5
+R6
+DEx4 work 11 fetch_cache 0 22 BHfAXQUfSW?ablilXg7TW2
+l58
+L16
+V[Pib2RgVc9n9IKdN3?CUM3
+R10
+32
+R11
+R49
+R50
+R51
+R15
+R16
+!s100 ofE]M7>^3Q[]>OjRE@m=m0
 !i10b 1
 !i111 0
 Pinstruction_field
@@ -234,10 +369,55 @@ R10
 32
 R15
 R16
-R11
 !s100 h6<SfeJA8jWf:Fc_20X>I1
+!s110 1492794248
 !i10b 1
-!s108 1491470150.108109
+!s108 1492794248.912900
 !s90 +acc|-work|lib_BENCH|../vhd/instruct_package.vhd|
 !s107 ../vhd/instruct_package.vhd|
+!i111 0
+Emem_bench
+R29
+R2
+R3
+R4
+R5
+R6
+R7
+Z52 8memory_bench.vhd
+Z53 Fmemory_bench.vhd
+l0
+L12
+VG1mFQIaNB5G7CzGnofk`>1
+R10
+32
+R11
+Z54 !s108 1492794249.601884
+Z55 !s90 +acc|-work|lib_BENCH|memory_bench.vhd|
+Z56 !s107 memory_bench.vhd|
+R15
+R16
+!s100 >;^oFlbFPU:g7]iPSCb=93
+!i10b 1
+!i111 0
+Abehavioral
+R2
+R3
+R4
+R5
+R6
+DEx4 work 9 mem_bench 0 22 G1mFQIaNB5G7CzGnofk`>1
+l59
+L16
+VD[0mN6FX:zTEX^IKb884N0
+R10
+32
+R11
+R54
+R55
+R56
+R15
+R16
+!s100 JZ636Ygjc=c]aPIQnNTHh0
+!i10b 1
 !i111 0

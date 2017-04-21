@@ -1,0 +1,11 @@
+execute execute
+fetch fetch
+arm arm
+ALU ALU
+multiply multiply
+registers registers
+memory memory
+barrelshifter barrelshifter
+decode decode
+writeback writeback
+#LEGALIZEDMOD_COUNTER 0

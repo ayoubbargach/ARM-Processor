@@ -1,0 +1,6 @@
+#### austriamicrosystems Encounter Setup Creation
+#--- Hit-Kit: /softslin/AMS_410_CDS
+#--- 
+#--- Using Encounter Version: EDI10.1USR2 
+source /tools/.edi101usr2rc 
+

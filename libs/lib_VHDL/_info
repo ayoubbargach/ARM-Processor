@@ -9,7 +9,7 @@ Z0 d/tp/xph2sei/xph2sei413/ARM-Processor/vhd
 !i10e 25
 !i10f 100
 Ealu
-Z1 w1491470597
+Z1 w1492782795
 Z2 DPx4 work 17 instruction_field 0 22 S@]2j_H6LE@jH8z9kQZIe0
 Z3 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
 Z4 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
@@ -22,8 +22,8 @@ L7
 VgdzK;aZTEE8WE9mM_J3@S2
 Z9 OL;C;10.2c;57
 32
-Z10 !s110 1491571084
-Z11 !s108 1491571084.904477
+Z10 !s110 1492791695
+Z11 !s108 1492791695.145092
 Z12 !s90 +acc|-work|lib_VHDL|ALU.vhd|
 Z13 !s107 ALU.vhd|
 Z14 o+acc -work lib_VHDL
@@ -39,7 +39,7 @@ R5
 DEx4 work 3 alu 0 22 gdzK;aZTEE8WE9mM_J3@S2
 l24
 L18
-VIFg7V[OY0:^66P7E:H2k53
+VkB^8NX5UJV<U]ZYUYHZVF0
 R9
 32
 R10
@@ -48,32 +48,75 @@ R12
 R13
 R14
 R15
-!s100 z;95H<kKfmi_]VcTdeM9I2
+!s100 ZH36G3J4KW60em0U7j?H<0
 !i10b 1
 !i111 0
-Ebarrelshifter
-Z16 w1491468980
+Earm
+Z16 w1492791620
 R2
 R3
 R4
 R5
 R6
-Z17 8barrel_shifter.vhd
-Z18 Fbarrel_shifter.vhd
+Z17 8arm.vhd
+Z18 Farm.vhd
+l0
+L7
+VYTzH0G`W>QOWIEodQioTl1
+R9
+32
+R10
+Z19 !s108 1492791695.517399
+Z20 !s90 +acc|-work|lib_VHDL|arm.vhd|
+Z21 !s107 arm.vhd|
+R14
+R15
+!s100 4ISNzE[HPUiRfM>]6H[B>1
+!i10b 1
+!i111 0
+Artl
+R2
+R3
+R4
+R5
+DEx4 work 3 arm 0 22 YTzH0G`W>QOWIEodQioTl1
+l210
+L26
+V:KY1h1Rc7hA>g_1=oOdKU1
+R9
+32
+R10
+R19
+R20
+R21
+R14
+R15
+!s100 dl<4maYnNmk]4Q9[Haz;Z0
+!i10b 1
+!i111 0
+Ebarrelshifter
+Z22 w1491572814
+R2
+R3
+R4
+R5
+R6
+Z23 8barrel_shifter.vhd
+Z24 Fbarrel_shifter.vhd
 l0
 L7
 Vz3MZeRF=Z<X@BU^FY@k;H3
-!s100 ]lINkag3YRfecn38[e3zY1
 R9
 32
-Z19 !s110 1491571085
-!i10b 1
-Z20 !s108 1491571084.979376
-Z21 !s90 +acc|-work|lib_VHDL|barrel_shifter.vhd|
-Z22 !s107 barrel_shifter.vhd|
-!i111 0
+R10
+Z25 !s108 1492791695.221679
+Z26 !s90 +acc|-work|lib_VHDL|barrel_shifter.vhd|
+Z27 !s107 barrel_shifter.vhd|
 R14
 R15
+!s100 ]lINkag3YRfecn38[e3zY1
+!i10b 1
+!i111 0
 Artl
 R2
 R3
@@ -83,38 +126,38 @@ DEx4 work 13 barrelshifter 0 22 z3MZeRF=Z<X@BU^FY@k;H3
 l24
 L19
 VRf:0N9^3cFf240zolYIEe1
-!s100 6LdPQflQoFGAPgN4GRQoe1
 R9
 32
-R19
-!i10b 1
-R20
-R21
-R22
-!i111 0
+R10
+R25
+R26
+R27
 R14
 R15
+!s100 6LdPQflQoFGAPgN4GRQoe1
+!i10b 1
+!i111 0
 Edecode
-Z23 w1491570221
+Z28 w1492787573
 R2
 R3
 R4
 R5
 R6
-Z24 8decode.vhd
-Z25 Fdecode.vhd
+Z29 8decode.vhd
+Z30 Fdecode.vhd
 l0
 L7
-V?WSO9AGSQd><9UFicYP162
+V=IHQM0>AC?1ZFI49jKf163
 R9
 32
 R10
-Z26 !s108 1491571084.752394
-Z27 !s90 +acc|-work|lib_VHDL|decode.vhd|
-Z28 !s107 decode.vhd|
+Z31 !s108 1492791694.981837
+Z32 !s90 +acc|-work|lib_VHDL|decode.vhd|
+Z33 !s107 decode.vhd|
 R14
 R15
-!s100 Y0VfJTMOmV@`e8n1T9CMz2
+!s100 LdlZF;2UhZ:QFcH2KV=HC1
 !i10b 1
 !i111 0
 Abehavioral
@@ -122,42 +165,42 @@ R2
 R3
 R4
 R5
-DEx4 work 6 decode 0 22 ?WSO9AGSQd><9UFicYP162
-l48
-L30
-V=ePKGh6UGDG=R_P`<BCPK2
+DEx4 work 6 decode 0 22 =IHQM0>AC?1ZFI49jKf163
+l67
+L40
+VRE@7akmdP6QCS26eP>M`J1
 R9
 32
 R10
-R26
-R27
-R28
+R31
+R32
+R33
 R14
 R15
-!s100 =1899hnAB0_?RZkKf8k?S3
+!s100 HCM;J>U1?AiQA1n@@^[`E2
 !i10b 1
 !i111 0
 Eexecute
-Z29 w1491472839
+Z34 w1492788316
 R2
 R3
 R4
 R5
 R6
-Z30 8execute.vhd
-Z31 Fexecute.vhd
+Z35 8execute.vhd
+Z36 Fexecute.vhd
 l0
 L7
-VI`c@ei=_TKaf]ci;EZUDD0
+V@9lz4U0XU;KLBJWn5mQRF2
 R9
 32
 R10
-Z32 !s108 1491571084.827003
-Z33 !s90 +acc|-work|lib_VHDL|execute.vhd|
-Z34 !s107 execute.vhd|
+Z37 !s108 1492791695.066018
+Z38 !s90 +acc|-work|lib_VHDL|execute.vhd|
+Z39 !s107 execute.vhd|
 R14
 R15
-!s100 Tm:fYX?;CLb91FYcn0Noa3
+!s100 C;bSAOiMYc@d251B8gJOS3
 !i10b 1
 !i111 0
 Abehavioral
@@ -165,42 +208,42 @@ R2
 R3
 R4
 R5
-DEx4 work 7 execute 0 22 I`c@ei=_TKaf]ci;EZUDD0
-l59
-L31
-VdWPPQFBVT<A`V:]Z4YLNG3
+DEx4 work 7 execute 0 22 @9lz4U0XU;KLBJWn5mQRF2
+l89
+L43
+V>]P@?iR0e<R21>RMAeQ^[2
 R9
 32
 R10
-R32
-R33
-R34
+R37
+R38
+R39
 R14
 R15
-!s100 I5TLm_29`E4kz@I60`g693
+!s100 f]^XH25gif@1Qcm[hW^3G2
 !i10b 1
 !i111 0
 Efetch
-Z35 w1489653499
+Z40 w1492784519
 R2
 R3
 R4
 R5
 R6
-Z36 8fetch.vhd
-Z37 Ffetch.vhd
+Z41 8fetch.vhd
+Z42 Ffetch.vhd
 l0
 L7
-V_mkIP8oOHDl=`a4@B3:JC0
+VWkVHDBzTP`z<>DzN^BAXd2
 R9
 32
-R10
-Z38 !s108 1491571084.677924
-Z39 !s90 +acc|-work|lib_VHDL|fetch.vhd|
-Z40 !s107 fetch.vhd|
+Z43 !s110 1492791694
+Z44 !s108 1492791694.905119
+Z45 !s90 +acc|-work|lib_VHDL|fetch.vhd|
+Z46 !s107 fetch.vhd|
 R14
 R15
-!s100 VhWT4TJ0]ZIN@bS<]nf;E1
+!s100 H_ln6cR85WG6CaaFXDf_^3
 !i10b 1
 !i111 0
 Abehavioral
@@ -208,19 +251,62 @@ R2
 R3
 R4
 R5
-DEx4 work 5 fetch 0 22 _mkIP8oOHDl=`a4@B3:JC0
-l25
-L20
-VR^DfPoOMY1iRYD]9LFNEL2
+DEx4 work 5 fetch 0 22 WkVHDBzTP`z<>DzN^BAXd2
+l32
+L23
+V_jd0^N8C^^?U84oAVhTQM3
+R9
+32
+R43
+R44
+R45
+R46
+R14
+R15
+!s100 8QQObz`KAIEUlk1N7gkJm3
+!i10b 1
+!i111 0
+Einstr_cache
+Z47 w1492783380
+R2
+R3
+R4
+R5
+R6
+Z48 8instruction_cache.vhd
+Z49 Finstruction_cache.vhd
+l0
+L7
+VDgZiJdVj0DE[GzEh:=_jf1
 R9
 32
 R10
-R38
-R39
-R40
+Z50 !s108 1492791695.444126
+Z51 !s90 +acc|-work|lib_VHDL|instruction_cache.vhd|
+Z52 !s107 instruction_cache.vhd|
 R14
 R15
-!s100 :EA54z[e0zSnD_jGz3RYS0
+!s100 h:zNC6X=@]Be<@z=YT^CQ2
+!i10b 1
+!i111 0
+Artl
+R2
+R3
+R4
+R5
+DEx4 work 11 instr_cache 0 22 DgZiJdVj0DE[GzEh:=_jf1
+l32
+L23
+Vh0WRg9EdQ88W2@oWOTBEF1
+R9
+32
+R10
+R50
+R51
+R52
+R14
+R15
+!s100 UlPcC1=cBUgS_Gz_Ykm0B0
 !i10b 1
 !i111 0
 Pinstruction_field
@@ -237,51 +323,180 @@ R9
 32
 R14
 R15
-R10
+R43
 !s100 h6<SfeJA8jWf:Fc_20X>I1
 !i10b 1
-!s108 1491571084.496547
+!s108 1492791694.731684
 !s90 +acc|-work|lib_VHDL|instruct_package.vhd|
 !s107 instruct_package.vhd|
 !i111 0
-Eregisters
-Z41 w1488804242
+Ememory
+Z53 w1492790071
+R2
+R5
+R4
+R3
+R6
+Z54 8memory.vhd
+Z55 Fmemory.vhd
+l0
+L7
+Vaz@caYV[[;]XF[M:<>kUJ2
+R9
+32
+R10
+Z56 !s108 1492791695.295723
+Z57 !s90 +acc|-work|lib_VHDL|memory.vhd|
+Z58 !s107 memory.vhd|
+R14
+R15
+!s100 ojb[TPiK@[CLl3F0cegmV3
+!i10b 1
+!i111 0
+Artl
+R2
+R5
+R4
+R3
+DEx4 work 6 memory 0 22 az@caYV[[;]XF[M:<>kUJ2
+l42
+L31
+VT<JnNePZ1UHGXQ3le3`571
+R9
+32
+R10
+R56
+R57
+R58
+R14
+R15
+!s100 8;TN3WbbnYfe9WPmnT_iE3
+!i10b 1
+!i111 0
+Emultiply
+Z59 w1492788596
+R2
 R3
 R4
 R5
 R6
-Z42 8register_files.vhd
-Z43 Fregister_files.vhd
+Z60 8multiply.vhd
+Z61 Fmultiply.vhd
 l0
-L5
-VQ7ki5Z91YRK2zfoeGMh^=0
+L7
+V`0^6V4GRnVl:Y<>20LYCK3
+!s100 H;7]1PddYjL@]^]U;RQTK0
 R9
 32
 R10
-Z44 !s108 1491571084.597075
-Z45 !s90 +acc|-work|lib_VHDL|register_files.vhd|
-Z46 !s107 register_files.vhd|
+!i10b 1
+Z62 !s108 1492791695.597901
+Z63 !s90 +acc|-work|lib_VHDL|multiply.vhd|
+Z64 !s107 multiply.vhd|
+!i111 0
 R14
 R15
-!s100 UZ8J:cn;G]L:XoF5P=KbN0
+Artl
+R2
+R3
+R4
+R5
+DEx4 work 8 multiply 0 22 `0^6V4GRnVl:Y<>20LYCK3
+l21
+L17
+V2?K<QaGfU5SkMHW:JSU3z3
+!s100 PZfk:ehFdzHngABB4kMId3
+R9
+32
+R10
+!i10b 1
+R62
+R63
+R64
+!i111 0
+R14
+R15
+Eregisters
+Z65 w1491572773
+R3
+R4
+R5
+R6
+Z66 8register_files.vhd
+Z67 Fregister_files.vhd
+l0
+L5
+V;Vjc?R[@7>_^jF92@9`7<3
+R9
+32
+R43
+Z68 !s108 1492791694.831045
+Z69 !s90 +acc|-work|lib_VHDL|register_files.vhd|
+Z70 !s107 register_files.vhd|
+R14
+R15
+!s100 egICIPJfGCn[nNMQ84D[W0
 !i10b 1
 !i111 0
 Abehavioral
 R3
 R4
 R5
-DEx4 work 9 registers 0 22 Q7ki5Z91YRK2zfoeGMh^=0
-l25
-L21
-VmBfl5k^:n4U4JYR3AMYel3
+DEx4 work 9 registers 0 22 ;Vjc?R[@7>_^jF92@9`7<3
+l27
+L23
+VkQWlTRO]VJmKCRdokAd?E1
+R9
+32
+R43
+R68
+R69
+R70
+R14
+R15
+!s100 =NN8lNhcFXil<;AgKc3M<1
+!i10b 1
+!i111 0
+Ewriteback
+Z71 w1492790270
+R2
+R3
+R4
+R5
+R6
+Z72 8writeback.vhd
+Z73 Fwriteback.vhd
+l0
+L7
+VSVOdfmHAzk4DU<k[_HMgh0
 R9
 32
 R10
-R44
-R45
-R46
+Z74 !s108 1492791695.370222
+Z75 !s90 +acc|-work|lib_VHDL|writeback.vhd|
+Z76 !s107 writeback.vhd|
 R14
 R15
-!s100 8?T7Y5@Y8CngILE<[_OWX0
+!s100 KRM<kjg9]5HTX7JiLhCT80
+!i10b 1
+!i111 0
+Artl
+R2
+R3
+R4
+R5
+DEx4 work 9 writeback 0 22 SVOdfmHAzk4DU<k[_HMgh0
+l28
+L23
+VM_m9URjFHc56WCYS`@IHh2
+R9
+32
+R10
+R74
+R75
+R76
+R14
+R15
+!s100 SFJVRCd5HB>ooW21Y9FiD1
 !i10b 1
 !i111 0

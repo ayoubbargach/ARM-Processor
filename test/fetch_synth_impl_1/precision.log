@@ -1,0 +1,173 @@
+# Info: [9566]: Logging project transcript to file /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1/precision.log
+# Info: [9566]: Logging suppressed messages transcript to file /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1/precision.log.suppressed
+# Info: [9550]: Activated implementation fetch_synth_impl_1 in project /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth.psp.
+new_project -name fetch_synth -folder /tp/xph2sei/xph2sei413/ARM-Processor/test -createimpl_name fetch_synth_impl_1
+# COMMAND: add_input_file {../vhd/fetch.vhd}
+add_input_file {../vhd/fetch.vhd}
+# COMMAND: setup_design -manufacturer Altera -family "Cyclone II" -part EP2C70F896I -speed 8
+# Info: [15297]: Setting up the design to use synthesis library "cycloneii.syn"
+# Info: [573]: The global max fanout is currently set to 1000 for Altera - Cyclone II.
+# Info: [15323]: Setting Part to: "EP2C70F896I".
+# Info: [15324]: Setting Process to: "8".
+setup_design -manufacturer Altera -family "Cyclone II" -part EP2C70F896I -speed 8
+# COMMAND: setup_design -frequency 100 -max_fanout=1000
+# Info: [573]: The global max fanout is currently set to 1000 for Altera - Cyclone II.
+setup_design -frequency 100 -max_fanout=1000
+# COMMAND: compile
+# Info: [3022]: Reading file: /softslin/precision2014a_64b/Mgc_home/pkgs/psr/techlibs/cycloneii.syn.
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Warning: [40000]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd", line 5: No such Package instruction_field is visible
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd" ...
+# Warning: [43092]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd", line 5: instruction_field does not denote a library or package.
+# Info: [656]: Top module of the design is set to: fetch.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.fetch(behavioral): Pre-processing...
+# Info: [44523]: Root Module work.fetch(behavioral): Compiling...
+# Info: [44812]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd", line 37: Sharing register count with fetch_ok
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 75.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 1.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [9029]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd", line 62: : Inferred selective counter Instance 'instance:ix95' of type 'cell:selcounter_30_30_30_0_1_up'
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: synthesize
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1.
+# Info: [15002]: Optimizing design view:.work.fetch.behavioral
+# Info: [15112]: 8 I/O registers on critical path unpacked.
+# Info: [12045]: Starting timing reports generation...
+# Info: [12046]: Timing reports generation done.
+# Info: [12047]: POST-SYNTHESIS TIMING REPORTS ARE ESTIMATES AND SHOULD NOT BE RELIED ON TO MAKE QoR DECISIONS. For accurate timing information, please run place-and-route (P&R) and review P&R generated timing reports.
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1/fetch.vqm.
+# Info: Info, Writing xrf file '/tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1/fetch.xrf'
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1/fetch.xrf.
+# Info: -- Writing file /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1/fetch.tcl
+# Info: exq_pr_compile_project gen_vcf fetch 1
+# Info: [657]: Finished synthesizing design.
+# Info: [11019]: Total CPU time for synthesis: 1.1 s secs.
+# Info: [11020]: Overall running time for synthesis: 1.2 s secs.
+synthesize
+# COMMAND: add_input_file {../vhd/instruct_package.vhd}
+add_input_file {../vhd/instruct_package.vhd}
+# COMMAND: compile
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd" ...
+# Info: [656]: Top module of the design is set to: fetch.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.fetch(behavioral): Pre-processing...
+# Info: [44523]: Root Module work.fetch(behavioral): Compiling...
+# Info: [44812]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd", line 37: Sharing register count with fetch_ok
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 75.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 0.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [9029]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd", line 62: : Inferred selective counter Instance 'instance:ix95' of type 'cell:selcounter_30_30_30_0_1_up'
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: synthesize
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1.
+# Info: [15002]: Optimizing design view:.work.fetch.behavioral
+# Info: [15112]: 8 I/O registers on critical path unpacked.
+# Info: [12045]: Starting timing reports generation...
+# Info: [12046]: Timing reports generation done.
+# Info: [12047]: POST-SYNTHESIS TIMING REPORTS ARE ESTIMATES AND SHOULD NOT BE RELIED ON TO MAKE QoR DECISIONS. For accurate timing information, please run place-and-route (P&R) and review P&R generated timing reports.
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1/fetch.vqm.
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1/fetch.xrf.
+# Info: -- Writing file /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1/fetch.tcl
+# Info: exq_pr_compile_project gen_vcf fetch 1
+# Info: [657]: Finished synthesizing design.
+# Info: [11019]: Total CPU time for synthesis: 1.0 s secs.
+# Info: [11020]: Overall running time for synthesis: 1.2 s secs.
+synthesize
+# COMMAND: close_project -discard
+# Warning: [9526]: Discarded unsaved work in implementation fetch_synth_impl_1.
+# Info: [9565]: Appending project transcript to file /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1/precision.log
+# Info: [9565]: Appending suppressed messages transcript to file /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1/precision.log.suppressed
+# Info: [9550]: Activated implementation fetch_synth_impl_1 in project /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth.psp.
+open_project /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth.psp
+# COMMAND: add_input_file {../vhd/fetch.vhd ../vhd/instruct_package.vhd}
+add_input_file {../vhd/fetch.vhd ../vhd/instruct_package.vhd}
+# COMMAND: move_input_file_to_bottom -from {0}
+move_input_file_to_bottom -from {0}
+# COMMAND: setup_design -manufacturer Altera -family "Cyclone II" -part EP2C70F896I -speed 8
+# Info: [15297]: Setting up the design to use synthesis library "cycloneii.syn"
+# Info: [573]: The global max fanout is currently set to 1000 for Altera - Cyclone II.
+# Info: [15323]: Setting Part to: "EP2C70F896I".
+# Info: [15324]: Setting Process to: "8".
+setup_design -manufacturer Altera -family "Cyclone II" -part EP2C70F896I -speed 8
+# COMMAND: setup_design -frequency 100 -max_fanout=1000
+# Info: [573]: The global max fanout is currently set to 1000 for Altera - Cyclone II.
+setup_design -frequency 100 -max_fanout=1000
+# COMMAND: compile
+# Info: [3022]: Reading file: /softslin/precision2014a_64b/Mgc_home/pkgs/psr/techlibs/cycloneii.syn.
+# Info: [631]: Loading library initialization file /softslin/precision2014a_64b/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2014a.1
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2014a.1
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/instruct_package.vhd" ...
+# Info: [42502]: Analyzing input file "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd" ...
+# Info: [656]: Top module of the design is set to: fetch.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 20:01:23
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2014a.1
+# Info: [40000]: Last compiled on Feb 21 2014 08:49:08
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.fetch(behavioral): Pre-processing...
+# Info: [44523]: Root Module work.fetch(behavioral): Compiling...
+# Info: [44812]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd", line 37: Sharing register count with fetch_ok
+# Info: [44842]: Compilation successfully completed.
+# Info: [44856]: Total lines of RTL compiled: 75.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 1.0 secs.
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1.
+# Info: [15329]: Doing rtl optimizations.
+# Info: [9029]: "/tp/xph2sei/xph2sei413/ARM-Processor/test/../vhd/fetch.vhd", line 62: : Inferred selective counter Instance 'instance:ix95' of type 'cell:selcounter_30_30_30_0_1_up'
+# Info: [657]: Finished compiling design.
+compile
+# COMMAND: synthesize
+# Info: [654]: Current working directory: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1.
+# Info: [15002]: Optimizing design view:.work.fetch.behavioral
+# Info: [15112]: 8 I/O registers on critical path unpacked.
+# Info: [12045]: Starting timing reports generation...
+# Info: [12046]: Timing reports generation done.
+# Info: [12047]: POST-SYNTHESIS TIMING REPORTS ARE ESTIMATES AND SHOULD NOT BE RELIED ON TO MAKE QoR DECISIONS. For accurate timing information, please run place-and-route (P&R) and review P&R generated timing reports.
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1/fetch.vqm.
+# Info: [3027]: Writing file: /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1/fetch.xrf.
+# Info: -- Writing file /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth_impl_1/fetch.tcl
+# Info: exq_pr_compile_project gen_vcf fetch 1
+# Info: [657]: Finished synthesizing design.
+# Info: [11019]: Total CPU time for synthesis: 1.1 s secs.
+# Info: [11020]: Overall running time for synthesis: 1.2 s secs.
+synthesize
+# COMMAND: save_project
+# Info: [9562]: Saved implementation fetch_synth_impl_1 in project /tp/xph2sei/xph2sei413/ARM-Processor/test/fetch_synth.psp.
+save_project
+# COMMAND: close_project -discard

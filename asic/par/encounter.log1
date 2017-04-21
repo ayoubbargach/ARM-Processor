@@ -1,0 +1,99 @@
+Checking out Encounter license ...
+Encounter_Digital_Impl_Sys_XL 10.1 license checkout succeeded.
+You can run 2 CPU jobs with the base license that is currently checked out.
+If required, use the setMultiCpuUsage command to enable multi-CPU processing.
+This Encounter release has been compiled with OA version 22.04-p001.
+
+*******************************************************************
+*   Copyright (c)  Cadence Design Systems, Inc.  1996 - 2010.     *
+*                     All rights reserved.                        *
+*                                                                 *
+*                                                                 *
+*                                                                 *
+* This program contains confidential and trade secret information *
+* of Cadence Design Systems, Inc. and is protected by copyright   *
+* law and international treaties.  Any reproduction, use,         *
+* distribution or disclosure of this program or any portion of it,*
+* or any attempt to obtain a human-readable version of this       *
+* program, without the express, prior written consent of          *
+* Cadence Design Systems, Inc., is strictly prohibited.           *
+*                                                                 *
+*                 Cadence Design Systems, Inc.                    *
+*                    2655 Seely Avenue                            *
+*                   San Jose, CA 95134,  USA                      *
+*                                                                 *
+*                                                                 *
+*******************************************************************
+
+@(#)CDS: Encounter v10.10-s002_1 (64bit) 01/11/2011 22:20 (Linux 2.6)
+@(#)CDS: NanoRoute v10.10-s002 NR110110-1725/USR66-UB (database version 2.30, 109.2.1) {superthreading v1.15}
+@(#)CDS: CeltIC v10.10-p001_1 (64bit) 11/30/2010 03:35:01 (Linux 2.6.9-89.0.19.ELsmp)
+@(#)CDS: AAE 10.10-p001 (64bit) 01/11/2011 (Linux 2.6.9-89.0.19.ELsmp)
+@(#)CDS: CTE 10.10-p001_1 (64bit) Nov 29 2010 23:31:49 (Linux 2.6.9-89.0.19.ELsmp)
+@(#)CDS: CPE v10.10-p003
+--- Starting "Encounter v10.10-s002_1" on Fri Apr 21 21:56:44 2017 (mem=56.1M) ---
+--- Running on cimeld27 (x86_64 w/Linux 3.2.0-4-amd64) ---
+This version was compiled on Tue Jan 11 22:20:02 PST 2011.
+Set DBUPerIGU to 1000.
+Set net toggle Scale Factor to 1.00
+Set Shrink Factor to 1.00000
+Sourcing ./enc.tcl
+Sourcing tcl/tk file "./enc.tcl" ...
+<CMD_INTERNAL> print {---# TCL Script amsSetup.tcl loaded}
+---# TCL Script amsSetup.tcl loaded
+<CMD> getVersion
+<CMD> getVersion
+<CMD_INTERNAL> print {### austriamicrosystems HitKit-Utilities Menu added}
+### austriamicrosystems HitKit-Utilities Menu added
+<CMD> win
+*** Memory pool thread-safe mode activated.
+<CMD> loadConfig c35_arm.conf 0
+Reading config file - c35_arm.conf
+**WARN: (ENCEXT-1085):	Option 'rda_Input(ui_res_scale)' used in configuration file 'c35_arm.conf' is obsolete. The name will be converted into new format automatically if design is saved and then restored. Alternatively, update the configuration file to use names 'rda_Input(ui_preRoute_res)' and/or 'rda_Input(ui_postRoute_res)' for resistance scale factors to be used at preRoute/postRoute stages of the design . The obsolete name works in this release. But to avoid this warning and to ensure compatibility with future releases, update this option name.
+**WARN: (ENCSYT-709):	The next major release of EDI (11.1) will use the
+Multi-Mode/Multi-Corner (MMMC) architecture exclusively for configuration and
+control of some software features. The current configuration will continue to
+work in this release. But for compatibility with the future releases you
+should migrate your design to an MMMC style configuration. You can refer to
+the What's New document for this release for additional information on the
+11.1 migration to MMMC. In addition, you can run loadConfig with the
+-showEolWarnings option to identify specific command and configuration
+options that will no longer be supported.
+<CMD> loadConfig c35_arm_io.conf 0
+Reading config file - c35_arm_io.conf
+**WARN: (ENCEXT-1085):	Option 'rda_Input(ui_res_scale)' used in configuration file 'c35_arm_io.conf' is obsolete. The name will be converted into new format automatically if design is saved and then restored. Alternatively, update the configuration file to use names 'rda_Input(ui_preRoute_res)' and/or 'rda_Input(ui_postRoute_res)' for resistance scale factors to be used at preRoute/postRoute stages of the design . The obsolete name works in this release. But to avoid this warning and to ensure compatibility with future releases, update this option name.
+**WARN: (ENCSYT-709):	The next major release of EDI (11.1) will use the
+Multi-Mode/Multi-Corner (MMMC) architecture exclusively for configuration and
+control of some software features. The current configuration will continue to
+work in this release. But for compatibility with the future releases you
+should migrate your design to an MMMC style configuration. You can refer to
+the What's New document for this release for additional information on the
+11.1 migration to MMMC. In addition, you can run loadConfig with the
+-showEolWarnings option to identify specific command and configuration
+options that will no longer be supported.
+<CMD_INTERNAL> setUIVar rda_Input ui_netlist {VERILOG/arm_synth_plat.v VERILOG/arm_io.v}
+<CMD_INTERNAL> setUIVar rda_Input ui_io_file CONSTRAINTS/top_arm.io
+<CMD> commitConfig
+Reading tech data from OA Library 'TECH_C35B4' ...
+FE units: 0.001 microns/dbu, OA units: 0.001 microns/dbu, Conversion factor: 1
+Reading OA reference Library 'CORELIB' ...
+Set DBUPerIGU to M2 pitch 1400.
+Reading OA reference Library 'IOLIB_4M' ...
+
+Power Planner/ViaGen version 8.1.46 promoted on 02/17/2009.
+viaInitial starts at Fri Apr 21 21:59:03 2017
+viaInitial ends at Fri Apr 21 21:59:03 2017
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+**WARN: (ENCVL-324):	Module arm in VERILOG/arm_io.v will overwrite the previous definition in another file.
+Reading verilog netlist 'VERILOG/arm_synth_plat.v'
+Inserting temporary buffers to remove assignment statements.
+Reading verilog netlist 'VERILOG/arm_io.v'
+
+*** Memory Usage v0.166 (Current mem = 365.660M, initial mem = 56.082M) ***
+*** End netlist parsing (cpu=0:00:00.2, real=0:00:00.0, mem=365.7M) ***
+**ERROR: (ENCSYC-300):	Cell arm_io not found.
+**ERROR: (ENCVL-904):	Can't set top cell to "arm_io" because it doesn't exist.  Exiting Encounter!
+
+*** Memory Usage v0.166 (Current mem = 365.660M, initial mem = 56.082M) ***
+--- Ending "Encounter" (totcpu=0:00:11.3, real=0:02:25, mem=365.7M) ---

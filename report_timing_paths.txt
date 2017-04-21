@@ -1,0 +1,103 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : arm
+Version: J-2014.09-SP2
+Date   : Fri Apr 21 20:26:27 2017
+****************************************
+
+Operating Conditions: nom_pvt   Library: c35_CORELIB_TYP
+Wire Load Model Mode: enclosed
+
+  Startpoint: registers_1/rA_data_out_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: execute_1/exe_out_reg[31]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  arm                10k                   c35_CORELIB_TYP
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  registers_1/rA_data_out_reg[0]/C (DFE3)                 0.00       5.00 r
+  registers_1/rA_data_out_reg[0]/Q (DFE3)                 0.71       5.71 f
+  U2092/Q (CLKIN15)                                       0.16       5.86 r
+  U544/Q (INV12)                                          0.10       5.96 f
+  U2087/Q (NAND43)                                        0.25       6.22 r
+  U2048/Q (INV6)                                          0.07       6.29 f
+  U5324/Q (XNR41)                                         0.67       6.96 r
+  U402/Q (NAND23)                                         0.07       7.03 f
+  U2264/Q (NAND26)                                        0.16       7.19 r
+  U873/Q (INV6)                                           0.03       7.22 f
+  U174/Q (XOR31)                                          0.66       7.89 r
+  U1222/Q (INV3)                                          0.15       8.03 f
+  U2123/Q (OAI212)                                        0.28       8.31 r
+  U2832/Q (NAND23)                                        0.12       8.43 f
+  U1391/Q (NAND26)                                        0.17       8.61 r
+  U1211/Q (XOR31)                                         0.64       9.25 r
+  U2215/Q (OAI212)                                        0.10       9.35 f
+  U5574/Q (OAI212)                                        0.15       9.50 r
+  U5597/Q (XOR41)                                         0.79      10.29 r
+  U7131/Q (INV6)                                          0.10      10.39 f
+  U2167/Q (XOR31)                                         0.69      11.08 r
+  U2121/Q (INV3)                                          0.10      11.19 f
+  U664/Q (NAND24)                                         0.13      11.32 r
+  U673/Q (NAND24)                                         0.05      11.37 f
+  U5692/Q (XNR22)                                         0.26      11.63 f
+  U2851/Q (NAND24)                                        0.14      11.77 r
+  U479/Q (NAND26)                                         0.04      11.80 f
+  U5701/Q (XOR41)                                         0.68      12.48 r
+  U3679/Q (INV3)                                          0.12      12.61 f
+  U5825/Q (XOR31)                                         0.64      13.25 r
+  U5567/Q (OAI212)                                        0.15      13.40 f
+  U2119/Q (NAND24)                                        0.11      13.51 r
+  U5927/Q (XOR41)                                         0.76      14.27 r
+  U528/Q (INV6)                                           0.09      14.36 f
+  U728/Q (NAND24)                                         0.11      14.47 r
+  U384/Q (NAND23)                                         0.04      14.51 f
+  U995/Q (XOR31)                                          0.64      15.15 r
+  U5978/Q (XOR31)                                         0.67      15.82 r
+  U1015/Q (NAND23)                                        0.08      15.90 f
+  U736/Q (NAND24)                                         0.11      16.00 r
+  U914/Q (XOR31)                                          0.67      16.68 r
+  U1034/Q (INV3)                                          0.15      16.82 f
+  U1778/Q (XNR41)                                         0.65      17.47 r
+  U1788/Q (XOR31)                                         0.74      18.22 r
+  U477/Q (XOR22)                                          0.39      18.60 r
+  U6849/Q (XOR31)                                         0.67      19.28 r
+  U329/Q (NAND23)                                         0.09      19.36 f
+  U1327/Q (NAND28)                                        0.17      19.53 r
+  U2180/Q (XOR31)                                         0.71      20.24 r
+  U237/Q (NAND23)                                         0.07      20.31 f
+  U7050/Q (INV6)                                          0.12      20.43 r
+  U594/Q (INV6)                                           0.07      20.50 f
+  U776/Q (AOI312)                                         0.18      20.68 r
+  U1956/Q (OAI2112)                                       0.11      20.80 f
+  U1192/Q (NAND34)                                        0.24      21.04 r
+  U2423/Q (INV6)                                          0.07      21.11 f
+  U7252/Q (AOI2112)                                       0.21      21.32 r
+  U7255/Q (OAI222)                                        0.08      21.40 f
+  execute_1/exe_out_reg[31]/D (DFEC3)                     0.00      21.40 f
+  data arrival time                                                 21.40
+
+  clock clk (rise edge)                                  15.00      15.00
+  clock network delay (ideal)                             0.00      15.00
+  execute_1/exe_out_reg[31]/C (DFEC3)                     0.00      15.00 r
+  library setup time                                     -0.18      14.82
+  data required time                                                14.82
+  --------------------------------------------------------------------------
+  data required time                                                14.82
+  data arrival time                                                -21.40
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -6.58
+
+

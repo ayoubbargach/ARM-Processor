@@ -1,0 +1,5 @@
+execute execute
+ALU ALU
+multiply multiply
+barrelshifter barrelshifter
+#LEGALIZEDMOD_COUNTER 0

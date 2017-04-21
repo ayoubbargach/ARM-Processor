@@ -1,0 +1,24 @@
+#### austriamicrosystems Encounter Setup Creation
+#--- Hit-Kit: /softslin/AMS_410_CDS
+#--- 
+#--- Corelib-Timing: CORELIB
+#---          Best : _3.3V + 10% => 3.63V
+#---           Typ : _3.3V
+#---         Worst : _3.3V - 10% => 2.9699999999999998V
+#--- Iolib-Timing  : IOLIB
+#---          Best : _3.3V + 10% => 3.63V
+#---           Typ : _3.3V
+#---         Worst : _3.3V - 10% => 2.9699999999999998V
+
+$AMS_DIR/cds/bin/ams_edis -tech c35 \
+              -metlay thick4M \
+              -corelib CORELIB \
+              -corevolt _3.3V \
+              -corevolt_wc _3.3V \
+              -corevolt_bc _3.3V \
+              -iolib IOLIB \
+              -iovolt _3.3V \
+              -iovolt_wc _3.3V \
+              -iovolt_bc _3.3V \
+              -vn arm_synth_plat.v \
+              -vt arm

@@ -1,0 +1,52 @@
+//  Precision RTL Synthesis 2014a.1_64-bit (Production Release) Mon Feb 24 02:39:08 PST 2014
+//  
+//  Copyright (c) Mentor Graphics Corporation, 1996-2014, All Rights Reserved.
+//             Portions copyright 1991-2008 Compuware Corporation
+//                       UNPUBLISHED, LICENSED SOFTWARE.
+//            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
+//          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+//  
+//  Running on Linux xph2sei413@cimeld27 #1 SMP Debian 3.2.68-1+deb7u3 3.2.0-4-amd64 x86_64
+//  
+//  Start time Fri Apr 21 15:58:12 2017
+
+***************************************************************
+Device Utilization for EP2C70F896I
+***************************************************************
+Resource                          Used    Avail   Utilization
+---------------------------------------------------------------
+IOs                               165     606      27.23%
+LUTs                              96      68416     0.14%
+Registers                         59      68416     0.09%
+Memory Bits                       0       1152000   0.00%
+DSP block 9-bit elems             0       300       0.00%
+---------------------------------------------------------------
+
+***************************************
+
+Library: work    Cell: arm    View: rtl
+
+***************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     cycloneii     1 x
+ NOT                     cycloneii     1 x
+ cycloneii_io            cycloneii   133 x      1    133 IOs
+ cycloneii_lcell_comb    cycloneii    47 x      1     47 LUTs
+ cycloneii_lcell_ff      cycloneii    29 x      1     29 Registers
+ latch                   cycloneii    18 x      1     18 LUTs
+ modgen_counter_30_0     OPERATORS     1 x     31     31 LUTs
+                                               30     30 Registers
+
+ Number of ports :                     165
+ Number of nets :                      295
+ Number of instances :                 230
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Number of IOs :                       165
+ Number of LCs :                         0
+ Number of LUTs :                       96
+ Number of Registers :                  59
+ Number of accumulated instances :     291
