@@ -16,7 +16,9 @@ entity arm is
     cache_rd         : out std_logic;
     instruction_addr : out std_logic_vector(31 downto 0);
     mem_addr_out     : out std_logic_vector(31 downto 0);
-    mem_data_out     : out std_logic_vector(31 downto 0));
+    mem_data_out     : out std_logic_vector(31 downto 0);
+    mem_wr           : out std_logic;
+    mem_rd           : out std_logic);
 
 end arm;
 
@@ -163,7 +165,6 @@ architecture rtl of arm is
   signal rA_addr : std_logic_vector(3 downto 0);
   signal rB_addr : std_logic_vector(3 downto 0);
   signal rC_addr : std_logic_vector(3 downto 0);
-  signal rD_addr : std_logic_vector(3 downto 0);
 
   signal rA_data : std_logic_vector(31 downto 0);
   signal rB_data : std_logic_vector(31 downto 0);
@@ -172,7 +173,6 @@ architecture rtl of arm is
 
   signal pc_4             : std_logic_vector(31 downto 0);
   signal op_code          : std_logic_vector(3 downto 0);
-  signal rd_registers     : std_logic;
   signal immediate        : std_logic;
   signal imm_value        : std_logic_vector(31 downto 0);
   signal dest_rD          : std_logic_vector(3 downto 0);
@@ -205,8 +205,6 @@ architecture rtl of arm is
   signal dest_reg     : std_logic_vector(3 downto 0);
   signal dest_reg_D   : std_logic_vector(3 downto 0);
   signal reg_wr_mem   : std_logic;
-  signal mem_wr       : std_logic;
-  signal mem_rd       : std_logic;
   signal mem_ok       : std_logic;
 
 begin  -- rtl
@@ -309,7 +307,7 @@ begin  -- rtl
       data_in          => exe_out,
       rD_addr          => dest_rD_addr,
       ldr_str_base_reg => mem_ldr_str_base_reg,
-      rC_data          => rC_data,
+      rC_data          => mem_data_rC,
       ldr_str_logic    => mem_ldr_str_logic,
       mem_addr_out     => mem_addr_out,
       data_out         => data_out_mem,
@@ -333,5 +331,7 @@ begin  -- rtl
       dest_reg   => dest_reg_D,
       data_out   => rD_data,
       PC_wr      => PC_wr);
+
+  data_wb <= rD_data when dest_reg = r15 else (others => '-');
 
 end rtl;

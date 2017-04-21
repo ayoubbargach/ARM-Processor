@@ -47,7 +47,6 @@ begin  -- architecture rtl
   inst_addr_wr_u <= unsigned(instr_addr_wr(15 downto 0));
 
   process (clk, reset)
-    variable i : integer range 0 to 63999 := 0;
   begin  -- process
     if reset = '1' then                 -- asynchronous reset (active high)
       inst <= (others => (others => '0'));

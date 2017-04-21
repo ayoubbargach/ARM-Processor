@@ -138,7 +138,15 @@ begin  -- behavioral
   process (clk, reset)
   begin  -- process
     if reset = '1' then                 -- asynchronous reset (active high)
-      exe_out <= (others => '0');
+      exe_out              <= (others => '0');
+      dest_rD_addr         <= (others => '-');
+      mem_ldr_str_logic    <= (others => '0');
+      mem_ldr_str          <= '0';
+      exe_ok               <= '0';
+      PC_8                 <= (others => '0');
+      mem_data_rC          <= (others => '0');
+      mem_ldr_str_base_reg <= (others => '-');
+      
     elsif clk'event and clk = '1' then  -- rising clock edge
       if enable = '1' then
         exe_out              <= exe_out_i;

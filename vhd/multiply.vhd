@@ -24,6 +24,8 @@ begin  -- architecture rtl
   begin  -- process
     if mul = '1' then
       mul_out_i <= std_logic_vector((signed(data_inA)*signed(data_inB)));
+    else
+      mul_out_i <= (others => '-');
     end if;
   end process;
 

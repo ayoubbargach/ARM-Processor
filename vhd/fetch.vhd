@@ -49,7 +49,7 @@ begin  -- behavioral
     end if;
   end process;
 
-  process(pc_wr, current_pc, cache_miss, enable, count)
+  process(pc_wr, current_pc, cache_miss, enable, count, pc_data)
   begin
     if pc_wr = '1' then
       --instruct_addr <= pc_data;

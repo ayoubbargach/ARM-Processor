@@ -36,6 +36,7 @@ begin  -- architecture rtl
       PC_wr      <= '0';
       reg_wr_out <= '0';
       data_out   <= (others => 'X');
+      dest_reg   <= (others => '-');
     elsif clk'event and clk = '1' then  -- rising clock edge
       if enable = '1' then
         PC_wr      <= PC_wr_i;

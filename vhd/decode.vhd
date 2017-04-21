@@ -39,7 +39,7 @@ end decode;
 
 architecture behavioral of decode is
 
-  type instruct_type is (data_proc, MUL, BX, BBL, LDR_STR, miss);  -- instruc. de data et de branchements pour l'instant
+  type   instruct_type is (data_proc, MUL, BX, BBL, LDR_STR, miss);  -- instruc. de data et de branchements pour l'instant
   signal instruction : instruct_type;
 
   signal op_code_i          : std_logic_vector(3 downto 0);
@@ -71,24 +71,26 @@ begin  -- behavioral
   process (clk, reset)
   begin  -- process
     if reset = '1' then                 -- asynchronous reset (active high)
-      condition   <= (others => '1');
-      op_code     <= (others => '-');
+      condition        <= (others => '1');
+      op_code          <= (others => '-');
       --rd_registers <= '-';
-      immediate   <= '-';
+      immediate        <= '-';
       --rA_addr      <= (others => '-');
       --rB_addr      <= (others => '-');
       --rC_addr      <= (others => '-');
-      imm_value   <= (others => '-');
-      dest_rD     <= (others => '-');
-      shift_amt   <= (others => '-');
-      shift_type  <= (others => '-');
-      shift_reg   <= '-';
-      decode_ok   <= '0';
-      exe_ldr_str <= '0';
-      bbl_offset  <= (others => '-');
-      exe_BX      <= '0';
-      exe_BBL     <= '0';
-      exe_mul     <= '0';
+      imm_value        <= (others => '-');
+      dest_rD          <= (others => '-');
+      shift_amt        <= (others => '-');
+      shift_type       <= (others => '-');
+      shift_reg        <= '-';
+      decode_ok        <= '0';
+      exe_ldr_str      <= '0';
+      bbl_offset       <= (others => '-');
+      exe_BX           <= '0';
+      exe_BBL          <= '0';
+      exe_mul          <= '0';
+      ldr_str_logic    <= (others => '0');
+      ldr_str_base_reg <= (others => '-');
 
     elsif clk'event and clk = '1' then  -- rising clock edge
       if enable = '1' then
@@ -118,7 +120,7 @@ begin  -- behavioral
         exe_mul          <= mul_i;
       else
         decode_ok <= '0';
-      --rd_registers <= '0';
+        --rd_registers <= '0';
       end if;
     end if;
   end process;
@@ -140,7 +142,7 @@ begin  -- behavioral
     elsif instruction_in(27 downto 26) = "01" then
       instruction <= LDR_STR;
     else
-      instruction <= instruction;
+      instruction <= miss;
     end if;
   end process;
 
@@ -148,88 +150,136 @@ begin  -- behavioral
   begin  -- process
     case instruction is
       when data_proc => op_code_i <= instruction_in(24 downto 21);
-                        dest_rD_i       <= instruction_in(15 downto 12);
+                        dest_rD_i          <= instruction_in(15 downto 12);
                         --rA_addr_i       <= instruction_in(19 downto 16);
-                        rA_addr         <= instruction_in(19 downto 16);
-                        immediate_i     <= instruction_in(25);
-                        exe_BX_i        <= '0';
-                        exe_BBL_i       <= '0';
-                        ldr_str_i       <= '0';
-                        mul_i           <= '0';
+                        rA_addr            <= instruction_in(19 downto 16);
+                        immediate_i        <= instruction_in(25);
+                        exe_BX_i           <= '0';
+                        exe_BBL_i          <= '0';
+                        bbl_offset_i       <= (others => '0');
+                        ldr_str_i          <= '0';
+                        ldr_str_logic_i    <= (others => '0');
+                        ldr_str_base_reg_i <= (others => '-');
+                        mul_i              <= '0';
                         --rd_registers_i  <= '1';
-                        rd_registers    <= '1';
-                        ldr_str_logic_i <= (others => '-');
+                        rd_registers       <= '1';
 
                         if instruction_in(25) = '1' then
                           shift_amt_i  <= instruction_in(11 downto 8) & '0';
                           shift_type_i <= "11";
+                          shift_reg_i  <= '0';
                           imm_value_i  <= x"000000" & instruction_in(7 downto 0);
+                          rB_addr      <= (others => '-');
+                          rC_addr      <= (others => '-');
                         else
                           --rB_addr_i    <= instruction_in(3 downto 0);
                           rB_addr      <= instruction_in(3 downto 0);
                           shift_type_i <= instruction_in(6 downto 5);
                           shift_reg_i  <= instruction_in(4);
+                          imm_value_i  <= (others => '-');
                           if instruction_in(4) = '1' then
                             --rC_addr_i <= instruction_in(11 downto 8);
-                            rC_addr <= instruction_in(11 downto 8);
+                            rC_addr     <= instruction_in(11 downto 8);
+                            shift_amt_i <= (others => '0');
                           else
                             shift_amt_i <= instruction_in(11 downto 7);
+                            rC_addr     <= (others => '-');
                           end if;
                         end if;
       when MUL => dest_rD_i <= instruction_in(19 downto 16);
-                  op_code_i       <= op_ADD;
-                  rA_addr         <= instruction_in(3 downto 0);
-                  rB_addr         <= instruction_in(11 downto 8);
-                  rC_addr         <= instruction_in(15 downto 12);
-                  immediate_i     <= instruction_in(21);  -- /!\ bit 21 = signal ACCUMULATE
-                  exe_BX_i        <= '0';
-                  exe_BBL_i       <= '0';
-                  ldr_str_i       <= '0';
-                  mul_i           <= '1';
-                  rd_registers    <= '1';
-                  ldr_str_logic_i <= (others => '-');
+                  op_code_i          <= op_ADD;
+                  immediate_i        <= '-';
+                  imm_value_i        <= (others => '-');
+                  shift_amt_i        <= (others => '0');
+                  shift_reg_i        <= '0';
+                  shift_type_i       <= "00";
+                  rA_addr            <= instruction_in(3 downto 0);
+                  rB_addr            <= instruction_in(11 downto 8);
+                  rC_addr            <= instruction_in(15 downto 12);
+                  immediate_i        <= instruction_in(21);  -- /!\ bit 21 = signal ACCUMULATE
+                  exe_BX_i           <= '0';
+                  exe_BBL_i          <= '0';
+                  bbl_offset_i       <= (others => '0');
+                  ldr_str_i          <= '0';
+                  ldr_str_logic_i    <= (others => '0');
+                  ldr_str_base_reg_i <= (others => '-');
+                  mul_i              <= '1';
+                  rd_registers       <= '1';
 
       when BX =>  --rA_addr_i <= instruction_in(3 downto 0);
-        rA_addr         <= instruction_in(3 downto 0);
-        dest_rD_i       <= r15;
+        rA_addr            <= instruction_in(3 downto 0);
+        rB_addr            <= (others => '-');
+        rC_addr            <= (others => '-');
+        op_code_i          <= (others => '-');
+        immediate_i        <= '-';
+        imm_value_i        <= (others => '-');
+        shift_amt_i        <= (others => '0');
+        shift_reg_i        <= '0';
+        shift_type_i       <= "00";
+        dest_rD_i          <= r15;
         --rd_registers_i  <= '1';
-        rd_registers    <= '1';
-        mul_i           <= '0';
-        exe_BX_i        <= '1';
-        exe_BBL_i       <= '0';
-        ldr_str_i       <= '0';
-        ldr_str_logic_i <= (others => '-');
+        rd_registers       <= '1';
+        mul_i              <= '0';
+        exe_BX_i           <= '1';
+        exe_BBL_i          <= '0';
+        bbl_offset_i       <= (others => '0');
+        ldr_str_i          <= '0';
+        ldr_str_logic_i    <= (others => '0');
+        ldr_str_base_reg_i <= (others => '-');
       when BBL => exe_BX_i <= '0';
-                  exe_BBL_i       <= '1';
-                  mul_i           <= '0';
-                  ldr_str_i       <= '0';
-                  dest_rD_i       <= r15;
-                  shift_amt_i     <= "00010";
-                  shift_type_i    <= "00";
+                  rA_addr            <= (others => '-');
+                  rB_addr            <= (others => '-');
+                  rC_addr            <= (others => '-');
+                  op_code_i          <= (others => '-');
+                  imm_value_i        <= (others => '-');
+                  immediate_i        <= '-';
+                  exe_BBL_i          <= '1';
+                  mul_i              <= '0';
+                  ldr_str_i          <= '0';
+                  ldr_str_logic_i    <= (others => '0');
+                  ldr_str_base_reg_i <= (others => '-');
+                  dest_rD_i          <= r15;
+                  shift_amt_i        <= "00010";
+                  shift_type_i       <= "00";
+                  shift_reg_i        <= '0';
                   --rd_registers_i  <= '0';
-                  rd_registers    <= '0';
-                  bbl_offset_i    <= instruction_in(23 downto 0);
-                  ldr_str_logic_i <= (others => '-');
+                  rd_registers       <= '0';
+                  bbl_offset_i       <= instruction_in(23 downto 0);
       when LDR_STR => immediate_i <= not instruction_in(25);
                       --rA_addr_i          <= instruction_in(19 downto 16);
                       rA_addr            <= instruction_in(19 downto 16);
                       ldr_str_base_reg_i <= instruction_in(19 downto 16);
                       --rC_addr_i          <= instruction_in(15 downto 12);
                       rC_addr            <= instruction_in(15 downto 12);
+                      dest_rD_i          <= (others => '-');
                       ldr_str_i          <= '1';
                       --rd_registers_i     <= '1';
                       rd_registers       <= '1';
                       mul_i              <= '0';
                       exe_BX_i           <= '0';
                       exe_BBL_i          <= '0';
+                      bbl_offset_i       <= (others => '0');
                       ldr_str_logic_i    <= instruction_in(24 downto 20);
                       dest_rD_i          <= instruction_in(15 downto 12);
                       if instruction_in(25) = '0' then
-                        imm_value_i <= x"00000" & instruction_in(11 downto 0);
+                        imm_value_i  <= x"00000" & instruction_in(11 downto 0);
+                        rB_addr      <= (others => '-');
+                        shift_amt_i  <= (others => '0');
+                        shift_reg_i  <= '0';
+                        shift_type_i <= "00";
                       else
-                        --rB_addr_i    <= instruction_in(3 downto 0);
                         rB_addr      <= instruction_in(3 downto 0);
                         shift_type_i <= instruction_in(6 downto 5);
+                        shift_reg_i  <= instruction_in(4);
+                        imm_value_i  <= (others => '-');
+                        if instruction_in(4) = '1' then
+                          --rC_addr_i <= instruction_in(11 downto 8);
+                          rC_addr     <= instruction_in(11 downto 8);
+                          shift_amt_i <= (others => '0');
+                        else
+                          shift_amt_i <= instruction_in(11 downto 7);
+                          rC_addr     <= (others => '-');
+                        end if;
                       end if;
 
                       if instruction_in(24) = '0' then
@@ -238,11 +288,24 @@ begin  -- behavioral
                         op_code_i <= op_ADD;
                       end if;
       when miss => exe_BX_i <= '0';
-                   exe_BBL_i    <= '0';
-                   ldr_str_i    <= '0';
-                   rd_registers <= '0';
-                   mul_i        <= '0';
-      when others => rd_registers <= '0';
+                   exe_BBL_i          <= '0';
+                   bbl_offset_i       <= (others => '0');
+                   ldr_str_i          <= '0';
+                   ldr_str_logic_i    <= (others => '0');
+                   ldr_str_base_reg_i <= (others => '-');
+                   rd_registers       <= '0';
+                   mul_i              <= '0';
+                   shift_amt_i        <= (others => '0');
+                   shift_type_i       <= "00";
+                   shift_reg_i        <= '0';
+                   immediate_i        <= '-';
+                   imm_value_i        <= (others => '-');
+                   op_code_i          <= (others => '-');
+                   rA_addr            <= (others => '-');
+                   rB_addr            <= (others => '-');
+                   rC_addr            <= (others => '-');
+                   dest_rD_i          <= (others => '-');
+      when others => null;
     end case;
   end process;
 

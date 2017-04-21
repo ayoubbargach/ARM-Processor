@@ -95,7 +95,7 @@ begin  -- architecture behavioral
     wait for 5 ns;
   end process;
 
-  enable <= '0', '1' after 40 ns;
+  enable <= '0', '1' after 100 ns;
   reset  <= '1', '0' after 10 ns;
 
   -- ecriture du cache instruction
@@ -118,10 +118,10 @@ begin  -- architecture behavioral
     instr_data_in <= x"E" & "001" & op_SUB & '0' & r1 & r12 & x"001";
     instr_addr_wr <= x"00000010";
     wait for 10 ns;
-    instr_data_in <= x"E" & "000000" & "00" & r8 & r7 & r14 & "1001" & r14;
+    instr_data_in <= x"E" & "000000" & "00" & r14 & r7 & r14 & "1001" & r8;
     instr_addr_wr <= x"00000014";
     wait for 10 ns;
-    instr_data_in <= x"E" & "000000" & "10" & r8 & r10 & r8 & "1001" & r14;
+    instr_data_in <= x"E" & "000000" & "10" & r6 & r8 & r8 & "1001" & r8;
     instr_addr_wr <= x"00000018";
     wait for 10 ns;
     cache_wr      <= '0';
